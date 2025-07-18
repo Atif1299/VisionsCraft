@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title><%= title %></title>
+        <meta name="description" content="<%= description || 'VisionsCraft - Leading AI solutions provider transforming businesses through innovative artificial intelligence technologies.' %>">
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" href="/img/favicon.png">
+        <!-- CSS Files -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <% if (typeof additionalCSS !== 'undefined' && additionalCSS) { %>
+        <% additionalCSS.forEach(function(cssFile) { %>
+            <link rel="stylesheet" href="<%= cssFile %>">
+        <% }); %>
+    <% } %>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <!-- Preloader -->
+        <div class="preloader">
+            <div class="loader">
+                <span class="text">VisionsCraft</span>
+                <span class="loader-progress"></span>
+            </div>
+        </div>
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="logo">
+                    <a href="/">
+                        <!-- <img src="/images/advance_svgs/logo.svg" alt="VisionsCraft Logo"> -->
+                        Visions
+                        <span>Craft</span>
+                    </a>
+                </div>
+                <nav class="navbar">
+                    <ul>
+                        <li>
+                            <a href="/" class="<%= currentPage === 'home' ? 'active' : '' %>">Home</a>
+                        </li>
+                        <li>
+                            <a href="/showcase" class="<%= currentPage === 'showcase' ? 'active' : '' %>">Showcase</a>
+                        </li>
+                        <li>
+                            <a href="/services" class="<%= currentPage === 'services' ? 'active' : '' %>">Services</a>
+                        </li>
+                        <li>
+                            <a href="/about" class="<%= currentPage === 'about' ? 'active' : '' %>">About Us</a>
+                        </li>
+                        <li>
+                            <a href="/blog" class="<%= currentPage === 'blog' ? 'active' : '' %>">Blog</a>
+                        </li>
+                        <li>
+                            <a href="/contact" class="<%= currentPage === 'contact' ? 'active' : '' %>">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </header>

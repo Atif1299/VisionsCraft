@@ -1,0 +1,300 @@
+<%- include('partials/header') %>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="animate-text">
+                        Crafting
+                        <span class="gradient-text">AI Solutions</span>
+                        for Tomorrow's Challenges
+                    </h1>
+                    <p class="animate-text-delay">We transform complex AI technologies into practical, powerful solutions for businesses ready to evolve.</p>
+                    <div class="hero-buttons animate-text-delay-2">
+                        <a href="/showcase" class="btn btn-primary">View Our Work</a>
+                        <a href="/contact" class="btn btn-secondary">Get in Touch</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="floating-element">
+                        <img src="images/advance_svgs/hero-ai.svg" alt="AI Visualization">
+                    </div>
+                </div>
+                <!-- <div class="hero-particles" id="particles-js"></div> -->
+            </div>
+        </section>
+        <!-- Services Section -->
+        <section class="services" id="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2>
+                        Our
+                        <span class="gradient-text">AI Services</span>
+                    </h2>
+                    <p>Specialized solutions tailored to your business needs</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card" data-aos="fade-up">
+                        <div class="service-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>AI Strategy Consulting</h3>
+                        <p>Strategic guidance to integrate AI into your business operations for maximum impact and ROI.</p>
+                        <a href="/services" class="read-more">
+                            Learn More
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Predictive Analytics</h3>
+                        <p>Advanced analytics that forecast trends, identify opportunities, and mitigate risks before they emerge.</p>
+                        <a href="/services" class="read-more">
+                            Learn More
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="service-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3>Conversational AI</h3>
+                        <p>Intelligent chatbots and virtual assistants that enhance customer experience and streamline support.</p>
+                        <a href="/services" class="read-more">
+                            Learn More
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About Section Preview -->
+        <section class="about-preview">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image">
+                        <div class="about-visual" data-aos="fade-left">
+                            <div class="about-image-wrapper">
+                                <!-- <div class="floating-card card-1">
+                                    <i class="fas fa-microchip"></i>
+                                    <span>Advanced AI</span>
+                                </div>
+                                <div class="floating-card card-2">
+                                    <i class="fas fa-lock"></i>
+                                    <span>Secure</span>
+                                </div>
+                                <div class="floating-card card-3">
+                                    <i class="fas fa-rocket"></i>
+                                    <span>Fast</span>
+                                </div> -->
+                                <div class="tech-stack">
+                                    <div class="tech-ring"></div>
+                                    <div class="tech-core">
+                                        <div class="cosmicNexus">
+                                            <svg class="stellarCore" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                                <defs>
+                                                    <!-- Glowing radial gradient -->
+                                                    <radialGradient
+                                                        id="coreGradient"
+                                                        cx="50%"
+                                                        cy="50%"
+                                                        r="50%"
+                                                    >
+                                                        <stop offset="0%" stop-color="#8e44ec" stop-opacity="0.9"/>
+                                                        <stop offset="50%" stop-color="#5f27cd" stop-opacity="0.8"/>
+                                                        <stop offset="100%" stop-color="#341f97" stop-opacity="0.1"/>
+                                                    </radialGradient>
+                                                    <!-- Blur filter for glowing effect -->
+                                                    <filter
+                                                        id="glow"
+                                                        x="-50%"
+                                                        y="-50%"
+                                                        width="200%"
+                                                        height="200%"
+                                                    >
+                                                        <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+                                                        <feMerge>
+                                                            <feMergeNode in="coloredBlur"/>
+                                                            <feMergeNode in="SourceGraphic"/>
+                                                        </feMerge>
+                                                    </filter>
+                                                </defs>
+                                                <!-- Outer stroke ring -->
+                                                <circle
+                                                    cx="100"
+                                                    cy="100"
+                                                    r="90"
+                                                    fill="none"
+                                                    stroke="4c00ff"
+                                                    stroke-width="10"
+                                                    filter="url(#glow)"
+                                                />
+                                                <!-- Inner glowing core -->
+                                                <circle
+                                                    cx="100"
+                                                    cy="100"
+                                                    r="50"
+                                                    fill="url(#coreGradient)"
+                                                    filter="url(#glow)"
+                                                />
+                                            </svg>
+                                            <div class="lunarOrbit">
+                                                <div class="celestialNode" style="top: 20%; left: 50%;"></div>
+                                                <div class="celestialNode" style="top: 50%; left: 20%;"></div>
+                                                <div class="celestialNode" style="top: 50%; right: 20%;"></div>
+                                            </div>
+                                            <div class="quantumFlux rectFragment" style="top: 10%; left: 10%; animation-delay: 0s;"></div>
+                                            <div class="quantumFlux orbFragment" style="top: 20%; right: 10%; animation-delay: 0.5s;"></div>
+                                            <div class="quantumFlux prismFragment" style="bottom: 10%; left: 30%; animation-delay: 1s;"></div>
+                                            <div class="quantumFlux rectFragment" style="top: 30%; right: 20%; animation-delay: 1.5s;"></div>
+                                            <div class="quantumFlux orbFragment" style="bottom: 20%; left: 40%; animation-delay: 2s;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-content">
+                        <h2>
+                            The Minds Behind
+                            <span class="gradient-text">VisionsCraft</span>
+                        </h2>
+                        <p>Founded with a vision of making AI accessible and practical for businesses of all sizes. Our expertise spans machine learning, deep learning, computer vision, natural language processing, and more.</p>
+                        <div class="founders">
+                            <div class="founder">
+                                <div class="founder-image">
+                                    <img src="images/nice.png" alt="Founder">
+                                </div>
+                                <div class="founder-info">
+                                    <h3>Founder</h3>
+                                    <p>AI Strategist & Visionary</p>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="/about" class="btn btn-primary">More About Us</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Case Studies Preview -->
+        <section class="case-studies">
+            <div class="container">
+                <div class="section-header">
+                    <h2>
+                        Featured
+                        <span class="gradient-text">Case Studies</span>
+                    </h2>
+                    <p>Real-world AI implementations that delivered measurable results</p>
+                </div>
+                <div class="case-studies-slider">
+                    <div class="case-study">
+                        <div class="case-study-image">
+                            <img src="images/Use Cases/inventory.jpeg" alt="Retail AI Case Study">
+                        </div>
+                        <div class="case-study-content">
+                            <span class="category">Retail</span>
+                            <h3>Inventory Optimization System</h3>
+                            <p>Reduced stockouts by 37% and holding costs by 22% through predictive inventory management.</p>
+                            <a href="/showcase" class="btn btn-secondary">View Case Study</a>
+                        </div>
+                    </div>
+                    <div class="case-study">
+                        <div class="case-study-image">
+                            <img src="images/Use Cases/patient.png" alt="Healthcare AI Case Study">
+                        </div>
+                        <div class="case-study-content">
+                            <span class="category">Healthcare</span>
+                            <h3>Patient Outcome Prediction</h3>
+                            <p>Improved treatment planning accuracy by 42% using ML models trained on anonymized patient data.</p>
+                            <a href="/showcase" class="btn btn-secondary">View Case Study</a>
+                        </div>
+                    </div>
+                    <div class="case-study">
+                        <div class="case-study-image">
+                            <img src="images/Use Cases/fraud-detection-02.jpg" alt="Finance AI Case Study">
+                        </div>
+                        <div class="case-study-content">
+                            <span class="category">Finance</span>
+                            <h3>Fraud Detection System</h3>
+                            <p>Reduced fraudulent transactions by 89% while decreasing false positives by 63%.</p>
+                            <a href="/showcase" class="btn btn-secondary">View Case Study</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="view-more-container">
+                    <a href="/showcase" class="btn btn-outline">View All Case Studies</a>
+                </div>
+            </div>
+        </section>
+        <!-- Blog Preview Section -->
+        <section class="blog-preview">
+            <div class="container">
+                <div class="section-header">
+                    <h2>
+                        Latest from Our
+                        <span class="gradient-text">Blog</span>
+                    </h2>
+                    <p>Insights, trends, and knowledge from our AI experts</p>
+                </div>
+                <div class="blog-grid">
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="images/blog_images/lock.png" alt="AI Ethics Blog Post">
+                        </div>
+                        <div class="blog-content">
+                            <span class="date">June 15, 2023</span>
+                            <h3>Ethical Considerations in AI Development</h3>
+                            <p>Exploring the moral implications of artificial intelligence and how to build responsible AI systems.</p>
+                            <a href="/blog-post" class="read-more">
+                                Read Article
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="images/blog_images/ai.png" alt="Machine Learning Blog Post">
+                        </div>
+                        <div class="blog-content">
+                            <span class="date">May 28, 2023</span>
+                            <h3>The Future of Machine Learning in Business</h3>
+                            <p>How emerging ML technologies are reshaping industries and creating new opportunities for growth.</p>
+                            <a href="/blog-post" class="read-more">
+                                Read Article
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="images/blog_images/ab testing.png" alt="AI Implementation Blog Post">
+                        </div>
+                        <div class="blog-content">
+                            <span class="date">April 10, 2023</span>
+                            <h3>5 Steps to Successful AI Implementation</h3>
+                            <p>A practical guide to integrating AI solutions into your existing business processes.</p>
+                            <a href="/blog-post" class="read-more">
+                                Read Article
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="view-more-container">
+                    <a href="/blog" class="btn btn-outline">View All Articles</a>
+                </div>
+            </div>
+        </section>
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to Transform Your Business with AI?</h2>
+                    <p>Schedule a free consultation with our experts to explore how our AI solutions can address your specific challenges.</p>
+                    <a href="/contact" class="btn btn-primary">Book Your Consultation</a>
+                </div>
+            </div>
+        </section>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,277 @@
+<%- include('partials/header') %>
+        <!-- Hero Section (consistent with Services) -->
+        <section class="services-hero">
+            <div class="container">
+                <div class="services-hero-content">
+                    <h1 class="animate-text">
+                        AI
+                        <span class="gradient-text">Insights</span>
+                        & Expertise
+                    </h1>
+                    <p class="animate-text-delay">Thought leadership, industry trends, and practical knowledge from our AI specialists</p>
+                </div>
+                <div id="particles-background" class="particles-container"></div>
+            </div>
+        </section>
+        <!-- Blog Filter -->
+        <section class="blog-filter">
+            <div class="container">
+                <div class="filter-controls">
+                    <button class="filter-btn active" data-filter="all">All Topics</button>
+                    <button class="filter-btn" data-filter="ai-ethics">AI Ethics</button>
+                    <button class="filter-btn" data-filter="machine-learning">Machine Learning</button>
+                    <button class="filter-btn" data-filter="implementation">Implementation</button>
+                    <button class="filter-btn" data-filter="industry-trends">Industry Trends</button>
+                </div>
+                <div class="search-container">
+                    <input type="text" id="blog-search" placeholder="Search articles...">
+                    <button id="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- Blog Grid Section (with featured post at the top) -->
+        <section class="blog-grid-section">
+            <div class="container">
+                <div class="blog-grid">
+                    <div class="featured-post-card" style="grid-column: 1 / -1; margin-bottom: var(--spacing-xl);">
+                        <div class="featured-post-image">
+<img src="/images/blog_images/featured-post.svg" alt="Featured Blog Post">
+                        </div>
+                        <div class="featured-post-content">
+                            <span class="featured-label">Featured Article</span>
+                            <span class="post-category">AI Ethics</span>
+                            <h2>The Responsible AI Framework: Balancing Innovation with Ethics</h2>
+                            <p class="post-meta">
+                                By
+                                <span class="author">VisionsCraft Founder</span>
+                                |
+                                <span class="date">July 5, 2023</span>
+                            </p>
+                            <p class="post-excerpt">As AI becomes increasingly integrated into critical systems, establishing ethical guidelines and responsible development practices is no longer optional—it's essential. In this comprehensive guide, we explore the key principles of responsible AI development and how organizations can implement them.</p>
+                            <a href="/blog-post" class="btn btn-primary">Read Full Article</a>
+                        </div>
+                    </div>
+                    <!-- Blog Post 1 -->
+                    <div class="blog-card" data-category="ai-ethics">
+                        <div class="blog-image">
+<img src="/images/blog_images/blog-1.svg" alt="AI Ethics Blog Post">
+                        </div>
+                        <div class="blog-content">
+                            <span class="post-category">AI Ethics</span>
+                            <h3>Ethical Considerations in AI Development</h3>
+                            <p class="post-meta">
+                                By
+                                <span class="author">VisionsCraft Founder</span>
+                                |
+                                <span class="date">June 15, 2023</span>
+                            </p>
+                            <p>Exploring the moral implications of artificial intelligence and how to build responsible AI systems that prioritize human values and societal benefit.</p>
+                            <a href="/blog-post" class="read-more">
+                                Read Article
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Blog Post 2 -->
+                    <div class="blog-card" data-category="machine-learning">
+                        <div class="blog-image">
+<img src="/images/blog_images/blog-2.svg" alt="Machine Learning Blog Post">
+                        </div>
+                        <div class="blog-content">
+                            <span class="post-category">Machine Learning</span>
+                            <h3>The Future of Machine Learning in Business</h3>
+                            <p class="post-meta">
+                                By
+                                <span class="author">VisionsCraft Co-Founder</span>
+                                |
+                                <span class="date">May 28, 2023</span>
+                            </p>
+                            <p>How emerging ML technologies are reshaping industries and creating new opportunities for growth, efficiency, and innovation across sectors.</p>
+                            <a href="/blog-post" class="read-more">
+                                Read Article
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Blog Post 3 -->
+                    <div class="blog-card" data-category="implementation">
+                        <div class="blog-image">
+<img src="/images/blog_images/blog-3.svg" alt="AI Implementation Blog Post">
+                        </div>
+                        <div class="blog-content">
+                            <span class="post-category">Implementation</span>
+                            <h3>5 Steps to Successful AI Implementation</h3>
+                            <p class="post-meta">
+                                By
+                                <span class="author">VisionsCraft Founder</span>
+                                |
+                                <span class="date">April 10, 2023</span>
+                            </p>
+                            <p>A practical guide to integrating AI solutions into your existing business processes with minimal disruption and maximum impact.</p>
+                            <a href="/blog-post" class="read-more">
+                                Read Article
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Blog Post 4 -->
+                    <div class="blog-card" data-category="industry-trends">
+                        <div class="blog-image">
+<img src="/images/blog_images/blog-4.svg" alt="AI Trends Blog Post">
+                        </div>
+                        <div class="blog-content">
+                            <span class="post-category">Industry Trends</span>
+                            <h3>AI Trends That Will Define 2023</h3>
+                            <p class="post-meta">
+                                By
+                                <span class="author">VisionsCraft Co-Founder</span>
+                                |
+                                <span class="date">March 22, 2023</span>
+                            </p>
+                            <p>An in-depth analysis of the emerging AI technologies and applications that are set to transform industries in the coming year.</p>
+                            <a href="/blog-post" class="read-more">
+                                Read Article
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Blog Post 5 -->
+                    <div class="blog-card" data-category="machine-learning">
+                        <div class="blog-image">
+<img src="/images/blog_images/blog-5.svg" alt="Deep Learning Blog Post">
+                        </div>
+                        <div class="blog-content">
+                            <span class="post-category">Machine Learning</span>
+                            <h3>Deep Learning vs. Traditional ML: When to Use Each</h3>
+                            <p class="post-meta">
+                                By
+                                <span class="author">VisionsCraft Lead Data Scientist</span>
+                                |
+                                <span class="date">February 18, 2023</span>
+                            </p>
+                            <p>A comparative analysis of deep learning and traditional machine learning approaches, with guidance on selecting the right technique for your specific use case.</p>
+<a href="/blog-post" class="read-more">
+                                Read Article
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Blog Post 6 -->
+                    <div class="blog-card" data-category="implementation">
+                        <div class="blog-image">
+<img src="/images/blog_images/blog-6.svg" alt="ROI Blog Post">
+                        </div>
+                        <div class="blog-content">
+                            <span class="post-category">Implementation</span>
+                            <h3>Measuring ROI on AI Investments</h3>
+                            <p class="post-meta">
+                                By
+                                <span class="author">VisionsCraft Founder</span>
+                                |
+                                <span class="date">January 30, 2023</span>
+                            </p>
+                            <p>Practical frameworks and metrics for evaluating the return on investment of AI initiatives, helping businesses justify and optimize their AI expenditure.</p>
+<a href="/blog-post" class="read-more">
+                                Read Article
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Blog Post 7 -->
+                    <div class="blog-card" data-category="ai-ethics">
+                        <div class="blog-image">
+<img src="/images/blog_images/blog-7.svg" alt="AI Bias Blog Post">
+                        </div>
+                        <div class="blog-content">
+                            <span class="post-category">AI Ethics</span>
+                            <h3>Detecting and Mitigating Bias in AI Systems</h3>
+                            <p class="post-meta">
+                                By
+                                <span class="author">VisionsCraft Co-Founder</span>
+                                |
+                                <span class="date">December 12, 2022</span>
+                            </p>
+                            <p>Strategies and techniques for identifying and addressing bias in AI models to ensure fair and equitable outcomes for all users and stakeholders.</p>
+<a href="/blog-post" class="read-more">
+                                Read Article
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Blog Post 8 -->
+                    <div class="blog-card" data-category="industry-trends">
+                        <div class="blog-image">
+<img src="/images/blog_images/blog-8.svg" alt="AI Healthcare Blog Post">
+                        </div>
+                        <div class="blog-content">
+                            <span class="post-category">Industry Trends</span>
+                            <h3>How AI is Revolutionizing Healthcare Diagnostics</h3>
+                            <p class="post-meta">
+                                By
+                                <span class="author">VisionsCraft Healthcare AI Specialist</span>
+                                |
+                                <span class="date">November 5, 2022</span>
+                            </p>
+                            <p>An exploration of the transformative impact of AI on medical diagnostics, from early disease detection to personalized treatment planning.</p>
+<a href="/blog-post" class="read-more">
+                                Read Article
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Blog Post 9 -->
+                    <div class="blog-card" data-category="implementation">
+                        <div class="blog-image">
+<img src="/images/blog_images/blog-9.svg" alt="AI Team Blog Post">
+                        </div>
+                        <div class="blog-content">
+                            <span class="post-category">Implementation</span>
+                            <h3>Building an Effective AI Team: Roles and Skills</h3>
+                            <p class="post-meta">
+                                By
+                                <span class="author">VisionsCraft Founder</span>
+                                |
+                                <span class="date">October 18, 2022</span>
+                            </p>
+                            <p>A guide to assembling and managing a high-performing AI team, including key roles, essential skills, and organizational structure considerations.</p>
+<a href="/blog-post" class="read-more">
+                                Read Article
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pagination -->
+                <div class="pagination">
+                    <a href="#" class="active">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <span>...</span>
+                    <a href="#">7</a>
+                    <a href="#" class="next">
+                        Next
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- Newsletter Section -->
+        <section class="newsletter">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2>
+                        Subscribe to Our AI Insights
+                    </h2>
+                    <p>Stay updated with the latest trends, research, and practical applications in AI and machine learning.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                    <p class="privacy-note">We respect your privacy. Unsubscribe at any time.</p>
+                </div>
+            </div>
+        </section>
+
+<%- include('partials/footer') %>

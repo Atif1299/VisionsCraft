@@ -1,0 +1,267 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" width="1000" height="800">
+  <defs>
+    <!-- Gradients -->
+    <radialGradient id="brainGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#4361ee;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#7209b7;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#3a0ca3;stop-opacity:0.4" />
+    </radialGradient>
+    
+    <linearGradient id="nodeGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4361ee;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7209b7;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="nodeGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7209b7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3a0ca3;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="nodeGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3a0ca3;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4361ee;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Glow Filters -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Pulse Animation -->
+    <filter id="pulse" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Flowing Particles -->
+    <circle id="particle" r="2" fill="#4361ee" opacity="0.7">
+      <animate attributeName="opacity" values="0.7;0.3;0.7" dur="2s" repeatCount="indefinite"/>
+    </circle>
+  </defs>
+  
+  <!-- Background Ambient Glow -->
+  <circle cx="400" cy="300" r="250" fill="url(#brainGradient)" opacity="0.15">
+    <animate attributeName="r" values="250;280;250" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Enhanced Brain Outline with Glow -->
+  <path d="M400,130 C520,130 580,180 580,280 C580,320 570,355 550,380 C530,405 500,420 470,430 C440,440 410,445 400,445 C390,445 360,440 330,430 C300,420 270,405 250,380 C230,355 220,320 220,280 C220,180 280,130 400,130 Z" 
+        fill="none" stroke="url(#nodeGradient1)" stroke-width="4" filter="url(#strongGlow)">
+    <animate attributeName="stroke-width" values="4;6;4" dur="3s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Neural Network - Enhanced Nodes -->
+  <g id="neuralNetwork">
+    <!-- Core Processing Nodes -->
+    <circle cx="350" cy="230" r="18" fill="url(#nodeGradient1)" filter="url(#glow)">
+      <animate attributeName="r" values="18;22;18" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="450" cy="230" r="18" fill="url(#nodeGradient2)" filter="url(#glow)">
+      <animate attributeName="r" values="18;22;18" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="400" cy="280" r="20" fill="url(#nodeGradient3)" filter="url(#strongGlow)">
+      <animate attributeName="r" values="20;25;20" dur="1.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="350" cy="330" r="18" fill="url(#nodeGradient2)" filter="url(#glow)">
+      <animate attributeName="r" values="18;22;18" dur="2.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="450" cy="330" r="18" fill="url(#nodeGradient1)" filter="url(#glow)">
+      <animate attributeName="r" values="18;22;18" dur="2.7s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="300" cy="280" r="16" fill="url(#nodeGradient3)" filter="url(#glow)">
+      <animate attributeName="r" values="16;20;16" dur="2.3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="500" cy="280" r="16" fill="url(#nodeGradient3)" filter="url(#glow)">
+      <animate attributeName="r" values="16;20;16" dur="2.1s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Additional Processing Nodes -->
+    <circle cx="375" cy="200" r="12" fill="url(#nodeGradient1)" filter="url(#glow)">
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="425" cy="200" r="12" fill="url(#nodeGradient2)" filter="url(#glow)">
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="3.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="375" cy="360" r="12" fill="url(#nodeGradient3)" filter="url(#glow)">
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="2.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="425" cy="360" r="12" fill="url(#nodeGradient1)" filter="url(#glow)">
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="3.2s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Animated Neural Connections -->
+  <g stroke-width="3" fill="none" filter="url(#glow)">
+    <line x1="350" y1="230" x2="450" y2="230" stroke="url(#nodeGradient1)">
+      <animate attributeName="stroke-width" values="3;5;3" dur="2s" repeatCount="indefinite"/>
+    </line>
+    <line x1="350" y1="230" x2="400" y2="280" stroke="url(#nodeGradient2)">
+      <animate attributeName="stroke-width" values="3;5;3" dur="2.5s" repeatCount="indefinite"/>
+    </line>
+    <line x1="450" y1="230" x2="400" y2="280" stroke="url(#nodeGradient3)">
+      <animate attributeName="stroke-width" values="3;5;3" dur="1.8s" repeatCount="indefinite"/>
+    </line>
+    <line x1="400" y1="280" x2="350" y2="330" stroke="url(#nodeGradient1)">
+      <animate attributeName="stroke-width" values="3;5;3" dur="2.2s" repeatCount="indefinite"/>
+    </line>
+    <line x1="400" y1="280" x2="450" y2="330" stroke="url(#nodeGradient2)">
+      <animate attributeName="stroke-width" values="3;5;3" dur="2.7s" repeatCount="indefinite"/>
+    </line>
+    <line x1="350" y1="330" x2="450" y2="330" stroke="url(#nodeGradient3)">
+      <animate attributeName="stroke-width" values="3;5;3" dur="2.3s" repeatCount="indefinite"/>
+    </line>
+    <line x1="300" y1="280" x2="350" y2="230" stroke="url(#nodeGradient1)">
+      <animate attributeName="stroke-width" values="3;5;3" dur="2.1s" repeatCount="indefinite"/>
+    </line>
+    <line x1="300" y1="280" x2="350" y2="330" stroke="url(#nodeGradient2)">
+      <animate attributeName="stroke-width" values="3;5;3" dur="2.6s" repeatCount="indefinite"/>
+    </line>
+    <line x1="500" y1="280" x2="450" y2="230" stroke="url(#nodeGradient3)">
+      <animate attributeName="stroke-width" values="3;5;3" dur="1.9s" repeatCount="indefinite"/>
+    </line>
+    <line x1="500" y1="280" x2="450" y2="330" stroke="url(#nodeGradient1)">
+      <animate attributeName="stroke-width" values="3;5;3" dur="2.4s" repeatCount="indefinite"/>
+    </line>
+  </g>
+  
+  <!-- Flowing Data Particles -->
+  <g id="dataParticles">
+    <!-- Left Side Data Stream -->
+    <circle r="4" fill="#4361ee" opacity="0.8">
+      <animateMotion dur="3s" repeatCount="indefinite" path="M200,180 Q220,200 240,220 Q260,240 280,260 Q300,280 320,300"/>
+      <animate attributeName="opacity" values="0.8;0.3;0.8" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="4" fill="#7209b7" opacity="0.8">
+      <animateMotion dur="3s" repeatCount="indefinite" begin="1s" path="M200,180 Q220,200 240,220 Q260,240 280,260 Q300,280 320,300"/>
+      <animate attributeName="opacity" values="0.8;0.3;0.8" dur="3s" repeatCount="indefinite" begin="1s"/>
+    </circle>
+    <circle r="4" fill="#3a0ca3" opacity="0.8">
+      <animateMotion dur="3s" repeatCount="indefinite" begin="2s" path="M200,180 Q220,200 240,220 Q260,240 280,260 Q300,280 320,300"/>
+      <animate attributeName="opacity" values="0.8;0.3;0.8" dur="3s" repeatCount="indefinite" begin="2s"/>
+    </circle>
+    
+    <!-- Right Side Data Stream -->
+    <circle r="4" fill="#4361ee" opacity="0.8">
+      <animateMotion dur="3s" repeatCount="indefinite" path="M600,380 Q580,360 560,340 Q540,320 520,300 Q500,280 480,260"/>
+      <animate attributeName="opacity" values="0.8;0.3;0.8" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="4" fill="#7209b7" opacity="0.8">
+      <animateMotion dur="3s" repeatCount="indefinite" begin="1s" path="M600,380 Q580,360 560,340 Q540,320 520,300 Q500,280 480,260"/>
+      <animate attributeName="opacity" values="0.8;0.3;0.8" dur="3s" repeatCount="indefinite" begin="1s"/>
+    </circle>
+    <circle r="4" fill="#3a0ca3" opacity="0.8">
+      <animateMotion dur="3s" repeatCount="indefinite" begin="2s" path="M600,380 Q580,360 560,340 Q540,320 520,300 Q500,280 480,260"/>
+      <animate attributeName="opacity" values="0.8;0.3;0.8" dur="3s" repeatCount="indefinite" begin="2s"/>
+    </circle>
+  </g>
+  
+  <!-- Enhanced Data Visualization -->
+  <g id="dataViz">
+    <!-- Animated Bar Chart -->
+    <rect x="550" y="180" width="15" height="0" fill="url(#nodeGradient1)" filter="url(#glow)">
+      <animate attributeName="height" values="0;60;45;60" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="240;180;195;180" dur="4s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="575" y="160" width="15" height="0" fill="url(#nodeGradient2)" filter="url(#glow)">
+      <animate attributeName="height" values="0;80;65;80" dur="4s" repeatCount="indefinite" begin="0.5s"/>
+      <animate attributeName="y" values="240;160;175;160" dur="4s" repeatCount="indefinite" begin="0.5s"/>
+    </rect>
+    <rect x="600" y="200" width="15" height="0" fill="url(#nodeGradient3)" filter="url(#glow)">
+      <animate attributeName="height" values="0;40;55;40" dur="4s" repeatCount="indefinite" begin="1s"/>
+      <animate attributeName="y" values="240;200;185;200" dur="4s" repeatCount="indefinite" begin="1s"/>
+    </rect>
+    <rect x="625" y="170" width="15" height="0" fill="url(#nodeGradient1)" filter="url(#glow)">
+      <animate attributeName="height" values="0;70;50;70" dur="4s" repeatCount="indefinite" begin="1.5s"/>
+      <animate attributeName="y" values="240;170;190;170" dur="4s" repeatCount="indefinite" begin="1.5s"/>
+    </rect>
+    <rect x="650" y="150" width="15" height="0" fill="url(#nodeGradient2)" filter="url(#glow)">
+      <animate attributeName="height" values="0;90;75;90" dur="4s" repeatCount="indefinite" begin="2s"/>
+      <animate attributeName="y" values="240;150;165;150" dur="4s" repeatCount="indefinite" begin="2s"/>
+    </rect>
+  </g>
+  
+  <!-- Advanced Circuit Pathways -->
+  <g stroke-width="3" fill="none" filter="url(#glow)">
+    <path d="M150,400 L200,400 Q220,400 220,420 L220,440 Q220,460 240,460 L290,460 Q310,460 310,440 L310,420 Q310,400 330,400 L380,400" 
+          stroke="url(#nodeGradient1)">
+      <animate attributeName="stroke-dasharray" values="0,1000;1000,0" dur="6s" repeatCount="indefinite"/>
+    </path>
+    <path d="M420,400 L470,400 Q490,400 490,420 L490,440 Q490,460 510,460 L560,460 Q580,460 580,440 L580,420 Q580,400 600,400 L650,400" 
+          stroke="url(#nodeGradient2)">
+      <animate attributeName="stroke-dasharray" values="0,1000;1000,0" dur="6s" repeatCount="indefinite" begin="2s"/>
+    </path>
+    
+    <!-- Circuit Junction Nodes -->
+    <circle cx="220" cy="400" r="8" fill="url(#nodeGradient1)" filter="url(#glow)">
+      <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="220" cy="440" r="8" fill="url(#nodeGradient2)" filter="url(#glow)">
+      <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+    </circle>
+    <circle cx="310" cy="440" r="8" fill="url(#nodeGradient3)" filter="url(#glow)">
+      <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite" begin="1s"/>
+    </circle>
+    <circle cx="490" cy="400" r="8" fill="url(#nodeGradient1)" filter="url(#glow)">
+      <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite" begin="1.5s"/>
+    </circle>
+    <circle cx="580" cy="440" r="8" fill="url(#nodeGradient2)" filter="url(#glow)">
+      <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite" begin="2s"/>
+    </circle>
+  </g>
+  
+  <!-- Ambient Corner Elements -->
+  <g id="ambientElements">
+    <!-- Pulsing Corner Orbs -->
+    <circle cx="100" cy="100" r="25" fill="url(#nodeGradient1)" opacity="0.3" filter="url(#glow)">
+      <animate attributeName="r" values="25;35;25" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.3;0.6;0.3" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="700" cy="100" r="25" fill="url(#nodeGradient2)" opacity="0.3" filter="url(#glow)">
+      <animate attributeName="r" values="25;35;25" dur="4s" repeatCount="indefinite" begin="1s"/>
+      <animate attributeName="opacity" values="0.3;0.6;0.3" dur="4s" repeatCount="indefinite" begin="1s"/>
+    </circle>
+    <circle cx="100" cy="500" r="25" fill="url(#nodeGradient3)" opacity="0.3" filter="url(#glow)">
+      <animate attributeName="r" values="25;35;25" dur="4s" repeatCount="indefinite" begin="2s"/>
+      <animate attributeName="opacity" values="0.3;0.6;0.3" dur="4s" repeatCount="indefinite" begin="2s"/>
+    </circle>
+    <circle cx="700" cy="500" r="25" fill="url(#nodeGradient1)" opacity="0.3" filter="url(#glow)">
+      <animate attributeName="r" values="25;35;25" dur="4s" repeatCount="indefinite" begin="3s"/>
+      <animate attributeName="opacity" values="0.3;0.6;0.3" dur="4s" repeatCount="indefinite" begin="3s"/>
+    </circle>
+    
+    <!-- Floating Geometric Shapes -->
+    <polygon points="80,280 100,260 120,280 100,300" fill="url(#nodeGradient1)" opacity="0.5" filter="url(#glow)">
+      <animateTransform attributeName="transform" type="rotate" values="0 100 280;360 100 280" dur="10s" repeatCount="indefinite"/>
+    </polygon>
+    <polygon points="680,320 700,300 720,320 700,340" fill="url(#nodeGradient2)" opacity="0.5" filter="url(#glow)">
+      <animateTransform attributeName="transform" type="rotate" values="360 700 320;0 700 320" dur="12s" repeatCount="indefinite"/>
+    </polygon>
+  </g>
+  
+  <!-- Floating Data Indicators -->
+  <g id="dataIndicators">
+    <text x="200" y="520" font-family="Arial, sans-serif" font-size="12" fill="#4361ee" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;0.4;0.8" dur="3s" repeatCount="indefinite"/>
+      Neural Processing: <tspan fill="#7209b7">Active</tspan>
+    </text>
+    <text x="450" y="520" font-family="Arial, sans-serif" font-size="12" fill="#7209b7" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;0.4;0.8" dur="3s" repeatCount="indefinite" begin="1s"/>
+      Data Flow: <tspan fill="#3a0ca3">Optimized</tspan>
+    </text>
+  </g>
+</svg>

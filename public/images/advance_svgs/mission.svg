@@ -1,0 +1,292 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="1000" height="600">
+  <defs>
+    <!-- Gradients matching your style -->
+    <radialGradient id="centralGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#4361ee;stop-opacity:0.9" />
+      <stop offset="50%" style="stop-color:#7209b7;stop-opacity:0.7" />
+      <stop offset="100%" style="stop-color:#3a0ca3;stop-opacity:0.5" />
+    </radialGradient>
+    
+    <linearGradient id="missionGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4361ee;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7209b7;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="missionGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7209b7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3a0ca3;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="missionGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3a0ca3;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4361ee;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4361ee;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#7209b7;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#3a0ca3;stop-opacity:0.4" />
+    </linearGradient>
+    
+    <!-- Enhanced Glow Effects -->
+    <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="mediumGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Mission Icons -->
+    <g id="innovationIcon">
+      <circle cx="0" cy="0" r="8" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="0" cy="0" r="3" fill="currentColor"/>
+      <line x1="-8" y1="0" x2="-12" y2="0" stroke="currentColor" stroke-width="2"/>
+      <line x1="8" y1="0" x2="12" y2="0" stroke="currentColor" stroke-width="2"/>
+      <line x1="0" y1="-8" x2="0" y2="-12" stroke="currentColor" stroke-width="2"/>
+      <line x1="0" y1="8" x2="0" y2="12" stroke="currentColor" stroke-width="2"/>
+      <line x1="-6" y1="-6" x2="-8" y2="-8" stroke="currentColor" stroke-width="2"/>
+      <line x1="6" y1="-6" x2="8" y2="-8" stroke="currentColor" stroke-width="2"/>
+      <line x1="-6" y1="6" x2="-8" y2="8" stroke="currentColor" stroke-width="2"/>
+      <line x1="6" y1="6" x2="8" y2="8" stroke="currentColor" stroke-width="2"/>
+    </g>
+    
+    <g id="transformIcon">
+      <path d="M-10,-5 L-5,-10 L0,-5 L5,-10 L10,-5 L10,5 L5,10 L0,5 L-5,10 L-10,5 Z" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="0" cy="0" r="4" fill="currentColor"/>
+    </g>
+    
+    <g id="excellenceIcon">
+      <polygon points="0,-12 3,-4 12,-4 6,0 9,8 0,4 -9,8 -6,0 -12,-4 -3,-4" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="0" cy="0" r="2" fill="currentColor"/>
+    </g>
+    
+    <g id="collaborationIcon">
+      <circle cx="-6" cy="-3" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="6" cy="-3" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="0" cy="6" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+      <line x1="-2" y1="-1" x2="2" y2="-1" stroke="currentColor" stroke-width="2"/>
+      <line x1="-3" y1="2" x2="-1" y2="4" stroke="currentColor" stroke-width="2"/>
+      <line x1="3" y1="2" x2="1" y2="4" stroke="currentColor" stroke-width="2"/>
+    </g>
+    
+    <g id="impactIcon">
+      <circle cx="0" cy="0" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="0" cy="0" r="6" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="0" cy="0" r="2" fill="currentColor"/>
+      <path d="M-7,-7 L-10,-10 M7,-7 L10,-10 M-7,7 L-10,10 M7,7 L10,10" stroke="currentColor" stroke-width="2"/>
+    </g>
+  </defs>
+  
+  <!-- Ambient Background Glow -->
+  <circle cx="500" cy="300" r="200" fill="url(#centralGradient)" opacity="0.1">
+    <animate attributeName="r" values="200;230;200" dur="6s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Central Mission Hub -->
+  <g id="centralHub">
+    <!-- Core Circle -->
+    <circle cx="500" cy="300" r="60" fill="url(#centralGradient)" filter="url(#strongGlow)">
+      <animate attributeName="r" values="60;70;60" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Inner Ring -->
+    <circle cx="500" cy="300" r="45" fill="none" stroke="url(#missionGradient1)" stroke-width="3" opacity="0.8">
+      <animate attributeName="stroke-width" values="3;5;3" dur="3s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="rotate" values="0 500 300;360 500 300" dur="20s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Outer Ring -->
+    <circle cx="500" cy="300" r="80" fill="none" stroke="url(#missionGradient2)" stroke-width="2" opacity="0.6">
+      <animate attributeName="stroke-width" values="2;4;2" dur="3s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="rotate" values="360 500 300;0 500 300" dur="25s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Central Symbol -->
+    <g transform="translate(500, 300)" fill="white" filter="url(#softGlow)">
+      <circle cx="0" cy="0" r="8" fill="white">
+        <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+  </g>
+  
+  <!-- Mission Pathways -->
+  <g id="missionPathways">
+    <!-- Innovation Path (Top) -->
+    <path d="M500,220 Q500,180 500,140 Q500,100 480,80 Q460,60 430,70 Q400,80 390,110" 
+          stroke="url(#pathGradient)" stroke-width="4" fill="none" filter="url(#mediumGlow)">
+      <animate attributeName="stroke-dasharray" values="0,500;500,0;0,500" dur="8s" repeatCount="indefinite"/>
+    </path>
+    
+    <!-- Excellence Path (Top Right) -->
+    <path d="M560,260 Q620,220 680,180 Q740,140 780,150 Q820,160 840,190 Q860,220 850,250" 
+          stroke="url(#pathGradient)" stroke-width="4" fill="none" filter="url(#mediumGlow)">
+      <animate attributeName="stroke-dasharray" values="0,500;500,0;0,500" dur="8s" repeatCount="indefinite" begin="2s"/>
+    </path>
+    
+    <!-- Impact Path (Bottom Right) -->
+    <path d="M560,340 Q620,380 680,420 Q740,460 780,450 Q820,440 840,410 Q860,380 850,350" 
+          stroke="url(#pathGradient)" stroke-width="4" fill="none" filter="url(#mediumGlow)">
+      <animate attributeName="stroke-dasharray" values="0,500;500,0;0,500" dur="8s" repeatCount="indefinite" begin="4s"/>
+    </path>
+    
+    <!-- Collaboration Path (Bottom) -->
+    <path d="M500,380 Q500,420 500,460 Q500,500 480,520 Q460,540 430,530 Q400,520 390,490" 
+          stroke="url(#pathGradient)" stroke-width="4" fill="none" filter="url(#mediumGlow)">
+      <animate attributeName="stroke-dasharray" values="0,500;500,0;0,500" dur="8s" repeatCount="indefinite" begin="6s"/>
+    </path>
+    
+    <!-- Transform Path (Left) -->
+    <path d="M440,340 Q380,380 320,420 Q260,460 220,450 Q180,440 160,410 Q140,380 150,350" 
+          stroke="url(#pathGradient)" stroke-width="4" fill="none" filter="url(#mediumGlow)">
+      <animate attributeName="stroke-dasharray" values="0,500;500,0;0,500" dur="8s" repeatCount="indefinite" begin="1s"/>
+    </path>
+  </g>
+  
+  <!-- Mission Nodes -->
+  <g id="missionNodes">
+    <!-- Innovation Node -->
+    <g transform="translate(380, 110)">
+      <circle cx="0" cy="0" r="35" fill="url(#missionGradient1)" filter="url(#mediumGlow)">
+        <animate attributeName="r" values="35;42;35" dur="3s" repeatCount="indefinite"/>
+      </circle>
+      <use href="#innovationIcon" transform="scale(1.2)" fill="white" stroke="white" filter="url(#softGlow)"/>
+    </g>
+    
+    <!-- Excellence Node -->
+    <g transform="translate(850, 200)">
+      <circle cx="0" cy="0" r="35" fill="url(#missionGradient2)" filter="url(#mediumGlow)">
+        <animate attributeName="r" values="35;42;35" dur="3s" repeatCount="indefinite" begin="1s"/>
+      </circle>
+      <use href="#excellenceIcon" transform="scale(1.2)" fill="white" stroke="white" filter="url(#softGlow)"/>
+    </g>
+    
+    <!-- Impact Node -->
+    <g transform="translate(850, 400)">
+      <circle cx="0" cy="0" r="35" fill="url(#missionGradient3)" filter="url(#mediumGlow)">
+        <animate attributeName="r" values="35;42;35" dur="3s" repeatCount="indefinite" begin="2s"/>
+      </circle>
+      <use href="#impactIcon" transform="scale(1.2)" fill="white" stroke="white" filter="url(#softGlow)"/>
+    </g>
+    
+    <!-- Collaboration Node -->
+    <g transform="translate(380, 490)">
+      <circle cx="0" cy="0" r="35" fill="url(#missionGradient1)" filter="url(#mediumGlow)">
+        <animate attributeName="r" values="35;42;35" dur="3s" repeatCount="indefinite" begin="3s"/>
+      </circle>
+      <use href="#collaborationIcon" transform="scale(1.2)" fill="white" stroke="white" filter="url(#softGlow)"/>
+    </g>
+    
+    <!-- Transform Node -->
+    <g transform="translate(150, 400)">
+      <circle cx="0" cy="0" r="35" fill="url(#missionGradient2)" filter="url(#mediumGlow)">
+        <animate attributeName="r" values="35;42;35" dur="3s" repeatCount="indefinite" begin="4s"/>
+      </circle>
+      <use href="#transformIcon" transform="scale(1.2)" fill="white" stroke="white" filter="url(#softGlow)"/>
+    </g>
+  </g>
+  
+  <!-- Floating Data Particles -->
+  <g id="floatingParticles">
+    <!-- Particles around Innovation -->
+    <circle r="3" fill="#4361ee" opacity="0.7">
+      <animateMotion dur="6s" repeatCount="indefinite" path="M350,80 Q370,90 390,100 Q410,110 430,120 Q450,130 470,140"/>
+      <animate attributeName="opacity" values="0.7;0.2;0.7" dur="6s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="3" fill="#7209b7" opacity="0.7">
+      <animateMotion dur="6s" repeatCount="indefinite" begin="2s" path="M350,80 Q370,90 390,100 Q410,110 430,120 Q450,130 470,140"/>
+      <animate attributeName="opacity" values="0.7;0.2;0.7" dur="6s" repeatCount="indefinite" begin="2s"/>
+    </circle>
+    
+    <!-- Particles around Excellence -->
+    <circle r="3" fill="#3a0ca3" opacity="0.7">
+      <animateMotion dur="6s" repeatCount="indefinite" path="M820,170 Q800,180 780,190 Q760,200 740,210 Q720,220 700,230"/>
+      <animate attributeName="opacity" values="0.7;0.2;0.7" dur="6s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Particles around Impact -->
+    <circle r="3" fill="#4361ee" opacity="0.7">
+      <animateMotion dur="6s" repeatCount="indefinite" path="M820,430 Q800,420 780,410 Q760,400 740,390 Q720,380 700,370"/>
+      <animate attributeName="opacity" values="0.7;0.2;0.7" dur="6s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Particles around Collaboration -->
+    <circle r="3" fill="#7209b7" opacity="0.7">
+      <animateMotion dur="6s" repeatCount="indefinite" path="M350,520 Q370,510 390,500 Q410,490 430,480 Q450,470 470,460"/>
+      <animate attributeName="opacity" values="0.7;0.2;0.7" dur="6s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Particles around Transform -->
+    <circle r="3" fill="#3a0ca3" opacity="0.7">
+      <animateMotion dur="6s" repeatCount="indefinite" path="M180,430 Q200,420 220,410 Q240,400 260,390 Q280,380 300,370"/>
+      <animate attributeName="opacity" values="0.7;0.2;0.7" dur="6s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Ambient Corner Elements -->
+  <g id="ambientCorners">
+    <!-- Top Left -->
+    <circle cx="80" cy="80" r="20" fill="url(#missionGradient1)" opacity="0.3" filter="url(#softGlow)">
+      <animate attributeName="r" values="20;30;20" dur="5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.3;0.6;0.3" dur="5s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Top Right -->
+    <circle cx="920" cy="80" r="20" fill="url(#missionGradient2)" opacity="0.3" filter="url(#softGlow)">
+      <animate attributeName="r" values="20;30;20" dur="5s" repeatCount="indefinite" begin="1s"/>
+      <animate attributeName="opacity" values="0.3;0.6;0.3" dur="5s" repeatCount="indefinite" begin="1s"/>
+    </circle>
+    
+    <!-- Bottom Left -->
+    <circle cx="80" cy="520" r="20" fill="url(#missionGradient3)" opacity="0.3" filter="url(#softGlow)">
+      <animate attributeName="r" values="20;30;20" dur="5s" repeatCount="indefinite" begin="2s"/>
+      <animate attributeName="opacity" values="0.3;0.6;0.3" dur="5s" repeatCount="indefinite" begin="2s"/>
+    </circle>
+    
+    <!-- Bottom Right -->
+    <circle cx="920" cy="520" r="20" fill="url(#missionGradient1)" opacity="0.3" filter="url(#softGlow)">
+      <animate attributeName="r" values="20;30;20" dur="5s" repeatCount="indefinite" begin="3s"/>
+      <animate attributeName="opacity" values="0.3;0.6;0.3" dur="5s" repeatCount="indefinite" begin="3s"/>
+    </circle>
+  </g>
+  
+  <!-- Subtle Mission Labels (Optional) -->
+  <g id="missionLabels" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white" opacity="0.8">
+    <text x="380" y="170" filter="url(#softGlow)">
+      <animate attributeName="opacity" values="0.8;0.4;0.8" dur="4s" repeatCount="indefinite"/>
+      Innovation
+    </text>
+    <text x="850" y="170" filter="url(#softGlow)">
+      <animate attributeName="opacity" values="0.8;0.4;0.8" dur="4s" repeatCount="indefinite" begin="1s"/>
+      Excellence
+    </text>
+    <text x="850" y="450" filter="url(#softGlow)">
+      <animate attributeName="opacity" values="0.8;0.4;0.8" dur="4s" repeatCount="indefinite" begin="2s"/>
+      Impact
+    </text>
+    <text x="380" y="540" filter="url(#softGlow)">
+      <animate attributeName="opacity" values="0.8;0.4;0.8" dur="4s" repeatCount="indefinite" begin="3s"/>
+      Collaboration
+    </text>
+    <text x="150" y="450" filter="url(#softGlow)">
+      <animate attributeName="opacity" values="0.8;0.4;0.8" dur="4s" repeatCount="indefinite" begin="4s"/>
+      Transform
+    </text>
+  </g>
+</svg>

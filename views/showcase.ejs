@@ -1,0 +1,242 @@
+<%- include('partials/header', {currentPage: currentPage, description: description, additionalCSS: ['/css/animations.css', '/css/showcase.css']}) %>
+        <section class="services-hero">
+            <div class="container">
+                <div class="services-hero-content">
+                    <h1 class="animate-text">
+                        Our
+                        <span class="gradient-text">AI Solutions</span>
+                        in Action
+                    </h1>
+                    <p class="animate-text-delay">Explore our portfolio of successful AI implementations across various industries.</p>
+                </div>
+                <div id="particles-background" class="particles-container"></div>
+            </div>
+        </section>
+        <!-- Filter Section -->
+        <section class="showcase-filter">
+            <div class="container">
+                <div class="filter-controls">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="machine-learning">Machine Learning</button>
+                    <button class="filter-btn" data-filter="computer-vision">Computer Vision</button>
+                    <button class="filter-btn" data-filter="nlp">Natural Language Processing</button>
+                    <button class="filter-btn" data-filter="predictive-analytics">Predictive Analytics</button>
+                </div>
+                <!-- <div id="particles-background" class="particles-container"></div> -->
+            </div>
+        </section>
+        <!-- Case Studies Grid -->
+        <section class="case-studies-grid ">
+            <div class="container">
+                <div class="grid">
+                    <!-- Case Study 1 -->
+                    <div class="case-study-item" data-category="predictive-analytics">
+                        <div class="case-study-card">
+                            <div class="case-study-image">
+                                <img src="images/Use Cases/inventory.jpeg" alt="Retail AI Case Study">
+                                <div class="overlay">
+                                    <a href="case-study-retail.html" class="btn btn-primary">View Details</a>
+                                </div>
+                            </div>
+                            <div class="case-study-details">
+                                <span class="industry">Retail</span>
+                                <h3>Inventory Optimization System</h3>
+                                <p>Reduced stockouts by 37% and holding costs by 22% through predictive inventory management.</p>
+                                <div class="tech-stack">
+                                    <span>Technologies:</span>
+                                    <div class="tech-tags">
+                                        <span class="tech-tag">TensorFlow</span>
+                                        <span class="tech-tag">Python</span>
+                                        <span class="tech-tag">Time Series Analysis</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Case Study 2 -->
+                    <div class="case-study-item" data-category="machine-learning">
+                        <div class="case-study-card">
+                            <div class="case-study-image">
+                                <img src="images/Use Cases/patient.png" alt="Healthcare AI Case Study">
+                                <div class="overlay">
+                                    <a href="case-study-healthcare.html" class="btn btn-primary">View Details</a>
+                                </div>
+                            </div>
+                            <div class="case-study-details">
+                                <span class="industry">Healthcare</span>
+                                <h3>Patient Outcome Prediction</h3>
+                                <p>Improved treatment planning accuracy by 42% using ML models trained on anonymized patient data.</p>
+                                <div class="tech-stack">
+                                    <span>Technologies:</span>
+                                    <div class="tech-tags">
+                                        <span class="tech-tag">Scikit-learn</span>
+                                        <span class="tech-tag">R</span>
+                                        <span class="tech-tag">Random Forest</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Case Study 3 -->
+                    <div class="case-study-item" data-category="machine-learning">
+                        <div class="case-study-card">
+                            <div class="case-study-image">
+                                <img src="images/Use Cases/fraud-detection-02.jpg" alt="Finance AI Case Study">
+                                <div class="overlay">
+                                    <a href="case-study-finance.html" class="btn btn-primary">View Details</a>
+                                </div>
+                            </div>
+                            <div class="case-study-details">
+                                <span class="industry">Finance</span>
+                                <h3>Fraud Detection System</h3>
+                                <p>Reduced fraudulent transactions by 89% while decreasing false positives by 63%.</p>
+                                <div class="tech-stack">
+                                    <span>Technologies:</span>
+                                    <div class="tech-tags">
+                                        <span class="tech-tag">XGBoost</span>
+                                        <span class="tech-tag">Python</span>
+                                        <span class="tech-tag">Anomaly Detection</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Case Study 4 -->
+                    <div class="case-study-item" data-category="computer-vision">
+                        <div class="case-study-card">
+                            <div class="case-study-image">
+                                <img src="images/case-study-4.svg" alt="Manufacturing AI Case Study">
+                                <div class="overlay">
+                                    <a href="case-study-manufacturing.html" class="btn btn-primary">View Details</a>
+                                </div>
+                            </div>
+                            <div class="case-study-details">
+                                <span class="industry">Manufacturing</span>
+                                <h3>Quality Control Vision System</h3>
+                                <p>Automated defect detection with 99.7% accuracy, reducing quality control costs by 45%.</p>
+                                <div class="tech-stack">
+                                    <span>Technologies:</span>
+                                    <div class="tech-tags">
+                                        <span class="tech-tag">PyTorch</span>
+                                        <span class="tech-tag">OpenCV</span>
+                                        <span class="tech-tag">CNN</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Case Study 5 -->
+                    <div class="case-study-item" data-category="nlp">
+                        <div class="case-study-card">
+                            <div class="case-study-image">
+                                <img src="images/case-study-5.svg" alt="Customer Service AI Case Study">
+                                <div class="overlay">
+                                    <a href="case-study-customer-service.html" class="btn btn-primary">View Details</a>
+                                </div>
+                            </div>
+                            <div class="case-study-details">
+                                <span class="industry">Customer Service</span>
+                                <h3>Intelligent Support Chatbot</h3>
+                                <p>Resolved 78% of customer inquiries without human intervention, improving response time by 92%.</p>
+                                <div class="tech-stack">
+                                    <span>Technologies:</span>
+                                    <div class="tech-tags">
+                                        <span class="tech-tag">BERT</span>
+                                        <span class="tech-tag">Rasa</span>
+                                        <span class="tech-tag">NLP</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Case Study 6 -->
+                    <div class="case-study-item" data-category="predictive-analytics">
+                        <div class="case-study-card">
+                            <div class="case-study-image">
+                                <img src="images/case-study-6.svg" alt="Energy AI Case Study">
+                                <div class="overlay">
+                                    <a href="case-study-energy.html" class="btn btn-primary">View Details</a>
+                                </div>
+                            </div>
+                            <div class="case-study-details">
+                                <span class="industry">Energy</span>
+                                <h3>Predictive Maintenance System</h3>
+                                <p>Reduced equipment downtime by 57% and maintenance costs by 32% through early failure prediction.</p>
+                                <div class="tech-stack">
+                                    <span>Technologies:</span>
+                                    <div class="tech-tags">
+                                        <span class="tech-tag">IoT</span>
+                                        <span class="tech-tag">Azure ML</span>
+                                        <span class="tech-tag">Time Series</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Interactive Demo Section -->
+        <section class="interactive-demo">
+            <div class="container">
+                <div class="section-header">
+                    <h2>
+                        Interactive
+                        <span class="gradient-text">AI Demos</span>
+                    </h2>
+                    <p>Experience our AI capabilities firsthand with these interactive demonstrations</p>
+                </div>
+                <div class="demo-grid">
+                    <div class="demo-card">
+                        <div class="demo-preview">
+                            <img src="images/demo-1.svg" alt="Sentiment Analysis Demo">
+                            <div class="demo-overlay">
+                                <span>Try It</span>
+                            </div>
+                        </div>
+                        <div class="demo-content">
+                            <h3>Sentiment Analysis</h3>
+                            <p>See how our NLP models analyze text sentiment in real-time.</p>
+                            <a href="demos/sentiment-analysis.html" class="btn btn-secondary">Launch Demo</a>
+                        </div>
+                    </div>
+                    <div class="demo-card">
+                        <div class="demo-preview">
+                            <img src="images/demo-2.svg" alt="Image Recognition Demo">
+                            <div class="demo-overlay">
+                                <span>Try It</span>
+                            </div>
+                        </div>
+                        <div class="demo-content">
+                            <h3>Image Recognition</h3>
+                            <p>Upload an image and watch our computer vision model identify objects.</p>
+                            <a href="demos/image-recognition.html" class="btn btn-secondary">Launch Demo</a>
+                        </div>
+                    </div>
+                    <div class="demo-card">
+                        <div class="demo-preview">
+                            <img src="images/demo-3.svg" alt="Predictive Analytics Demo">
+                            <div class="demo-overlay">
+                                <span>Try It</span>
+                            </div>
+                        </div>
+                        <div class="demo-content">
+                            <h3>Predictive Analytics</h3>
+                            <p>Explore how our models forecast trends based on historical data.</p>
+                            <a href="demos/predictive-analytics.html" class="btn btn-secondary">Launch Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to Build Your AI Solution?</h2>
+                    <p>Let's discuss how our expertise can help you achieve your business goals through innovative AI implementation.</p>
+                    <a href="contact" class="btn btn-primary">Start Your Project</a>
+                </div>
+            </div>
+        </section>
+<%- include('partials/footer', {additionalScripts: ['https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js', '/js/showcase.js']}) %>

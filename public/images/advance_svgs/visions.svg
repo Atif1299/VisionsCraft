@@ -1,0 +1,267 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <!-- Gradients matching your neural network style -->
+    <radialGradient id="eyeGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#4361ee;stop-opacity:0.9" />
+      <stop offset="50%" style="stop-color:#7209b7;stop-opacity:0.7" />
+      <stop offset="100%" style="stop-color:#3a0ca3;stop-opacity:0.5" />
+    </radialGradient>
+    
+    <radialGradient id="irisGradient" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#4361ee;stop-opacity:1" />
+      <stop offset="60%" style="stop-color:#7209b7;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#3a0ca3;stop-opacity:0.9" />
+    </radialGradient>
+    
+    <radialGradient id="pupilGradient" cx="40%" cy="40%" r="60%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.3" />
+      <stop offset="30%" style="stop-color:#4361ee;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+    </radialGradient>
+    
+    <linearGradient id="visionBeam" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4361ee;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#7209b7;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#3a0ca3;stop-opacity:0.4" />
+    </linearGradient>
+    
+    <linearGradient id="dataStreamGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4361ee;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#7209b7;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#3a0ca3;stop-opacity:0.6" />
+    </linearGradient>
+    
+    <!-- Enhanced Glow Filters -->
+    <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="mediumGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Particle Animation -->
+    <circle id="visionParticle" r="2" fill="#4361ee" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2s" repeatCount="indefinite"/>
+    </circle>
+  </defs>
+  
+  <!-- Background Ambient Energy -->
+  <circle cx="400" cy="300" r="200" fill="url(#eyeGradient)" opacity="0.1">
+    <animate attributeName="r" values="200;230;200" dur="6s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.1;0.2;0.1" dur="6s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Main Eye Structure -->
+  <g id="aiEye">
+    <!-- Outer Eye Shape -->
+    <ellipse cx="400" cy="300" rx="120" ry="80" fill="none" stroke="url(#dataStreamGradient)" stroke-width="4" filter="url(#strongGlow)">
+      <animate attributeName="stroke-width" values="4;6;4" dur="3s" repeatCount="indefinite"/>
+    </ellipse>
+    
+    <!-- Iris -->
+    <circle cx="400" cy="300" r="60" fill="url(#irisGradient)" filter="url(#mediumGlow)">
+      <animate attributeName="r" values="60;65;60" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Iris Pattern Lines -->
+    <g stroke="url(#dataStreamGradient)" stroke-width="2" opacity="0.7" filter="url(#softGlow)">
+      <line x1="340" y1="300" x2="380" y2="300">
+        <animate attributeName="opacity" values="0.7;0.3;0.7" dur="3s" repeatCount="indefinite"/>
+      </line>
+      <line x1="420" y1="300" x2="460" y2="300">
+        <animate attributeName="opacity" values="0.7;0.3;0.7" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+      </line>
+      <line x1="400" y1="240" x2="400" y2="280">
+        <animate attributeName="opacity" values="0.7;0.3;0.7" dur="3s" repeatCount="indefinite" begin="1s"/>
+      </line>
+      <line x1="400" y1="320" x2="400" y2="360">
+        <animate attributeName="opacity" values="0.7;0.3;0.7" dur="3s" repeatCount="indefinite" begin="1.5s"/>
+      </line>
+      <line x1="360" y1="260" x2="390" y2="280">
+        <animate attributeName="opacity" values="0.7;0.3;0.7" dur="3s" repeatCount="indefinite" begin="2s"/>
+      </line>
+      <line x1="440" y1="260" x2="410" y2="280">
+        <animate attributeName="opacity" values="0.7;0.3;0.7" dur="3s" repeatCount="indefinite" begin="2.5s"/>
+      </line>
+    </g>
+    
+    <!-- Pupil -->
+    <circle cx="400" cy="300" r="25" fill="url(#pupilGradient)" filter="url(#strongGlow)">
+      <animate attributeName="r" values="25;30;25" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Pupil Highlight -->
+    <circle cx="395" cy="295" r="8" fill="#ffffff" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;0.4;0.8" dur="2s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Vision Scanning Beams -->
+  <g id="scanningBeams">
+    <!-- Horizontal Scan -->
+    <rect x="280" y="298" width="240" height="4" fill="url(#visionBeam)" filter="url(#mediumGlow)">
+      <animate attributeName="opacity" values="0;0.8;0" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="x" values="280;520;280" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="width" values="240;0;240" dur="3s" repeatCount="indefinite"/>
+    </rect>
+    
+    <!-- Vertical Scan -->
+    <rect x="398" y="220" width="4" height="160" fill="url(#visionBeam)" filter="url(#mediumGlow)">
+      <animate attributeName="opacity" values="0;0.8;0" dur="4s" repeatCount="indefinite" begin="1s"/>
+      <animate attributeName="y" values="220;380;220" dur="4s" repeatCount="indefinite" begin="1s"/>
+      <animate attributeName="height" values="160;0;160" dur="4s" repeatCount="indefinite" begin="1s"/>
+    </rect>
+  </g>
+  
+  <!-- Future Vision Nodes -->
+  <g id="visionNodes">
+    <!-- Data Processing Points -->
+    <circle cx="550" cy="200" r="12" fill="url(#dataStreamGradient)" filter="url(#mediumGlow)">
+      <animate attributeName="r" values="12;16;12" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="650" cy="250" r="12" fill="url(#dataStreamGradient)" filter="url(#mediumGlow)">
+      <animate attributeName="r" values="12;16;12" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+    </circle>
+    <circle cx="600" cy="350" r="12" fill="url(#dataStreamGradient)" filter="url(#mediumGlow)">
+      <animate attributeName="r" values="12;16;12" dur="2s" repeatCount="indefinite" begin="1s"/>
+    </circle>
+    <circle cx="700" cy="300" r="12" fill="url(#dataStreamGradient)" filter="url(#mediumGlow)">
+      <animate attributeName="r" values="12;16;12" dur="2s" repeatCount="indefinite" begin="1.5s"/>
+    </circle>
+    
+    <!-- Left Side Nodes -->
+    <circle cx="250" cy="200" r="12" fill="url(#dataStreamGradient)" filter="url(#mediumGlow)">
+      <animate attributeName="r" values="12;16;12" dur="2s" repeatCount="indefinite" begin="0.3s"/>
+    </circle>
+    <circle cx="150" cy="250" r="12" fill="url(#dataStreamGradient)" filter="url(#mediumGlow)">
+      <animate attributeName="r" values="12;16;12" dur="2s" repeatCount="indefinite" begin="0.8s"/>
+    </circle>
+    <circle cx="200" cy="350" r="12" fill="url(#dataStreamGradient)" filter="url(#mediumGlow)">
+      <animate attributeName="r" values="12;16;12" dur="2s" repeatCount="indefinite" begin="1.3s"/>
+    </circle>
+    <circle cx="100" cy="300" r="12" fill="url(#dataStreamGradient)" filter="url(#mediumGlow)">
+      <animate attributeName="r" values="12;16;12" dur="2s" repeatCount="indefinite" begin="1.8s"/>
+    </circle>
+  </g>
+  
+  <!-- Connecting Neural Pathways -->
+  <g stroke="url(#dataStreamGradient)" stroke-width="2" fill="none" filter="url(#softGlow)">
+    <path d="M520,300 Q550,280 580,260 Q610,240 650,250">
+      <animate attributeName="stroke-dasharray" values="0,200;200,0" dur="4s" repeatCount="indefinite"/>
+    </path>
+    <path d="M520,300 Q580,300 700,300">
+      <animate attributeName="stroke-dasharray" values="0,200;200,0" dur="4s" repeatCount="indefinite" begin="1s"/>
+    </path>
+    <path d="M520,300 Q560,340 600,350">
+      <animate attributeName="stroke-dasharray" values="0,200;200,0" dur="4s" repeatCount="indefinite" begin="2s"/>
+    </path>
+    <path d="M280,300 Q250,280 220,260 Q190,240 150,250">
+      <animate attributeName="stroke-dasharray" values="0,200;200,0" dur="4s" repeatCount="indefinite" begin="0.5s"/>
+    </path>
+    <path d="M280,300 Q220,300 100,300">
+      <animate attributeName="stroke-dasharray" values="0,200;200,0" dur="4s" repeatCount="indefinite" begin="1.5s"/>
+    </path>
+    <path d="M280,300 Q240,340 200,350">
+      <animate attributeName="stroke-dasharray" values="0,200;200,0" dur="4s" repeatCount="indefinite" begin="2.5s"/>
+    </path>
+  </g>
+  
+  <!-- Floating Vision Particles -->
+  <g id="visionParticles">
+    <!-- Right Side Flow -->
+    <circle r="3" fill="#4361ee" opacity="0.8">
+      <animateMotion dur="5s" repeatCount="indefinite" path="M520,300 Q580,280 650,250 Q720,220 780,200"/>
+      <animate attributeName="opacity" values="0.8;0.3;0.8" dur="5s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="3" fill="#7209b7" opacity="0.8">
+      <animateMotion dur="5s" repeatCount="indefinite" begin="1s" path="M520,300 Q580,280 650,250 Q720,220 780,200"/>
+      <animate attributeName="opacity" values="0.8;0.3;0.8" dur="5s" repeatCount="indefinite" begin="1s"/>
+    </circle>
+    <circle r="3" fill="#3a0ca3" opacity="0.8">
+      <animateMotion dur="5s" repeatCount="indefinite" begin="2s" path="M520,300 Q580,280 650,250 Q720,220 780,200"/>
+      <animate attributeName="opacity" values="0.8;0.3;0.8" dur="5s" repeatCount="indefinite" begin="2s"/>
+    </circle>
+    
+    <!-- Left Side Flow -->
+    <circle r="3" fill="#4361ee" opacity="0.8">
+      <animateMotion dur="5s" repeatCount="indefinite" path="M280,300 Q220,280 150,250 Q80,220 20,200"/>
+      <animate attributeName="opacity" values="0.8;0.3;0.8" dur="5s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="3" fill="#7209b7" opacity="0.8">
+      <animateMotion dur="5s" repeatCount="indefinite" begin="1s" path="M280,300 Q220,280 150,250 Q80,220 20,200"/>
+      <animate attributeName="opacity" values="0.8;0.3;0.8" dur="5s" repeatCount="indefinite" begin="1s"/>
+    </circle>
+    <circle r="3" fill="#3a0ca3" opacity="0.8">
+      <animateMotion dur="5s" repeatCount="indefinite" begin="2s" path="M280,300 Q220,280 150,250 Q80,220 20,200"/>
+      <animate attributeName="opacity" values="0.8;0.3;0.8" dur="5s" repeatCount="indefinite" begin="2s"/>
+    </circle>
+  </g>
+  
+  <!-- Future Vision Symbols -->
+  <g id="futureSymbols">
+    <!-- Geometric Future Indicators -->
+    <polygon points="680,180 700,160 720,180 700,200" fill="url(#dataStreamGradient)" opacity="0.6" filter="url(#softGlow)">
+      <animateTransform attributeName="transform" type="rotate" values="0 700 180;360 700 180" dur="8s" repeatCount="indefinite"/>
+    </polygon>
+    <polygon points="120,180 140,160 160,180 140,200" fill="url(#dataStreamGradient)" opacity="0.6" filter="url(#softGlow)">
+      <animateTransform attributeName="transform" type="rotate" values="360 140 180;0 140 180" dur="10s" repeatCount="indefinite"/>
+    </polygon>
+    
+    <!-- Hexagonal Tech Elements -->
+    <polygon points="680,400 695,410 695,430 680,440 665,430 665,410" fill="none" stroke="url(#dataStreamGradient)" stroke-width="2" filter="url(#softGlow)">
+      <animate attributeName="stroke-width" values="2;4;2" dur="3s" repeatCount="indefinite"/>
+    </polygon>
+    <polygon points="120,400 135,410 135,430 120,440 105,430 105,410" fill="none" stroke="url(#dataStreamGradient)" stroke-width="2" filter="url(#softGlow)">
+      <animate attributeName="stroke-width" values="2;4;2" dur="3s" repeatCount="indefinite" begin="1s"/>
+    </polygon>
+  </g>
+  
+  <!-- Ambient Corner Orbs -->
+  <g id="ambientOrbs">
+    <circle cx="80" cy="80" r="20" fill="url(#dataStreamGradient)" opacity="0.3" filter="url(#softGlow)">
+      <animate attributeName="r" values="20;30;20" dur="5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.3;0.6;0.3" dur="5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="720" cy="80" r="20" fill="url(#dataStreamGradient)" opacity="0.3" filter="url(#softGlow)">
+      <animate attributeName="r" values="20;30;20" dur="5s" repeatCount="indefinite" begin="1s"/>
+      <animate attributeName="opacity" values="0.3;0.6;0.3" dur="5s" repeatCount="indefinite" begin="1s"/>
+    </circle>
+    <circle cx="80" cy="520" r="20" fill="url(#dataStreamGradient)" opacity="0.3" filter="url(#softGlow)">
+      <animate attributeName="r" values="20;30;20" dur="5s" repeatCount="indefinite" begin="2s"/>
+      <animate attributeName="opacity" values="0.3;0.6;0.3" dur="5s" repeatCount="indefinite" begin="2s"/>
+    </circle>
+    <circle cx="720" cy="520" r="20" fill="url(#dataStreamGradient)" opacity="0.3" filter="url(#softGlow)">
+      <animate attributeName="r" values="20;30;20" dur="5s" repeatCount="indefinite" begin="3s"/>
+      <animate attributeName="opacity" values="0.3;0.6;0.3" dur="5s" repeatCount="indefinite" begin="3s"/>
+    </circle>
+  </g>
+  
+  <!-- Vision Status Indicators -->
+  <g id="statusIndicators">
+    <text x="150" y="550" font-family="Arial, sans-serif" font-size="14" fill="#4361ee" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;0.4;0.8" dur="3s" repeatCount="indefinite"/>
+      Vision Status: <tspan fill="#7209b7">Analyzing</tspan>
+    </text>
+    <text x="500" y="550" font-family="Arial, sans-serif" font-size="14" fill="#7209b7" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;0.4;0.8" dur="3s" repeatCount="indefinite" begin="1s"/>
+      Future Modeling: <tspan fill="#3a0ca3">Active</tspan>
+    </text>
+  </g>
+</svg>

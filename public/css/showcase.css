@@ -1,0 +1,303 @@
+/* Showcase Page Styles */
+
+body
+{
+    background: #f8f9fa;
+}
+
+
+.case-studies-grid
+{
+    padding: 40px 0 60px 0;
+    background: #f8f9fa;
+    position: relative;
+    z-index: 1;
+}
+
+.grid
+{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.case-study-item
+{
+    display: flex;
+    /* height: 500px; */
+    
+}
+
+.case-study-card
+{
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(67, 97, 238, 0.07);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
+    width: 100%;
+    /* height: 400px; */
+}
+
+.case-study-card:hover
+{
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 8px 32px rgba(67, 97, 238, 0.13);
+}
+
+.case-study-image
+{
+    position: relative;
+    width: 100%;
+    height: 220px; /* Increased height for better visual */
+    overflow: hidden; /* Ensure image doesn't overflow */
+    background: #e0e7ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.case-study-image img
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.case-study-image .overlay
+{
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+}
+
+.case-study-details
+{
+    padding: 24px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-grow: 1; /* Allow details section to grow */
+    height: 400px;
+}
+
+.industry
+{
+    font-size: 0.95rem;
+    color: #7209b7;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.case-study-details h3
+{
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.case-study-details p
+{
+    color: #444;
+    font-size: 1.05rem;
+    margin-bottom: 10px;
+}
+
+.tech-stack
+{
+    margin-top: 10px;
+    font-size: 0.95rem;
+    color: #6c757d;
+}
+
+.tech-tags
+{
+    margin-top: 4px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tech-tag
+{
+    background: #e0e7ff;
+    color: #4361ee;
+    border-radius: 12px;
+    padding: 2px 10px;
+    font-size: 0.92rem;
+}
+
+@media (max-width: 768px)
+{
+    .grid
+    {
+        grid-template-columns: 1fr;
+    }
+
+    .case-study-image
+    {
+        height: 120px;
+    }
+}
+
+.particles-container
+{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Interactive Demo Section */
+.interactive-demo {
+    padding: 80px 0;
+    background: #f8f9fa;
+    position: relative;
+    z-index: 1;
+}
+
+.interactive-demo .section-header {
+    margin-bottom: 60px;
+}
+
+.demo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.demo-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 6px 20px rgba(67, 97, 238, 0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.demo-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(67, 97, 238, 0.15);
+}
+
+.demo-preview {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(45deg, #e0e7ff, #f0e7ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.demo-preview img {
+    max-width: 70%;
+    max-height: 160px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.demo-card:hover .demo-preview img {
+    transform: scale(1.05);
+}
+
+.demo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(67, 97, 238, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.demo-card:hover .demo-overlay {
+    opacity: 1;
+}
+
+.demo-overlay span {
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.demo-content {
+    padding: 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.demo-content h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--dark);
+}
+
+.demo-content p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.demo-content .btn {
+    width: 100%;
+    padding: 12px 0;
+    font-size: 1.05rem;
+    cursor: pointer;
+}
+
+@media (max-width: 992px) {
+    .interactive-demo {
+        padding: 60px 0;
+    }
+
+    .demo-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+    }
+
+    .demo-content h3 {
+        font-size: 1.4rem;
+    }
+
+    .demo-content p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .interactive-demo {
+        padding: 40px 0;
+    }
+
+    .demo-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .demo-preview {
+        height: 180px;
+    }
+}
