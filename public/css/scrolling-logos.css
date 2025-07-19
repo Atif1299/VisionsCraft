@@ -1,0 +1,61 @@
+.scrolling-logos {
+    overflow: hidden;
+    padding: 100px 0;
+    background: #f8f9fa;
+    white-space: nowrap;
+    position: relative;
+}
+
+.scrolling-logos:before,
+.scrolling-logos:after {
+    position: absolute;
+    top: 0;
+    width: 450px;
+    height: 100%;
+    content: "";
+    z-index: 2;
+}
+
+.scrolling-logos:before {
+    left: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0), #f8f9fa);
+}
+
+.scrolling-logos:after {
+    right: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), #f8f9fa);
+}
+
+.scrolling-logos .logos-slide {
+    display: inline-block;
+    animation: 25s slide infinite linear;
+    width: 100%;
+}
+
+.scrolling-logos .logos-slide img {
+    height: 70px;
+    margin: 0 60px;
+}
+
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.scrolling-logos.home-scrolling-logos .logos-slide img {
+    transition: all 0.3s ease-in-out;
+}
+
+.scrolling-logos.home-scrolling-logos:hover .logos-slide {
+    animation-play-state: paused;
+}
+
+.scrolling-logos.home-scrolling-logos .logos-slide img:hover {
+    filter: grayscale(100%);
+    opacity: 0.5;
+    transform: scale(0.9);
+}

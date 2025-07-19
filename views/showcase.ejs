@@ -1,4 +1,4 @@
-<%- include('partials/header', {currentPage: currentPage, description: description, additionalCSS: ['/css/animations.css', '/css/showcase.css']}) %>
+<%- include('partials/header', {currentPage: currentPage, description: description, additionalCSS: ['/css/animations.css', '/css/showcase.css', '/css/project-popup.css']}) %>
         <section class="services-hero">
             <div class="container">
                 <div class="services-hero-content">
@@ -17,10 +17,10 @@
             <div class="container">
                 <div class="filter-controls">
                     <button class="filter-btn active" data-filter="all">All Projects</button>
-                    <button class="filter-btn" data-filter="machine-learning">Machine Learning</button>
-                    <button class="filter-btn" data-filter="computer-vision">Computer Vision</button>
+                    <button class="filter-btn" data-filter="agentic-ai">Agentic AI</button>
+                    <button class="filter-btn" data-filter="generative-ai">Generative AI</button>
+                    <button class="filter-btn" data-filter="ai-automation">AI Automation</button>
                     <button class="filter-btn" data-filter="nlp">Natural Language Processing</button>
-                    <button class="filter-btn" data-filter="predictive-analytics">Predictive Analytics</button>
                 </div>
                 <!-- <div id="particles-background" class="particles-container"></div> -->
             </div>
@@ -30,146 +30,166 @@
             <div class="container">
                 <div class="grid">
                     <!-- Case Study 1 -->
-                    <div class="case-study-item" data-category="predictive-analytics">
+                    <div class="case-study-item" data-category="agentic-ai">
                         <div class="case-study-card">
                             <div class="case-study-image">
-                                <img src="images/Use Cases/inventory.jpeg" alt="Retail AI Case Study">
+                                <img src="images/Use Cases/inventory.jpeg" alt="Agentic AI Case Study">
                                 <div class="overlay">
-                                    <a href="case-study-retail.html" class="btn btn-primary">View Details</a>
+                                    <a href="#" class="btn btn-primary">View Details</a>
                                 </div>
                             </div>
-                            <div class="case-study-details">
-                                <span class="industry">Retail</span>
-                                <h3>Inventory Optimization System</h3>
-                                <p>Reduced stockouts by 37% and holding costs by 22% through predictive inventory management.</p>
-                                <div class="tech-stack">
-                                    <span>Technologies:</span>
-                                    <div class="tech-tags">
-                                        <span class="tech-tag">TensorFlow</span>
-                                        <span class="tech-tag">Python</span>
-                                        <span class="tech-tag">Time Series Analysis</span>
-                                    </div>
+                            <div class="case-study-content">
+                                <span class="industry">E-commerce</span>
+                                <h3>Autonomous Customer Support Agent</h3>
+                                <p>An agentic AI system that handles customer queries, processes returns, and provides personalized recommendations.</p>
+
+                                <div class="tech-icons">
+                                    <img src="/tech_icons/crewai-color.svg" alt="CrewAI">
                                 </div>
+                            </div>
+                        </div>
+                        <div class="project-details-hidden" style="display: none;">
+                            <p>Reduced customer support tickets by 70% and increased customer satisfaction by 40%.</p>
+                            <div class="tech-tags">
+                                <span class="tech-tag">CrewAI</span>
+                                <span class="tech-tag">LangChain</span>
+                                <span class="tech-tag">Python</span>
                             </div>
                         </div>
                     </div>
                     <!-- Case Study 2 -->
-                    <div class="case-study-item" data-category="machine-learning">
+                    <div class="case-study-item" data-category="generative-ai">
                         <div class="case-study-card">
                             <div class="case-study-image">
-                                <img src="images/Use Cases/patient.png" alt="Healthcare AI Case Study">
+                                <img src="images/Use Cases/patient.png" alt="Generative AI Case Study">
                                 <div class="overlay">
-                                    <a href="case-study-healthcare.html" class="btn btn-primary">View Details</a>
+                                    <a href="#" class="btn btn-primary">View Details</a>
                                 </div>
                             </div>
-                            <div class="case-study-details">
-                                <span class="industry">Healthcare</span>
-                                <h3>Patient Outcome Prediction</h3>
-                                <p>Improved treatment planning accuracy by 42% using ML models trained on anonymized patient data.</p>
-                                <div class="tech-stack">
-                                    <span>Technologies:</span>
-                                    <div class="tech-tags">
-                                        <span class="tech-tag">Scikit-learn</span>
-                                        <span class="tech-tag">R</span>
-                                        <span class="tech-tag">Random Forest</span>
-                                    </div>
+                            <div class="case-study-content">
+                                <span class="industry">Marketing</span>
+                                <h3>AI-Powered Content Creation</h3>
+                                <p>A generative AI solution that automates the creation of blog posts, social media updates, and email campaigns.</p>
+
+                                <div class="tech-icons">
+                                    <img src="/tech_icons/huggingface-color.png" alt="Hugging Face">
                                 </div>
+                            </div>
+                        </div>
+                        <div class="project-details-hidden" style="display: none;">
+                            <p>Increased content output by 500% and reduced content creation costs by 60%.</p>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Hugging Face</span>
+                                <span class="tech-tag">Transformers</span>
+                                <span class="tech-tag">Python</span>
                             </div>
                         </div>
                     </div>
                     <!-- Case Study 3 -->
-                    <div class="case-study-item" data-category="machine-learning">
+                    <div class="case-study-item" data-category="ai-automation">
                         <div class="case-study-card">
                             <div class="case-study-image">
-                                <img src="images/Use Cases/fraud-detection-02.jpg" alt="Finance AI Case Study">
+                                <img src="images/Use Cases/fraud-detection-02.jpg" alt="AI Automation Case Study">
                                 <div class="overlay">
-                                    <a href="case-study-finance.html" class="btn btn-primary">View Details</a>
+                                    <a href="#" class="btn btn-primary">View Details</a>
                                 </div>
                             </div>
-                            <div class="case-study-details">
+                            <div class="case-study-content">
                                 <span class="industry">Finance</span>
-                                <h3>Fraud Detection System</h3>
-                                <p>Reduced fraudulent transactions by 89% while decreasing false positives by 63%.</p>
-                                <div class="tech-stack">
-                                    <span>Technologies:</span>
-                                    <div class="tech-tags">
-                                        <span class="tech-tag">XGBoost</span>
-                                        <span class="tech-tag">Python</span>
-                                        <span class="tech-tag">Anomaly Detection</span>
-                                    </div>
+                                <h3>Automated Financial Reporting</h3>
+                                <p>An AI automation system that extracts data from multiple sources, generates financial reports, and identifies key insights.</p>
+                                <div class="tech-icons">
+                                     <img src="/tech_icons/n8n-color.svg" alt="n8n">
                                 </div>
+                            </div>
+                        </div>
+                        <div class="project-details-hidden" style="display: none;">
+                            <p>Reduced report generation time by 90% and improved data accuracy by 99%.</p>
+                            <div class="tech-tags">
+                                <span class="tech-tag">n8n</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Automation</span>
                             </div>
                         </div>
                     </div>
                     <!-- Case Study 4 -->
-                    <div class="case-study-item" data-category="computer-vision">
-                        <div class="case-study-card">
-                            <div class="case-study-image">
-                                <img src="images/case-study-4.svg" alt="Manufacturing AI Case Study">
-                                <div class="overlay">
-                                    <a href="case-study-manufacturing.html" class="btn btn-primary">View Details</a>
-                                </div>
-                            </div>
-                            <div class="case-study-details">
-                                <span class="industry">Manufacturing</span>
-                                <h3>Quality Control Vision System</h3>
-                                <p>Automated defect detection with 99.7% accuracy, reducing quality control costs by 45%.</p>
-                                <div class="tech-stack">
-                                    <span>Technologies:</span>
-                                    <div class="tech-tags">
-                                        <span class="tech-tag">PyTorch</span>
-                                        <span class="tech-tag">OpenCV</span>
-                                        <span class="tech-tag">CNN</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Case Study 5 -->
                     <div class="case-study-item" data-category="nlp">
                         <div class="case-study-card">
                             <div class="case-study-image">
                                 <img src="images/case-study-5.svg" alt="Customer Service AI Case Study">
                                 <div class="overlay">
-                                    <a href="case-study-customer-service.html" class="btn btn-primary">View Details</a>
+                                    <a href="#" class="btn btn-primary">View Details</a>
                                 </div>
                             </div>
-                            <div class="case-study-details">
+                            <div class="case-study-content">
                                 <span class="industry">Customer Service</span>
                                 <h3>Intelligent Support Chatbot</h3>
-                                <p>Resolved 78% of customer inquiries without human intervention, improving response time by 92%.</p>
-                                <div class="tech-stack">
-                                    <span>Technologies:</span>
-                                    <div class="tech-tags">
-                                        <span class="tech-tag">BERT</span>
-                                        <span class="tech-tag">Rasa</span>
-                                        <span class="tech-tag">NLP</span>
-                                    </div>
+                                <p>Our NLP-powered chatbot system resolved 78% of customer inquiries without human intervention, improving response time by 92%.</p>
+                                <div class="tech-icons">
+                                    <img src="/tech_icons/huggingface-color.png" alt="BERT">
                                 </div>
+                            </div>
+                        </div>
+                        <div class="project-details-hidden" style="display: none;">
+                            <p>Resolved 78% of customer inquiries without human intervention, improving response time by 92%.</p>
+                            <div class="tech-tags">
+                                <span class="tech-tag">BERT</span>
+                                <span class="tech-tag">Rasa</span>
+                                <span class="tech-tag">NLP</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Case Study 5 -->
+                    <div class="case-study-item" data-category="generative-ai">
+                        <div class="case-study-card">
+                            <div class="case-study-image">
+                                <img src="images/case-study-4.svg" alt="Generative AI Case Study">
+                                <div class="overlay">
+                                    <a href="#" class="btn btn-primary">View Details</a>
+                                </div>
+                            </div>
+                            <div class="case-study-content">
+                                <span class="industry">Creative</span>
+                                <h3>AI-Powered Design Tool</h3>
+                                <p>A generative AI tool that creates unique logos, branding assets, and marketing materials based on user prompts.</p>
+                                <div class="tech-icons">
+                                    <img src="/tech_icons/figma.webp" alt="Figma">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-details-hidden" style="display: none;">
+                            <p>Reduced design time by 80% and enabled the creation of thousands of unique design assets.</p>
+                            <div class="tech-tags">
+                                <span class="tech-tag">GANs</span>
+                                <span class="tech-tag">PyTorch</span>
+                                <span class="tech-tag">Creative AI</span>
                             </div>
                         </div>
                     </div>
                     <!-- Case Study 6 -->
-                    <div class="case-study-item" data-category="predictive-analytics">
+                    <div class="case-study-item" data-category="agentic-ai">
                         <div class="case-study-card">
                             <div class="case-study-image">
-                                <img src="images/case-study-6.svg" alt="Energy AI Case Study">
+                                <img src="images/case-study-6.svg" alt="Agentic AI Case Study">
                                 <div class="overlay">
-                                    <a href="case-study-energy.html" class="btn btn-primary">View Details</a>
+                                    <a href="#" class="btn btn-primary">View Details</a>
                                 </div>
                             </div>
-                            <div class="case-study-details">
-                                <span class="industry">Energy</span>
-                                <h3>Predictive Maintenance System</h3>
-                                <p>Reduced equipment downtime by 57% and maintenance costs by 32% through early failure prediction.</p>
-                                <div class="tech-stack">
-                                    <span>Technologies:</span>
-                                    <div class="tech-tags">
-                                        <span class="tech-tag">IoT</span>
-                                        <span class="tech-tag">Azure ML</span>
-                                        <span class="tech-tag">Time Series</span>
-                                    </div>
+                            <div class="case-study-content">
+                                <span class="industry">Logistics</span>
+                                <h3>Autonomous Supply Chain Agent</h3>
+                                <p>An agentic AI system that optimizes routes, manages inventory, and predicts demand in real-time.</p>
+                                <div class="tech-icons">
+                                    <img src="/tech_icons/langchain-color.svg" alt="LangChain">
                                 </div>
+                            </div>
+                        </div>
+                        <div class="project-details-hidden" style="display: none;">
+                            <p>Reduced shipping costs by 25% and improved delivery times by 40%.</p>
+                            <div class="tech-tags">
+                                <span class="tech-tag">LangChain</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Optimization</span>
                             </div>
                         </div>
                     </div>
@@ -189,41 +209,41 @@
                 <div class="demo-grid">
                     <div class="demo-card">
                         <div class="demo-preview">
-                            <img src="images/demo-1.svg" alt="Sentiment Analysis Demo">
+                            <img src="images/demo-1.svg" alt="Agentic AI Demo">
                             <div class="demo-overlay">
                                 <span>Try It</span>
                             </div>
                         </div>
                         <div class="demo-content">
-                            <h3>Sentiment Analysis</h3>
-                            <p>See how our NLP models analyze text sentiment in real-time.</p>
-                            <a href="demos/sentiment-analysis.html" class="btn btn-secondary">Launch Demo</a>
+                            <h3>Agentic AI</h3>
+                            <p>Interact with an autonomous AI agent and see how it completes complex tasks.</p>
+                            <a href="demos/agentic-ai.html" class="btn btn-secondary">Launch Demo</a>
                         </div>
                     </div>
                     <div class="demo-card">
                         <div class="demo-preview">
-                            <img src="images/demo-2.svg" alt="Image Recognition Demo">
+                            <img src="images/demo-2.svg" alt="Generative AI Demo">
                             <div class="demo-overlay">
                                 <span>Try It</span>
                             </div>
                         </div>
                         <div class="demo-content">
-                            <h3>Image Recognition</h3>
-                            <p>Upload an image and watch our computer vision model identify objects.</p>
-                            <a href="demos/image-recognition.html" class="btn btn-secondary">Launch Demo</a>
+                            <h3>Generative AI</h3>
+                            <p>Generate text, images, and code with our cutting-edge generative models.</p>
+                            <a href="demos/generative-ai.html" class="btn btn-secondary">Launch Demo</a>
                         </div>
                     </div>
                     <div class="demo-card">
                         <div class="demo-preview">
-                            <img src="images/demo-3.svg" alt="Predictive Analytics Demo">
+                            <img src="images/demo-3.svg" alt="AI Automation Demo">
                             <div class="demo-overlay">
                                 <span>Try It</span>
                             </div>
                         </div>
                         <div class="demo-content">
-                            <h3>Predictive Analytics</h3>
-                            <p>Explore how our models forecast trends based on historical data.</p>
-                            <a href="demos/predictive-analytics.html" class="btn btn-secondary">Launch Demo</a>
+                            <h3>AI Automation</h3>
+                            <p>See how AI can automate repetitive tasks and streamline your business processes.</p>
+                            <a href="demos/ai-automation.html" class="btn btn-secondary">Launch Demo</a>
                         </div>
                     </div>
                 </div>
@@ -239,4 +259,4 @@
                 </div>
             </div>
         </section>
-<%- include('partials/footer', {additionalScripts: ['https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js', '/js/showcase.js']}) %>
+<%- include('partials/footer', {additionalScripts: ['/js/project-popup.js']}) %>

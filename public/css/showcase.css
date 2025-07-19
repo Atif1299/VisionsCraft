@@ -75,14 +75,24 @@ body
     right: 12px;
 }
 
-.case-study-details
-{
-    padding: 24px 20px 20px 20px;
+.case-study-content {
+    padding: 24px;
+    flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    flex-grow: 1; /* Allow details section to grow */
-    height: 400px;
+    justify-content: space-between;
+}
+
+.case-study-content .tech-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.case-study-content .tech-icons img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
 }
 
 .industry
@@ -93,43 +103,20 @@ body
     margin-bottom: 6px;
 }
 
-.case-study-details h3
-{
-    font-size: 1.4rem;
+.case-study-content h3 {
+    font-size: 1.2rem;
     font-weight: 700;
     margin-bottom: 10px;
+    color: var(--dark);
 }
 
-.case-study-details p
-{
-    color: #444;
-    font-size: 1.05rem;
-    margin-bottom: 10px;
+
+.case-study-content .tech-icons img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
 }
 
-.tech-stack
-{
-    margin-top: 10px;
-    font-size: 0.95rem;
-    color: #6c757d;
-}
-
-.tech-tags
-{
-    margin-top: 4px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-}
-
-.tech-tag
-{
-    background: #e0e7ff;
-    color: #4361ee;
-    border-radius: 12px;
-    padding: 2px 10px;
-    font-size: 0.92rem;
-}
 
 @media (max-width: 768px)
 {

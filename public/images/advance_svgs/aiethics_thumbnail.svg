@@ -1,0 +1,186 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" width="600" height="320">
+  <defs>
+    <!-- Professional Color Gradients -->
+    <linearGradient id="backgroundGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#e2e8f0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#cbd5e1;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#64748b;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#475569;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#334155;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="softAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#1e40af;stop-opacity:0.6" />
+    </linearGradient>
+    
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.1" />
+      <stop offset="70%" style="stop-color:#1e40af;stop-opacity:0.05" />
+      <stop offset="100%" style="stop-color:#1e3a8a;stop-opacity:0.02" />
+    </radialGradient>
+    
+    <!-- Filters -->
+    <filter id="subtleShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feOffset dx="2" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#1e293b" flood-opacity="0.1"/>
+      <feComposite in2="offsetBlur" operator="in"/>
+      <feMerge> 
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Grid Pattern -->
+    <pattern id="professionalGrid" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#64748b" stroke-width="0.5" opacity="0.1"/>
+      <circle cx="30" cy="30" r="1" fill="#64748b" opacity="0.08"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="600" height="320" fill="url(#backgroundGradient)"/>
+  
+  <!-- Subtle Grid -->
+  <rect width="600" height="320" fill="url(#professionalGrid)"/>
+  
+  <!-- Central Glow Effect -->
+  <ellipse cx="300" cy="160" rx="250" ry="140" fill="url(#centerGlow)">
+    <animate attributeName="opacity" values="0.8;1;0.8" dur="6s" repeatCount="indefinite"/>
+  </ellipse>
+  
+  <!-- Left Side - AI Symbol -->
+  <g transform="translate(150,160)">
+    <!-- AI Brain Circuit -->
+    <circle r="50" fill="none" stroke="url(#accentGradient)" stroke-width="2" opacity="0.4" filter="url(#subtleShadow)">
+      <animate attributeName="stroke-dasharray" values="0,314;157,157;314,0;0,314" dur="8s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Neural Network Nodes -->
+    <g fill="url(#accentGradient)" opacity="0.7">
+      <circle cx="-20" cy="-15" r="3">
+        <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="20" cy="-15" r="3">
+        <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite" begin="0.3s"/>
+      </circle>
+      <circle cx="-25" cy="15" r="3">
+        <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite" begin="0.6s"/>
+      </circle>
+      <circle cx="25" cy="15" r="3">
+        <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite" begin="0.9s"/>
+      </circle>
+      <circle cx="0" cy="20" r="4" fill="url(#softAccent)">
+        <animate attributeName="r" values="4;5;4" dur="3s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+    
+    <!-- Connections -->
+    <g stroke="url(#accentGradient)" stroke-width="1.5" opacity="0.5" fill="none">
+      <path d="M-20,-15 L20,-15 M-20,-15 L-25,15 M20,-15 L25,15 M-25,15 L0,20 M25,15 L0,20">
+        <animate attributeName="opacity" values="0.5;0.8;0.5" dur="4s" repeatCount="indefinite"/>
+      </path>
+    </g>
+  </g>
+  
+  <!-- Center - Balance/Ethics Symbol -->
+  <g transform="translate(300,160)">
+    <!-- Balance Scale Base -->
+    <rect x="-2" y="30" width="4" height="25" fill="url(#accentGradient)" opacity="0.8"/>
+    <ellipse cx="0" cy="55" rx="15" ry="3" fill="url(#accentGradient)" opacity="0.6"/>
+    
+    <!-- Balance Beam -->
+    <line x1="-40" y1="20" x2="40" y2="20" stroke="url(#accentGradient)" stroke-width="3" opacity="0.8"/>
+    <circle cx="0" cy="20" r="4" fill="url(#accentGradient)" opacity="0.9"/>
+    
+    <!-- Left Scale - Innovation -->
+    <g transform="translate(-35,20)">
+      <rect x="-12" y="5" width="24" height="3" fill="url(#accentGradient)" opacity="0.7" rx="2"/>
+      <line x1="-12" y1="5" x2="-8" y2="0" stroke="url(#accentGradient)" stroke-width="1.5" opacity="0.8"/>
+      <line x1="12" y1="5" x2="8" y2="0" stroke="url(#accentGradient)" stroke-width="1.5" opacity="0.8"/>
+      <!-- Innovation Icon -->
+      <circle cx="0" cy="12" r="8" fill="none" stroke="url(#softAccent)" stroke-width="2" opacity="0.6"/>
+      <path d="M-4,9 L0,15 L4,9" fill="url(#softAccent)" opacity="0.7"/>
+    </g>
+    
+    <!-- Right Scale - Ethics -->
+    <g transform="translate(35,20)">
+      <rect x="-12" y="5" width="24" height="3" fill="url(#accentGradient)" opacity="0.7" rx="2"/>
+      <line x1="-12" y1="5" x2="-8" y2="0" stroke="url(#accentGradient)" stroke-width="1.5" opacity="0.8"/>
+      <line x1="12" y1="5" x2="8" y2="0" stroke="url(#accentGradient)" stroke-width="1.5" opacity="0.8"/>
+      <!-- Ethics Shield -->
+      <path d="M0,8 L-6,12 L-6,18 L0,22 L6,18 L6,12 Z" fill="none" stroke="url(#softAccent)" stroke-width="2" opacity="0.6"/>
+      <path d="M-3,15 L-1,17 L4,12" stroke="url(#softAccent)" stroke-width="2" fill="none" opacity="0.8"/>
+    </g>
+  </g>
+  
+  <!-- Right Side - Framework Structure -->
+  <g transform="translate(450,160)">
+    <!-- Framework Grid -->
+    <g stroke="url(#accentGradient)" stroke-width="2" fill="none" opacity="0.5">
+      <rect x="-25" y="-25" width="50" height="50" rx="4">
+        <animate attributeName="opacity" values="0.5;0.7;0.5" dur="5s" repeatCount="indefinite"/>
+      </rect>
+      <line x1="-25" y1="0" x2="25" y2="0"/>
+      <line x1="0" y1="-25" x2="0" y2="25"/>
+    </g>
+    
+    <!-- Framework Points -->
+    <g fill="url(#softAccent)" opacity="0.8">
+      <circle cx="-25" cy="-25" r="3">
+        <animate attributeName="r" values="3;4;3" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="25" cy="-25" r="3">
+        <animate attributeName="r" values="3;4;3" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+      </circle>
+      <circle cx="-25" cy="25" r="3">
+        <animate attributeName="r" values="3;4;3" dur="2s" repeatCount="indefinite" begin="1s"/>
+      </circle>
+      <circle cx="25" cy="25" r="3">
+        <animate attributeName="r" values="3;4;3" dur="2s" repeatCount="indefinite" begin="1.5s"/>
+      </circle>
+    </g>
+  </g>
+  
+  <!-- Title Section -->
+  <g transform="translate(300,80)">
+    <!-- Main Title -->
+    <text x="0" y="0" font-family="'Segoe UI', Arial, sans-serif" font-size="36" font-weight="700" 
+          fill="url(#accentGradient)" text-anchor="middle" filter="url(#subtleShadow)">
+      AI Ethics Framework
+    </text>
+    
+    <!-- Subtitle -->
+    <text x="0" y="30" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="400" 
+          fill="#64748b" text-anchor="middle" opacity="0.9">
+      Balancing Innovation with Responsibility
+    </text>
+  </g>
+  
+  <!-- Decorative Elements -->
+  <g id="decorativeElements" opacity="0.2">
+    <!-- Corner Accents -->
+    <path d="M0,0 L40,0 L40,2 L2,2 L2,40 L0,40 Z" fill="url(#accentGradient)"/>
+    <path d="M600,0 L560,0 L560,2 L598,2 L598,40 L600,40 Z" fill="url(#accentGradient)"/>
+    <path d="M0,320 L40,320 L40,318 L2,318 L2,280 L0,280 Z" fill="url(#accentGradient)"/>
+    <path d="M600,320 L560,320 L560,318 L598,318 L598,280 L600,280 Z" fill="url(#accentGradient)"/>
+  </g>
+  
+  <!-- Floating Particles -->
+  <g id="floatingParticles" opacity="0.3">
+    <circle cx="80" cy="60" r="2" fill="url(#softAccent)">
+      <animate attributeName="cy" values="60;40;60" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="520" cy="260" r="2" fill="url(#softAccent)">
+      <animate attributeName="cy" values="260;280;260" dur="4s" repeatCount="indefinite" begin="1s"/>
+    </circle>
+    <circle cx="100" cy="220" r="1.5" fill="url(#accentGradient)">
+      <animate attributeName="cx" values="100;120;100" dur="5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>

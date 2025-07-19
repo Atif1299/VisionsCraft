@@ -1,4 +1,4 @@
-<%- include('partials/header') %>
+<%- include('partials/header', {additionalCSS: ['/css/scrolling-logos.css', '/css/minimalist-testimonials.css']}) %>
         <!-- Hero Section -->
         <section class="services-hero">
             <div class="container">
@@ -20,15 +20,15 @@
                         <div class="service-icon">
                             <i class="fas fa-robot"></i>
                         </div>
-                        <h3>AI Strategy Consulting</h3>
+                        <h3>AI Strategies Consultations </h3>
                         <p>Strategic guidance to integrate AI into your business operations for maximum impact and ROI.</p>
                     </div>
                     <div class="service-card" data-aos="fade-up" data-aos-delay="100">
                         <div class="service-icon">
-                            <i class="fas fa-brain"></i>
+                            <i class="fas fa-user-secret"></i>
                         </div>
-                        <h3>Machine Learning Solutions</h3>
-                        <p>Custom ML models that learn from your data to automate processes and uncover valuable insights.</p>
+                        <h3>Agentic AI</h3>
+                        <p>Autonomous AI agents that can reason, plan, and execute complex tasks to achieve your business goals.</p>
                     </div>
                     <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                         <div class="service-icon">
@@ -39,24 +39,62 @@
                     </div>
                     <div class="service-card" data-aos="fade-up" data-aos-delay="300">
                         <div class="service-icon">
-                            <i class="fas fa-chart-line"></i>
+                            <i class="fas fa-cogs"></i>
                         </div>
-                        <h3>Predictive Analytics</h3>
-                        <p>Advanced analytics that forecast trends, identify opportunities, and mitigate risks before they emerge.</p>
+                        <h3>Generative AI</h3>
+                        <p>Harness the power of generative models to create, innovate, and automate content and design.</p>
                     </div>
                     <div class="service-card" data-aos="fade-up" data-aos-delay="400">
                         <div class="service-icon">
-                            <i class="fas fa-eye"></i>
+                            <i class="fas fa-tasks"></i>
                         </div>
-                        <h3>Computer Vision</h3>
-                        <p>Image and video analysis solutions for automation, quality control, and enhanced insights.</p>
+                        <h3>AI Automation</h3>
+                        <p>Intelligent automation of business processes to increase efficiency, reduce costs, and scale operations.</p>
                     </div>
                     <div class="service-card" data-aos="fade-up" data-aos-delay="500">
                         <div class="service-icon">
-                            <i class="fas fa-language"></i>
+                            <i class="fas fa-code"></i>
                         </div>
-                        <h3>Natural Language Processing</h3>
-                        <p>Text and speech processing to extract meaning, automate tasks, and improve communication.</p>
+                        <h3>Website Development</h3>
+                        <p>Modern, responsive, and AI-powered websites to give your business a competitive edge.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="how-we-work">
+            <div class="container">
+                <div class="section-heading text-center">
+                    <h2>How We Work</h2>
+                    <p>Our process for delivering impactful AI solutions</p>
+                </div>
+                <div class="process-grid">
+                    <div class="process-step">
+                        <div class="process-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>Discovery</h3>
+                        <p>We start by understanding your business, goals, and challenges to identify the best opportunities for AI.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-icon">
+                            <i class="fas fa-drafting-compass"></i>
+                        </div>
+                        <h3>Strategy</h3>
+                        <p>We develop a customized AI strategy and roadmap that aligns with your business objectives.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Development</h3>
+                        <p>Our team of experts builds and trains the AI models, ensuring they are robust, scalable, and reliable.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3>Deployment</h3>
+                        <p>We integrate the AI solution into your existing systems and provide training and support to ensure a smooth transition.</p>
                     </div>
                 </div>
             </div>
@@ -65,112 +103,96 @@
             <div class="container">
                 <div class="section-heading text-center">
                     <h2>Tech Stack & Tools</h2>
-                    <p>Working with Top Plateforms </p>
-                </div>
-                <div class="partners-grid">
-                    <div class="partner-logo fade-in">
-                        <img src="tech_icons/cassidyai.svg" alt="Partner Logo">
-                    </div>
-                    <div class="partner-logo fade-in">
-                        <img src="tech_icons/figma.webp" alt="Partner Logo">
-                    </div>
-                    <div class="partner-logo fade-in">
-                        <img src="tech_icons/reactlogo (2).png" alt="Partner Logo">
-                    </div>
-                    <div class="partner-logo fade-in">
-                        <img src="tech_icons/tensorflow.png" alt="Partner Logo">
-                    </div>
-                    <div class="partner-logo fade-in">
-                        <img src="tech_icons/huggingface-color.png" alt="Partner Logo">
-                    </div>
-                    <div class="partner-logo fade-in">
-                        <img src="tech_icons/cursor.png" alt="Partner Logo">
-                    </div>
+                    <p>Utilizing Top Platforms</p>
                 </div>
             </div>
+            <section class="scrolling-logos">
+                <div class="logos-slide">
+                    <img src="tech_icons/cassidyai.svg" alt="Cassidy AI">
+                    <img src="tech_icons/crewai-color.svg" alt="Crew AI">
+                    <img src="tech_icons/cursor.png" alt="Cursor">
+                    <img src="tech_icons/fastapi.svg" alt="FastAPI">
+                    <img src="tech_icons/figma.webp" alt="Figma">
+                    <img src="tech_icons/huggingface-color.png" alt="Hugging Face">
+                    <img src="tech_icons/langchain-color.svg" alt="LangChain">
+                    <img src="tech_icons/n8n-color.svg" alt="n8n">
+                </div>
+                <div class="logos-slide">
+                    <img src="tech_icons/cassidyai.svg" alt="Cassidy AI">
+                    <img src="tech_icons/crewai-color.svg" alt="Crew AI">
+                    <img src="tech_icons/cursor.png" alt="Cursor">
+                    <img src="tech_icons/fastapi.svg" alt="FastAPI">
+                    <img src="tech_icons/figma.webp" alt="Figma">
+                    <img src="tech_icons/huggingface-color.png" alt="Hugging Face">
+                    <img src="tech_icons/langchain-color.svg" alt="LangChain">
+                    <img src="tech_icons/n8n-color.svg" alt="n8n">
+                </div>
+             </section>
         </section>
         <!-- Testimonials Section -->
-        <section class="testimonials-section">
+        <section class="testimonial-section">
             <div class="container">
                 <div class="section-heading text-center">
                     <h2>What Our Clients Say</h2>
                     <p>Success stories from organizations we've helped transform</p>
                 </div>
-                <div class="testimonials-slider swiper-container">
-                    <div class="swiper-wrapper">
-                        <div class="testimonial-slide fade-in swiper-slide">
-                            <div class="testimonial-content">
-                                <div class="testimonial-quote">
-                                    <i class="fas fa-quote-left"></i>
-                                    <p>VisionsCraft transformed our customer service operations with their NLP-powered chatbot solution. We've seen a 40% reduction in support tickets and significantly improved customer satisfaction scores. Their team's expertise and collaborative approach made the entire process smooth and effective.</p>
-                                    <i class="fas fa-quote-right"></i>
-                                </div>
-                                <div class="testimonial-author">
-                                    <img src="images/logo1.png" alt="Testimonial Author">
-                                    <div class="author-info">
-                                        <h4>Jennifer Martinez</h4>
-                                        <p>CTO, GlobalTech Solutions</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial-slide fade-in swiper-slide">
-                            <div class="testimonial-content">
-                                <div class="testimonial-quote">
-                                    <i class="fas fa-quote-left"></i>
-                                    <p>The predictive analytics system VisionsCraft built for our supply chain has been a game-changer. We can now forecast demand with 85% accuracy, which has reduced our inventory costs by 18% while improving product availability. Their team's deep understanding of both AI and our industry was impressive.</p>
-                                    <i class="fas fa-quote-right"></i>
-                                </div>
-                                <div class="testimonial-author">
-                                    <img src="images/logo1.png" alt="Testimonial Author">
-                                    <div class="author-info">
-                                        <h4>Robert Chen</h4>
-                                        <p>Supply Chain Director, Nexus Manufacturing</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial-slide fade-in swiper-slide">
-                            <div class="testimonial-content">
-                                <div class="testimonial-quote">
-                                    <i class="fas fa-quote-left"></i>
-                                    <p>Working with VisionsCraft on our computer vision quality control system exceeded our expectations. Not only did they deliver a solution that reduced defect rates by 32%, but they also ensured our team fully understood the technology. Their commitment to knowledge transfer and ongoing support has been invaluable.</p>
-                                    <i class="fas fa-quote-right"></i>
-                                </div>
-                                <div class="testimonial-author">
-                                    <img src="images/logo1.png" alt="Testimonial Author">
-                                    <div class="author-info">
-                                        <h4>Sarah Johnson</h4>
-                                        <p>Head of Operations, Precision Electronics</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="testimonial-container">
+                    <div class="testimonial-content active">
+                        <p class="testimonial-quote">"VisionsCraft transformed our customer service operations with their NLP-powered chatbot solution. We've seen a 40% reduction in support tickets and significantly improved customer satisfaction scores."</p>
+                        <p class="testimonial-author">Jennifer Martinez, <span>CTO, GlobalTech Solutions</span></p>
                     </div>
-                    <div class="testimonial-nav">
-                        <button class="testimonial-prev swiper-button-prev">
-                            <i class="fas fa-arrow-left"></i>
-                        </button>
-                        <div class="testimonial-dots">
-                            <span class="dot active"></span>
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                        </div>
-                        <button class="testimonial-next swiper-button-next">
-                            <i class="fas fa-arrow-right"></i>
-                        </button>
+                    <div class="testimonial-content">
+                        <p class="testimonial-quote">"The Agentic AI solution from VisionsCraft revolutionized our workflow. The AI agents handle complex scheduling and data analysis, freeing up our team to focus on strategic initiatives. We've seen a 50% increase in productivity."</p>
+                        <p class="testimonial-author">Mark Robinson, <span>COO, Innovate Corp</span></p>
+                    </div>
+                    <div class="testimonial-content">
+                        <p class="testimonial-quote">"VisionsCraft's Generative AI platform has been instrumental in our content creation process. We can now generate high-quality articles and marketing copy in a fraction of the time, which has been a huge boost to our marketing efforts."</p>
+                        <p class="testimonial-author">Emily White, <span>Marketing Director, Creative Solutions</span></p>
+                    </div>
+                    <div class="testimonial-navigation">
+                        <button id="prev-testimonial">&larr;</button>
+                        <button id="next-testimonial">&rarr;</button>
                     </div>
                 </div>
             </div>
         </section>
         <!-- CTA Section -->
-        <section class="cta">
+         <section class="cta">
             <div class="container">
                 <div class="cta-content">
-                    <h2>Ready to Transform Your Business with AI?</h2>
-                    <p>Schedule a free consultation with our experts to explore how our AI solutions can address your specific challenges.</p>
+                    <h2>Ready to Build Your AI Solution?</h2>
+                    <p>Let's discuss how our expertise can help you achieve your business goals through innovative AI implementation.</p>
+                    <a href="contact" class="btn btn-primary">Start Your Project</a>
                 </div>
             </div>
         </section>
+        
 
 <%- include('partials/footer') %>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const testimonials = document.querySelectorAll('.testimonial-content');
+    const prevBtn = document.getElementById('prev-testimonial');
+    const nextBtn = document.getElementById('next-testimonial');
+    let currentTestimonial = 0;
+
+    function showTestimonial(index) {
+        testimonials.forEach((testimonial, i) => {
+            testimonial.classList.remove('active');
+            if (i === index) {
+                testimonial.classList.add('active');
+            }
+        });
+    }
+
+    prevBtn.addEventListener('click', function() {
+        currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+        showTestimonial(currentTestimonial);
+    });
+
+    nextBtn.addEventListener('click', function() {
+        currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+        showTestimonial(currentTestimonial);
+    });
+});
+</script>
