@@ -1,0 +1,260 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" width="400" height="240">
+  <defs>
+    <!-- Professional Color Gradients -->
+    <linearGradient id="backgroundGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#e2e8f0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#cbd5e1;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#64748b;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#475569;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#334155;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="creativeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.9" />
+      <stop offset="30%" style="stop-color:#2563eb;stop-opacity:0.8" />
+      <stop offset="60%" style="stop-color:#1e40af;stop-opacity:0.7" />
+      <stop offset="100%" style="stop-color:#1e3a8a;stop-opacity:0.6" />
+    </linearGradient>
+    
+    <linearGradient id="sparkGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#3b82f6;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#2563eb;stop-opacity:0.6" />
+    </linearGradient>
+    
+    <radialGradient id="creativeGlow" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.2" />
+      <stop offset="50%" style="stop-color:#1e40af;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#1e3a8a;stop-opacity:0.05" />
+    </radialGradient>
+    
+    <!-- Filters -->
+    <filter id="subtleShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feOffset dx="2" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#1e293b" flood-opacity="0.15"/>
+      <feComposite in2="offsetBlur" operator="in"/>
+      <feMerge> 
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="creativeGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feFlood flood-color="#3b82f6" flood-opacity="0.3"/>
+      <feComposite in2="coloredBlur" operator="in"/>
+      <feMerge> 
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Creative Pattern -->
+    <pattern id="creativeGrid" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#3b82f6" stroke-width="0.5" opacity="0.08"/>
+      <circle cx="25" cy="25" r="1.5" fill="#3b82f6" opacity="0.1"/>
+      <path d="M15,15 Q25,10 35,15 Q30,25 35,35 Q25,40 15,35 Q20,25 15,15" fill="none" stroke="#3b82f6" stroke-width="0.3" opacity="0.06"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="240" fill="url(#backgroundGradient)"/>
+  
+  <!-- Creative Grid Pattern -->
+  <rect width="400" height="240" fill="url(#creativeGrid)"/>
+  
+  <!-- Central Creative Glow -->
+  <ellipse cx="200" cy="120" rx="160" ry="90" fill="url(#creativeGlow)">
+    <animate attributeName="opacity" values="0.8;1;0.8" dur="5s" repeatCount="indefinite"/>
+  </ellipse>
+  
+  <!-- Central Generator Core -->
+  <g transform="translate(200,120)">
+    <!-- Main Generation Core -->
+    <circle r="40" fill="none" stroke="url(#creativeGradient)" stroke-width="3" opacity="0.8" filter="url(#creativeGlow)">
+      <animate attributeName="stroke-dasharray" values="0,251;125,125;251,0;0,251" dur="8s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Inner Creative Sphere -->
+    <circle r="25" fill="url(#creativeGradient)" opacity="0.2">
+      <animate attributeName="opacity" values="0.2;0.4;0.2" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Creative Spark Center -->
+    <g fill="url(#sparkGradient)" opacity="0.9">
+      <circle cx="0" cy="0" r="4" filter="url(#creativeGlow)">
+        <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <!-- Rotating creative elements -->
+      <g>
+        <animateTransform attributeName="transform" type="rotate" values="0;360" dur="10s" repeatCount="indefinite"/>
+        <circle cx="12" cy="0" r="2" opacity="0.7">
+          <animate attributeName="opacity" values="0.7;1;0.7" dur="1.5s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="-12" cy="0" r="2" opacity="0.7">
+          <animate attributeName="opacity" values="0.7;1;0.7" dur="1.5s" repeatCount="indefinite" begin="0.5s"/>
+        </circle>
+        <circle cx="0" cy="12" r="2" opacity="0.7">
+          <animate attributeName="opacity" values="0.7;1;0.7" dur="1.5s" repeatCount="indefinite" begin="1s"/>
+        </circle>
+        <circle cx="0" cy="-12" r="2" opacity="0.7">
+          <animate attributeName="opacity" values="0.7;1;0.7" dur="1.5s" repeatCount="indefinite" begin="1.5s"/>
+        </circle>
+      </g>
+    </g>
+  </g>
+  
+  <!-- Creative Output Elements -->
+  <g id="generatedContent">
+    <!-- Text Generation -->
+    <g transform="translate(80,80)" opacity="0.7">
+      <rect x="-15" y="-8" width="30" height="16" rx="3" fill="url(#creativeGradient)" opacity="0.3"/>
+      <line x1="-10" y1="-3" x2="10" y2="-3" stroke="url(#accentGradient)" stroke-width="1.5" opacity="0.8"/>
+      <line x1="-10" y1="0" x2="5" y2="0" stroke="url(#accentGradient)" stroke-width="1.5" opacity="0.6"/>
+      <line x1="-10" y1="3" x2="8" y2="3" stroke="url(#accentGradient)" stroke-width="1.5" opacity="0.7"/>
+      <g opacity="0.8">
+        <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+      </g>
+    </g>
+    
+    <!-- Image Generation -->
+    <g transform="translate(320,80)" opacity="0.7">
+      <rect x="-15" y="-10" width="30" height="20" rx="2" fill="none" stroke="url(#creativeGradient)" stroke-width="2" opacity="0.8"/>
+      <circle cx="-5" cy="-3" r="3" fill="url(#sparkGradient)" opacity="0.6"/>
+      <path d="M-8,5 L0,0 L8,5 L5,8 L-5,8 Z" fill="url(#creativeGradient)" opacity="0.5"/>
+      <g opacity="0.8">
+        <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite" begin="1s"/>
+      </g>
+    </g>
+    
+    <!-- Code Generation -->
+    <g transform="translate(80,160)" opacity="0.7">
+      <rect x="-15" y="-8" width="30" height="16" rx="3" fill="none" stroke="url(#creativeGradient)" stroke-width="2" opacity="0.8"/>
+      <text x="0" y="2" font-family="monospace" font-size="8" fill="url(#accentGradient)" text-anchor="middle" opacity="0.8">&lt;/&gt;</text>
+      <g opacity="0.8">
+        <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite" begin="1.5s"/>
+      </g>
+    </g>
+    
+    <!-- Audio/Music Generation -->
+    <g transform="translate(320,160)" opacity="0.7">
+      <g stroke="url(#creativeGradient)" stroke-width="2" fill="none" opacity="0.8">
+        <path d="M-12,-5 Q-8,-8 -4,-5 Q0,-2 4,-5 Q8,-8 12,-5"/>
+        <path d="M-12,0 Q-8,-3 -4,0 Q0,3 4,0 Q8,-3 12,0"/>
+        <path d="M-12,5 Q-8,2 -4,5 Q0,8 4,5 Q8,2 12,5"/>
+      </g>
+      <g opacity="0.8">
+        <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite" begin="2s"/>
+      </g>
+    </g>
+  </g>
+  
+  <!-- Creative Flow Lines -->
+  <g stroke="url(#sparkGradient)" stroke-width="2" opacity="0.4" fill="none">
+    <!-- Core to outputs -->
+    <path d="M200,120 Q140,100 80,80">
+      <animate attributeName="opacity" values="0.4;0.7;0.4" dur="4s" repeatCount="indefinite"/>
+    </path>
+    <path d="M200,120 Q260,100 320,80">
+      <animate attributeName="opacity" values="0.4;0.7;0.4" dur="4s" repeatCount="indefinite" begin="0.5s"/>
+    </path>
+    <path d="M200,120 Q140,140 80,160">
+      <animate attributeName="opacity" values="0.4;0.7;0.4" dur="4s" repeatCount="indefinite" begin="1s"/>
+    </path>
+    <path d="M200,120 Q260,140 320,160">
+      <animate attributeName="opacity" values="0.4;0.7;0.4" dur="4s" repeatCount="indefinite" begin="1.5s"/>
+    </path>
+  </g>
+  
+  <!-- Creative Particles -->
+  <g id="creativeParticles" opacity="0.6">
+    <!-- Flowing creative energy -->
+    <circle r="2" fill="url(#sparkGradient)">
+      <animateMotion dur="4s" repeatCount="indefinite">
+        <path d="M200,120 Q140,100 80,80"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="2" fill="url(#sparkGradient)">
+      <animateMotion dur="4s" repeatCount="indefinite" begin="0.8s">
+        <path d="M200,120 Q260,100 320,80"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="2" fill="url(#sparkGradient)">
+      <animateMotion dur="4s" repeatCount="indefinite" begin="1.6s">
+        <path d="M200,120 Q140,140 80,160"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="2" fill="url(#sparkGradient)">
+      <animateMotion dur="4s" repeatCount="indefinite" begin="2.4s">
+        <path d="M200,120 Q260,140 320,160"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="4s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Inspiration Sparks -->
+  <g id="inspirationSparks" opacity="0.8">
+    <g transform="translate(150,70)">
+      <path d="M0,-8 L2,0 L8,0 L3,3 L5,8 L0,5 L-5,8 L-3,3 L-8,0 L-2,0 Z" fill="url(#sparkGradient)" opacity="0.7">
+        <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="rotate" values="0;180;360" dur="6s" repeatCount="indefinite"/>
+      </path>
+    </g>
+    <g transform="translate(250,70)">
+      <path d="M0,-6 L1.5,0 L6,0 L2.5,2.5 L4,6 L0,4 L-4,6 L-2.5,2.5 L-6,0 L-1.5,0 Z" fill="url(#sparkGradient)" opacity="0.6">
+        <animate attributeName="opacity" values="0.6;1;0.6" dur="2.5s" repeatCount="indefinite" begin="0.5s"/>
+        <animateTransform attributeName="transform" type="rotate" values="0;-180;-360" dur="7s" repeatCount="indefinite"/>
+      </path>
+    </g>
+    <g transform="translate(150,170)">
+      <path d="M0,-5 L1,0 L5,0 L2,2 L3,5 L0,3 L-3,5 L-2,2 L-5,0 L-1,0 Z" fill="url(#sparkGradient)" opacity="0.5">
+        <animate attributeName="opacity" values="0.5;0.9;0.5" dur="3s" repeatCount="indefinite" begin="1s"/>
+        <animateTransform attributeName="transform" type="rotate" values="0;360" dur="8s" repeatCount="indefinite"/>
+      </path>
+    </g>
+  </g>
+  
+  <!-- Title Section -->
+  <g transform="translate(200,35)">
+    <text x="0" y="0" font-family="'Segoe UI', Arial, sans-serif" font-size="24" font-weight="700" 
+          fill="url(#accentGradient)" text-anchor="middle" filter="url(#subtleShadow)">
+      Generative AI
+    </text>
+    <text x="0" y="18" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="400" 
+          fill="#64748b" text-anchor="middle" opacity="0.9">
+      Creative Intelligence Unleashed
+    </text>
+  </g>
+  
+  <!-- Decorative Corner Elements -->
+  <g opacity="0.3">
+    <path d="M0,0 L25,0 L25,2 L2,2 L2,25 L0,25 Z" fill="url(#creativeGradient)"/>
+    <path d="M400,0 L375,0 L375,2 L398,2 L398,25 L400,25 Z" fill="url(#creativeGradient)"/>
+    <path d="M0,240 L25,240 L25,238 L2,238 L2,215 L0,215 Z" fill="url(#creativeGradient)"/>
+    <path d="M400,240 L375,240 L375,238 L398,238 L398,215 L400,215 Z" fill="url(#creativeGradient)"/>
+  </g>
+  
+  <!-- Ambient Creative Particles -->
+  <g opacity="0.4">
+    <circle cx="60" cy="50" r="1.5" fill="url(#sparkGradient)">
+      <animate attributeName="cy" values="50;40;50" dur="5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="340" cy="190" r="1.5" fill="url(#sparkGradient)">
+      <animate attributeName="cy" values="190;200;190" dur="5s" repeatCount="indefinite" begin="1s"/>
+    </circle>
+    <circle cx="40" cy="120" r="1" fill="url(#creativeGradient)">
+      <animate attributeName="cx" values="40;50;40" dur="6s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="360" cy="120" r="1" fill="url(#creativeGradient)">
+      <animate attributeName="cx" values="360;350;360" dur="6s" repeatCount="indefinite" begin="2s"/>
+    </circle>
+  </g>
+</svg>
