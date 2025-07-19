@@ -5,6 +5,25 @@ import {
   particleConfigurations,
 } from './particles.js'
 
+// Tech Icon Mapping
+const techIconMap = {
+  CrewAI: '/public/images/icons/crewai-color.svg',
+  LangChain: '/public/images/icons/langchain-color.svg',
+  'Hugging Face': '/public/images/icons/huggingface-color.png',
+  n8n: '/public/images/icons/n8n-color.svg',
+  BERT: '/public/images/icons/huggingface-color.png', // Assuming BERT uses Hugging Face icon
+  Rasa: '/public/images/icons/huggingface-color.png', // Assuming Rasa uses Hugging Face icon
+  GANs: '/public/images/icons/tensorflow.svg', // Placeholder, adjust as needed
+  PyTorch: '/public/images/icons/pytorch logo.png',
+  Figma: '/public/images/icons/figma.webp',
+  Python: '/public/images/icons/fastapi.svg', // Placeholder, adjust as needed
+  Automation: '/public/images/icons/n8n-color.svg', // Placeholder, adjust as needed
+  Optimization: '/public/images/icons/langchain-color.svg', // Placeholder, adjust as needed
+  'Creative AI': '/public/images/icons/figma.webp', // Placeholder, adjust as needed
+  Transformers: '/public/images/icons/huggingface-color.png', // Placeholder, adjust as needed
+  NLP: '/public/images/advance_svgs/nlp.svg', // Placeholder, adjust as needed
+}
+
 // ===== MAIN JAVASCRIPT =====
 
 // Wait for the DOM to be fully loaded

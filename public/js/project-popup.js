@@ -93,88 +93,109 @@ function initProjectPopups() {
   })
 }
 
-function openProjectPopup(card) {
+async function openProjectPopup(card) {
   // Create wave animation effect
   createWaveEffect(card)
 
-  // Get project details from the card
-  const projectTitle = card.querySelector('.case-study-content h3').textContent
-  const projectImage = card.querySelector('.case-study-image img').src
-  const projectDescription = card.querySelector(
-    '.project-details-hidden p'
-  ).textContent
-  const industry = card.querySelector('.industry').textContent
+  const projectId = card.dataset.projectId // Get project ID from data attribute
 
-  // Get tech stack
-  const techTags = Array.from(
-    card.querySelectorAll('.project-details-hidden .tech-tag')
-  ).map((tag) => tag.textContent)
+  if (!projectId) {
+    console.error('Project ID not found for the clicked card.')
+    return
+  }
 
-  // Set popup content
-  const popupOverlay = document.querySelector('.project-popup-overlay')
-  const popupTitle = document.getElementById('popup-title')
-  const popupMedia = document.querySelector('.project-popup-media')
-  const popupDetails = document.querySelector('.project-popup-details')
+  try {
+    const response = await fetch(`/api/projects/${projectId}`)
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`)
+    }
+    const project = await response.json()
 
-  // Set title
-  popupTitle.textContent = projectTitle
+    // Set popup content
+    const popupOverlay = document.querySelector('.project-popup-overlay')
+    const popupTitle = document.getElementById('popup-title')
+    const popupMedia = document.querySelector('.project-popup-media')
+    const popupDetails = document.querySelector('.project-popup-details')
 
-  // Set media content
-  popupMedia.innerHTML = `
-        <div class="carousel-container">
-            <div class="carousel-slides">
-                <div class="carousel-slide active"><img src="${projectImage}" alt="${projectTitle}" class="project-popup-image"></div>
-                <div class="carousel-slide"><img src="https://via.placeholder.com/600x400.png?text=Project+Image+2" alt="${projectTitle}" class="project-popup-image"></div>
-                <div class="carousel-slide"><div class="video-container"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe></div></div>
-            </div>
-            <button class="carousel-nav prev"><</button>
-            <button class="carousel-nav next">></button>
-        </div>
-        <div class="project-source-link">
-            <a href="#" class="btn btn-outline" target="_blank">
-                <i class="fab fa-github"></i>
-                View on GitHub
-            </a>
-        </div>
-    `
+    // Set title
+    popupTitle.textContent = project.title
 
-  // Set details content
-  popupDetails.innerHTML = `
-        <span class="industry">${industry}</span>
-        <h3>${projectTitle}</h3>
-        <p>${projectDescription}</p>
-        
-        <div class="implementation">
-            <h4>Implementation</h4>
-            <p>Our team implemented this solution using state-of-the-art AI techniques and methodologies tailored to the client's specific needs. The project involved data collection, preprocessing, model training, and deployment phases.</p>
-        </div>
-        
-        <div class="tech-stack">
-            <h4>Technologies Used</h4>
-            <div class="tech-tags">
-                ${techTags
-                  .map((tag) => `<span class="tech-tag">${tag}</span>`)
-                  .join('')}
-            </div>
-        </div>
-        
-        <div class="results">
-            <h4>Results & Impact</h4>
-            <ul>
-                <li>Improved operational efficiency by 42%</li>
-                <li>Reduced costs by 27% within the first six months</li>
-                <li>Enhanced customer satisfaction scores by 18%</li>
-                <li>Enabled data-driven decision making across departments</li>
-            </ul>
-        </div>
-    `
+    // Generate carousel slides
+    let carouselSlidesHtml = `<div class="carousel-slide active"><img src="${project.mainImage}" alt="${project.title}" class="project-popup-image"></div>`
+    project.carouselImages.forEach((image) => {
+      carouselSlidesHtml += `<div class="carousel-slide"><img src="${image}" alt="${project.title}" class="project-popup-image"></div>`
+    })
+    project.carouselVideos.forEach((video) => {
+      if (video.type === 'youtube') {
+        carouselSlidesHtml += `<div class="carousel-slide"><div class="video-container"><iframe src="${video.url}" frameborder="0" allowfullscreen></iframe></div></div>`
+      }
+    })
 
-  // Show popup with animation
-  setTimeout(() => {
-    popupOverlay.classList.add('active')
-    document.body.classList.add('no-scroll')
-  }, 300) // Delay to allow wave animation to start
-  initCarousel(popupMedia)
+    // Set media content
+    popupMedia.innerHTML = `
+          <div class="carousel-container">
+              <div class="carousel-slides">
+                  ${carouselSlidesHtml}
+              </div>
+              ${
+                project.carouselImages.length > 0 ||
+                project.carouselVideos.length > 0
+                  ? '<button class="carousel-nav prev"><</button><button class="carousel-nav next">></button>'
+                  : ''
+              }
+          </div>
+          <div class="project-source-link">
+              ${
+                project.githubLink
+                  ? `<a href="${project.githubLink}" class="btn btn-outline" target="_blank">
+                  <i class="fab fa-github"></i>
+                  View on GitHub
+              </a>`
+                  : ''
+              }
+          </div>
+      `
+
+    // Set details content
+    popupDetails.innerHTML = `
+          <span class="industry">${project.industry}</span>
+          <h3>${project.title}</h3>
+          <p>${project.fullDescription}</p>
+          
+          <div class="implementation">
+              <h4>Implementation</h4>
+              <p>${project.implementation}</p>
+          </div>
+          
+          <div class="tech-stack">
+              <h4>Technologies Used</h4>
+              <div class="tech-tags">
+                  ${project.techStack
+                    .map((tag) => `<span class="tech-tag">${tag}</span>`)
+                    .join('')}
+              </div>
+          </div>
+          
+          <div class="results">
+              <h4>Results & Impact</h4>
+              <ul>
+                  ${project.results
+                    .map((result) => `<li>${result}</li>`)
+                    .join('')}
+              </ul>
+          </div>
+      `
+
+    // Show popup with animation
+    setTimeout(() => {
+      popupOverlay.classList.add('active')
+      document.body.classList.add('no-scroll')
+    }, 300) // Delay to allow wave animation to start
+    initCarousel(popupMedia)
+  } catch (error) {
+    console.error('Error fetching project details:', error)
+    // Optionally, display an error message to the user
+  }
 }
 
 function closePopup() {

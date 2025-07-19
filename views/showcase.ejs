@@ -1,4 +1,7 @@
-<%- include('partials/header', {currentPage: currentPage, description: description, additionalCSS: ['/css/animations.css', '/css/showcase.css', '/css/project-popup.css']}) %>
+<%- include('partials/header', 
+    {currentPage: currentPage,
+    description: description, 
+    additionalCSS: ['/css/animations.css', '/css/showcase.css', '/css/project-popup.css']}) %>
         <section class="services-hero">
             <div class="container">
                 <div class="services-hero-content">
@@ -29,170 +32,59 @@
         <section class="case-studies-grid ">
             <div class="container">
                 <div class="grid">
-                    <!-- Case Study 1 -->
-                    <div class="case-study-item" data-category="agentic-ai">
+                    <% projects.forEach(function(project) { %>
+                    <div class="case-study-item" data-category="<%= project.category %>" data-project-id="<%= project._id %>">
                         <div class="case-study-card">
                             <div class="case-study-image">
-                                <img src="images/Use Cases/inventory.jpeg" alt="Agentic AI Case Study">
+                                <img src="<%= project.mainImage %>" alt="<%= project.title %>">
                                 <div class="overlay">
-                                    <a href="#" class="btn btn-primary">View Details</a>
+                                    <a href="#" class="btn btn-primary view-details-btn">View Details</a>
                                 </div>
                             </div>
                             <div class="case-study-content">
-                                <span class="industry">E-commerce</span>
-                                <h3>Autonomous Customer Support Agent</h3>
-                                <p>An agentic AI system that handles customer queries, processes returns, and provides personalized recommendations.</p>
-
+                                <span class="industry"><%= project.industry %></span>
+                                <h3><%= project.title %></h3>
+                                <p><%= project.shortDescription %></p>
                                 <div class="tech-icons">
-                                    <img src="/tech_icons/crewai-color.svg" alt="CrewAI">
+                                    <% project.techStack.forEach(function(tech) { %>
+                                        <span class="tech-name"><%= tech %></span>
+                                    <% }); %>
                                 </div>
                             </div>
                         </div>
-                        <div class="project-details-hidden" style="display: none;">
-                            <p>Reduced customer support tickets by 70% and increased customer satisfaction by 40%.</p>
-                            <div class="tech-tags">
-                                <span class="tech-tag">CrewAI</span>
-                                <span class="tech-tag">LangChain</span>
-                                <span class="tech-tag">Python</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Case Study 2 -->
-                    <div class="case-study-item" data-category="generative-ai">
-                        <div class="case-study-card">
-                            <div class="case-study-image">
-                                <img src="images/Use Cases/patient.png" alt="Generative AI Case Study">
-                                <div class="overlay">
-                                    <a href="#" class="btn btn-primary">View Details</a>
-                                </div>
-                            </div>
-                            <div class="case-study-content">
-                                <span class="industry">Marketing</span>
-                                <h3>AI-Powered Content Creation</h3>
-                                <p>A generative AI solution that automates the creation of blog posts, social media updates, and email campaigns.</p>
-
-                                <div class="tech-icons">
-                                    <img src="/tech_icons/huggingface-color.png" alt="Hugging Face">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-details-hidden" style="display: none;">
-                            <p>Increased content output by 500% and reduced content creation costs by 60%.</p>
-                            <div class="tech-tags">
-                                <span class="tech-tag">Hugging Face</span>
-                                <span class="tech-tag">Transformers</span>
-                                <span class="tech-tag">Python</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Case Study 3 -->
-                    <div class="case-study-item" data-category="ai-automation">
-                        <div class="case-study-card">
-                            <div class="case-study-image">
-                                <img src="images/Use Cases/fraud-detection-02.jpg" alt="AI Automation Case Study">
-                                <div class="overlay">
-                                    <a href="#" class="btn btn-primary">View Details</a>
-                                </div>
-                            </div>
-                            <div class="case-study-content">
-                                <span class="industry">Finance</span>
-                                <h3>Automated Financial Reporting</h3>
-                                <p>An AI automation system that extracts data from multiple sources, generates financial reports, and identifies key insights.</p>
-                                <div class="tech-icons">
-                                     <img src="/tech_icons/n8n-color.svg" alt="n8n">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-details-hidden" style="display: none;">
-                            <p>Reduced report generation time by 90% and improved data accuracy by 99%.</p>
-                            <div class="tech-tags">
-                                <span class="tech-tag">n8n</span>
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">Automation</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Case Study 4 -->
-                    <div class="case-study-item" data-category="nlp">
-                        <div class="case-study-card">
-                            <div class="case-study-image">
-                                <img src="images/case-study-5.svg" alt="Customer Service AI Case Study">
-                                <div class="overlay">
-                                    <a href="#" class="btn btn-primary">View Details</a>
-                                </div>
-                            </div>
-                            <div class="case-study-content">
-                                <span class="industry">Customer Service</span>
-                                <h3>Intelligent Support Chatbot</h3>
-                                <p>Our NLP-powered chatbot system resolved 78% of customer inquiries without human intervention, improving response time by 92%.</p>
-                                <div class="tech-icons">
-                                    <img src="/tech_icons/huggingface-color.png" alt="BERT">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-details-hidden" style="display: none;">
-                            <p>Resolved 78% of customer inquiries without human intervention, improving response time by 92%.</p>
-                            <div class="tech-tags">
-                                <span class="tech-tag">BERT</span>
-                                <span class="tech-tag">Rasa</span>
-                                <span class="tech-tag">NLP</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Case Study 5 -->
-                    <div class="case-study-item" data-category="generative-ai">
-                        <div class="case-study-card">
-                            <div class="case-study-image">
-                                <img src="images/case-study-4.svg" alt="Generative AI Case Study">
-                                <div class="overlay">
-                                    <a href="#" class="btn btn-primary">View Details</a>
-                                </div>
-                            </div>
-                            <div class="case-study-content">
-                                <span class="industry">Creative</span>
-                                <h3>AI-Powered Design Tool</h3>
-                                <p>A generative AI tool that creates unique logos, branding assets, and marketing materials based on user prompts.</p>
-                                <div class="tech-icons">
-                                    <img src="/tech_icons/figma.webp" alt="Figma">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-details-hidden" style="display: none;">
-                            <p>Reduced design time by 80% and enabled the creation of thousands of unique design assets.</p>
-                            <div class="tech-tags">
-                                <span class="tech-tag">GANs</span>
-                                <span class="tech-tag">PyTorch</span>
-                                <span class="tech-tag">Creative AI</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Case Study 6 -->
-                    <div class="case-study-item" data-category="agentic-ai">
-                        <div class="case-study-card">
-                            <div class="case-study-image">
-                                <img src="images/case-study-6.svg" alt="Agentic AI Case Study">
-                                <div class="overlay">
-                                    <a href="#" class="btn btn-primary">View Details</a>
-                                </div>
-                            </div>
-                            <div class="case-study-content">
-                                <span class="industry">Logistics</span>
-                                <h3>Autonomous Supply Chain Agent</h3>
-                                <p>An agentic AI system that optimizes routes, manages inventory, and predicts demand in real-time.</p>
-                                <div class="tech-icons">
-                                    <img src="/tech_icons/langchain-color.svg" alt="LangChain">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-details-hidden" style="display: none;">
-                            <p>Reduced shipping costs by 25% and improved delivery times by 40%.</p>
-                            <div class="tech-tags">
-                                <span class="tech-tag">LangChain</span>
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">Optimization</span>
-                            </div>
-                        </div>
-                    </div>
+                           <div class="project-details-hidden" style="display: none;">
+                               <p><%= project.fullDescription %></p>
+                               <div class="tech-tags">
+                                   <% project.techStack.forEach(function(tech) { %>
+                                       <span class="tech-tag"><%= tech %></span>
+                                   <% }); %>
+                               </div>
+                               <div class="implementation-details">
+                                   <%= project.implementation %>
+                               </div>
+                               <div class="results-details">
+                                   <ul>
+                                       <% project.results.forEach(function(result) { %>
+                                           <li><%= result %></li>
+                                       <% }); %>
+                                   </ul>
+                               </div>
+                               <div class="carousel-images">
+                                   <% project.carouselImages.forEach(function(image) { %>
+                                       <img src="<%= image %>" alt="Carousel Image">
+                                   <% }); %>
+                               </div>
+                               <div class="carousel-videos">
+                                   <% project.carouselVideos.forEach(function(video) { %>
+                                       <span data-url="<%= video.url %>" data-type="<%= video.type %>"></span>
+                                   <% }); %>
+                               </div>
+                               <div class="github-link">
+                                   <%= project.githubLink %>
+                               </div>
+                           </div>
+                       </div>
+                       <% }); %>
                 </div>
             </div>
         </section>
