@@ -60,4 +60,6 @@ app.use('/showcase', showcaseRoutes)
 app.use('/blog', blogRoutes)
 app.use('/api', bookingRoutes) // Mount booking routes under /api
 
-module.exports = app
+app.listen(process.env.PORT || 3000, () => {
+  console.log(`Server is running on port ${process.env.PORT || 3000}`)
+})
