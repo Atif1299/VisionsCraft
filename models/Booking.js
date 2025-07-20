@@ -34,6 +34,11 @@ const bookingSchema = new mongoose.Schema({
     type: String,
     trim: true,
   },
+  documentPath: {
+    type: String,
+    trim: true,
+    required: false, // Optional field
+  },
   status: {
     type: String,
     enum: ['pending', 'confirmed', 'cancelled', 'completed'],

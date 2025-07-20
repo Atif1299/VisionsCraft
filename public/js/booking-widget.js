@@ -67,20 +67,16 @@ document.addEventListener('DOMContentLoaded', function () {
     event.preventDefault()
 
     const formData = new FormData(bookingForm)
-    const data = Object.fromEntries(formData.entries())
 
-    // Convert date to ISO string for consistency
-    if (data.preferredDate) {
-      data.preferredDate = new Date(data.preferredDate).toISOString()
-    }
+    // Convert date to ISO string for consistency if needed, but FormData handles basic string values
+    // For date, it's usually sent as YYYY-MM-DD, which is fine for backend parsing.
+    // If specific ISO format is required, it should be handled on the server or before appending to FormData.
+    // For now, we'll let FormData handle it as is.
 
     try {
       const response = await fetch('/api/bookings', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
+        body: formData, // Send FormData directly
       })
 
       const result = await response.json()

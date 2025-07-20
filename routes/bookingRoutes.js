@@ -2,6 +2,30 @@ const express = require('express')
 const router = express.Router()
 const Service = require('../models/Service')
 const Booking = require('../models/Booking')
+const multer = require('multer')
+const path = require('path')
+const fs = require('fs')
+
+// Ensure uploads directory exists
+const uploadsDir = path.join(__dirname, '../uploads/documents')
+if (!fs.existsSync(uploadsDir)) {
+  fs.mkdirSync(uploadsDir, { recursive: true })
+}
+
+// Configure Multer for file uploads
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, uploadsDir)
+  },
+  filename: function (req, file, cb) {
+    cb(
+      null,
+      file.fieldname + '-' + Date.now() + path.extname(file.originalname)
+    )
+  },
+})
+
+const upload = multer({ storage: storage })
 
 // GET all services
 router.get('/services', async (req, res) => {
@@ -27,7 +51,7 @@ router.get('/services/:id', async (req, res) => {
 })
 
 // POST a new booking
-router.post('/bookings', async (req, res) => {
+router.post('/bookings', upload.single('document'), async (req, res) => {
   const {
     serviceId,
     clientName,
@@ -37,6 +61,10 @@ router.post('/bookings', async (req, res) => {
     preferredTime,
     message,
   } = req.body
+
+  const documentPath = req.file
+    ? `/uploads/documents/${req.file.filename}`
+    : undefined
 
   try {
     const service = await Service.findById(serviceId)
@@ -52,6 +80,7 @@ router.post('/bookings', async (req, res) => {
       preferredDate,
       preferredTime,
       message,
+      documentPath,
     })
 
     const savedBooking = await newBooking.save()
