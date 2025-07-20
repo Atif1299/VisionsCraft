@@ -7,12 +7,38 @@ const apiRoutes = require('./routes/api')
 const contactRoutes = require('./routes/contactRoutes')
 const showcaseRoutes = require('./routes/showcaseRoutes')
 const blogRoutes = require('./routes/blogRoutes')
+const bookingRoutes = require('./routes/bookingRoutes') // Import booking routes
 const helmet = require('helmet') // Import helmet
 
 const app = express()
 
 // Use Helmet to set security headers
-app.use(helmet())
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: ["'self'", 'https://cdn.jsdelivr.net', "'unsafe-inline'"],
+        styleSrc: [
+          "'self'",
+          'https://cdn.jsdelivr.net',
+          'https://cdnjs.cloudflare.com',
+          'https://fonts.googleapis.com',
+          "'unsafe-inline'",
+        ],
+        imgSrc: ["'self'", 'data:'],
+        fontSrc: [
+          "'self'",
+          'https://cdnjs.cloudflare.com',
+          'https://fonts.gstatic.com',
+          'data:',
+        ],
+        objectSrc: ["'none'"],
+        upgradeInsecureRequests: [],
+      },
+    },
+  })
+)
 
 // Connect to MongoDB
 connectDB()
@@ -32,6 +58,7 @@ app.use('/api', apiRoutes)
 app.use('/contact', contactRoutes)
 app.use('/showcase', showcaseRoutes)
 app.use('/blog', blogRoutes)
+app.use('/api', bookingRoutes) // Mount booking routes under /api
 
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {

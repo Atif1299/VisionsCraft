@@ -1,4 +1,11 @@
-<%- include('partials/header', {additionalCSS: ['/css/scrolling-logos.css', '/css/minimalist-testimonials.css']}) %>
+<%- include('partials/header', {
+    additionalCSS: [
+        '/css/scrolling-logos.css',
+        '/css/minimalist-testimonials.css',
+        '/css/booking-widget.css' // New CSS for booking widget
+    ],
+    additionalScripts: []
+}) %>
         <!-- Hero Section -->
         <section class="services-hero">
             <div class="container">
@@ -168,7 +175,13 @@
         </section>
         
 
-<%- include('partials/footer') %>
+<%- include('partials/footer', {
+    additionalScripts: [
+        '/js/booking-widget.js' // New JS for booking widget
+    ]
+}) %>
+<%- include('partials/booking-widget') %>
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const testimonials = document.querySelectorAll('.testimonial-content');

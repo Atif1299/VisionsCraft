@@ -1,163 +1,145 @@
 require('dotenv').config()
 const mongoose = require('mongoose')
 const Project = require('./models/Project')
+const Service = require('./models/Service') // Import Service model
+const connectDB = require('./config/db')
 
-const projectsData = [
-  {
-    title: 'Autonomous Customer Support Agent',
-    shortDescription:
-      'An agentic AI system that handles customer queries, processes returns, and provides personalized recommendations.',
-    fullDescription:
-      'Reduced customer support tickets by 70% and increased customer satisfaction by 40%.',
-    industry: 'E-commerce',
-    category: 'agentic-ai',
-    mainImage: '/images/Use Cases/inventory.jpeg',
-    techStack: ['CrewAI', 'LangChain', 'Python'],
-    implementation:
-      "Our team implemented this solution using state-of-the-art AI techniques and methodologies tailored to the client's specific needs. The project involved data collection, preprocessing, model training, and deployment phases.",
-    results: [
-      'Improved operational efficiency by 42%',
-      'Reduced costs by 27% within the first six months',
-      'Enhanced customer satisfaction scores by 18%',
-      'Enabled data-driven decision making across departments',
-    ],
-    carouselImages: [],
-    carouselVideos: [],
-    githubLink: '#',
-  },
-  {
-    title: 'AI-Powered Content Creation',
-    shortDescription:
-      'A generative AI solution that automates the creation of blog posts, social media updates, and email campaigns.',
-    fullDescription:
-      'Increased content output by 500% and reduced content creation costs by 60%.',
-    industry: 'Marketing',
-    category: 'generative-ai',
-    mainImage: '/images/Use Cases/patient.png',
-    techStack: ['Hugging Face', 'Transformers', 'Python'],
-    implementation:
-      "Our team implemented this solution using state-of-the-art AI techniques and methodologies tailored to the client's specific needs. The project involved data collection, preprocessing, model training, and deployment phases.",
-    results: [
-      'Improved operational efficiency by 42%',
-      'Reduced costs by 27% within the first six months',
-      'Enhanced customer satisfaction scores by 18%',
-      'Enabled data-driven decision making across departments',
-    ],
-    carouselImages: [],
-    carouselVideos: [],
-    githubLink: '#',
-  },
-  {
-    title: 'Automated Financial Reporting',
-    shortDescription:
-      'An AI automation system that extracts data from multiple sources, generates financial reports, and identifies key insights.',
-    fullDescription:
-      'Reduced report generation time by 90% and improved data accuracy by 99%.',
-    industry: 'Finance',
-    category: 'ai-automation',
-    mainImage: '/images/Use Cases/fraud-detection-02.jpg',
-    techStack: ['n8n', 'Python', 'Automation'],
-    implementation:
-      "Our team implemented this solution using state-of-the-art AI techniques and methodologies tailored to the client's specific needs. The project involved data collection, preprocessing, model training, and deployment phases.",
-    results: [
-      'Improved operational efficiency by 42%',
-      'Reduced costs by 27% within the first six months',
-      'Enhanced customer satisfaction scores by 18%',
-      'Enabled data-driven decision making across departments',
-    ],
-    carouselImages: [],
-    carouselVideos: [],
-    githubLink: '#',
-  },
-  {
-    title: 'Intelligent Support Chatbot',
-    shortDescription:
-      'Our NLP-powered chatbot system resolved 78% of customer inquiries without human intervention, improving response time by 92%.',
-    fullDescription:
-      'Resolved 78% of customer inquiries without human intervention, improving response time by 92%.',
-    industry: 'Customer Service',
-    category: 'nlp',
-    mainImage: '/images/Use Cases/patient.png',
-    techStack: ['BERT', 'Rasa', 'NLP'],
-    implementation:
-      "Our team implemented this solution using state-of-the-art AI techniques and methodologies tailored to the client's specific needs. The project involved data collection, preprocessing, model training, and deployment phases.",
-    results: [
-      'Improved operational efficiency by 42%',
-      'Reduced costs by 27% within the first six months',
-      'Enhanced customer satisfaction scores by 18%',
-      'Enabled data-driven decision making across departments',
-    ],
-    carouselImages: [],
-    carouselVideos: [],
-    githubLink: '#',
-  },
-  {
-    title: 'AI-Powered Design Tool',
-    shortDescription:
-      'A generative AI tool that creates unique logos, branding assets, and marketing materials based on user prompts.',
-    fullDescription:
-      'Reduced design time by 80% and enabled the creation of thousands of unique design assets.',
-    industry: 'Creative',
-    category: 'generative-ai',
-    mainImage: '/images/Use Cases/inventory.jpeg',
-    techStack: ['GANs', 'PyTorch', 'Creative AI'],
-    implementation:
-      "Our team implemented this solution using state-of-the-art AI techniques and methodologies tailored to the client's specific needs. The project involved data collection, preprocessing, model training, and deployment phases.",
-    results: [
-      'Improved operational efficiency by 42%',
-      'Reduced costs by 27% within the first six months',
-      'Enhanced customer satisfaction scores by 18%',
-      'Enabled data-driven decision making across departments',
-    ],
-    carouselImages: ['/images/blog_images/machinelearning.png'],
-    carouselVideos: [],
-    githubLink: '#',
-  },
-  {
-    title: 'Autonomous Supply Chain Agent',
-    shortDescription:
-      'An agentic AI system that optimizes routes, manages inventory, and predicts demand in real-time.',
-    fullDescription:
-      'Reduced shipping costs by 25% and improved delivery times by 40%.',
-    industry: 'Logistics',
-    category: 'agentic-ai',
-    mainImage: '/images/Use Cases/inventory.jpeg',
-    techStack: ['LangChain', 'Python', 'Optimization'],
-    implementation:
-      "Our team implemented this solution using state-of-the-art AI techniques and methodologies tailored to the client's specific needs. The project involved data collection, preprocessing, model training, and deployment phases.",
-    results: [
-      'Improved operational efficiency by 42%',
-      'Reduced costs by 27% within the first six months',
-      'Enhanced customer satisfaction scores by 18%',
-      'Enabled data-driven decision making across departments',
-    ],
-    carouselImages: [],
-    carouselVideos: [],
-    githubLink: '#',
-  },
-]
+connectDB()
 
-async function seedDB() {
+const seedDatabase = async () => {
   try {
-    await mongoose.connect(
-      process.env.MONGODB_URI || 'mongodb://localhost:27017/visionscraft',
-      {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      }
-    )
-    console.log('MongoDB connected for seeding')
-
+    // Clear existing data
     await Project.deleteMany({})
-    console.log('Existing projects removed')
+    await Service.deleteMany({}) // Clear existing services
+    console.log('Existing projects and services removed')
 
-    await Project.insertMany(projectsData)
+    // Seed Projects (existing data)
+    const projects = [
+      {
+        title: 'AI-Powered Predictive Analytics Platform',
+        shortDescription:
+          'Developed a robust platform utilizing machine learning to predict market trends with 90% accuracy.',
+        fullDescription:
+          'Developed a robust platform utilizing machine learning to predict market trends with 90% accuracy, enabling data-driven decisions for financial institutions. This project involved extensive data preprocessing, model training, and deployment on cloud infrastructure.',
+        industry: 'Finance',
+        category: 'Machine Learning',
+        mainImage: 'images/Use Cases/fraud-detection-02.jpg',
+        techStack: ['Python', 'TensorFlow', 'AWS Sagemaker'],
+        implementation:
+          'Custom machine learning models, cloud deployment, real-time data processing.',
+        results: [
+          '90% prediction accuracy',
+          'Improved decision-making',
+          'Increased ROI',
+        ],
+        githubLink: '#',
+      },
+      {
+        title: 'Automated Customer Support Chatbot',
+        shortDescription:
+          'Implemented a conversational AI solution that handles 70% of customer inquiries automatically.',
+        fullDescription:
+          'Implemented a conversational AI solution that handles 70% of customer inquiries automatically, significantly reducing response times and operational costs. The chatbot was integrated with existing CRM systems and provided 24/7 support.',
+        industry: 'Customer Service',
+        category: 'Conversational AI',
+        mainImage: 'images/Use Cases/patient.png',
+        techStack: ['Node.js', 'Dialogflow', 'Google Cloud'],
+        implementation:
+          'Natural Language Processing (NLP), intent recognition, integration with CRM.',
+        results: [
+          '70% reduction in inquiries',
+          'Improved customer satisfaction',
+          'Reduced operational costs',
+        ],
+        githubLink: '#',
+      },
+      {
+        title: 'Intelligent Inventory Management System',
+        shortDescription:
+          'Designed an AI system that optimizes inventory levels, predicts demand fluctuations, and reduces waste by 25%.',
+        fullDescription:
+          'Designed an AI system that optimizes inventory levels, predicts demand fluctuations, and reduces waste by 25% for a leading retail chain. The system uses predictive analytics to forecast demand and optimize stock levels.',
+        industry: 'Retail',
+        category: 'AI Automation',
+        mainImage: 'images/Use Cases/inventory.jpeg',
+        techStack: ['Python', 'PyTorch', 'Azure ML'],
+        implementation:
+          'Predictive analytics, supply chain optimization, automated reordering.',
+        results: [
+          '25% reduction in waste',
+          'Optimized inventory levels',
+          'Improved efficiency',
+        ],
+        githubLink: '#',
+      },
+    ]
+    await Project.insertMany(projects)
     console.log('Projects seeded successfully!')
-  } catch (err) {
-    console.error('Error seeding database:', err)
+
+    // Seed Services (new data)
+    const services = [
+      {
+        name: 'AI Strategic Consultations',
+        description:
+          'Strategic guidance to integrate AI into your business operations for maximum impact and ROI.',
+        price: 500,
+        duration: '1 hour',
+        availability: ['Monday', 'Wednesday', 'Friday'],
+        isCustomizable: false,
+      },
+      {
+        name: 'Agentic AI Development',
+        description:
+          'Autonomous AI agents that can reason, plan, and execute complex tasks to achieve your business goals.',
+        price: 2500,
+        duration: 'Custom Project',
+        availability: ['By Appointment'],
+        isCustomizable: true,
+      },
+      {
+        name: 'Conversational AI Solutions',
+        description:
+          'Intelligent chatbots and virtual assistants that enhance customer experience and streamline support.',
+        price: 1500,
+        duration: 'Custom Project',
+        availability: ['By Appointment'],
+        isCustomizable: true,
+      },
+      {
+        name: 'Generative AI Implementation',
+        description:
+          'Harness the power of generative models to create, innovate, and automate content and design.',
+        price: 3000,
+        duration: 'Custom Project',
+        availability: ['By Appointment'],
+        isCustomizable: true,
+      },
+      {
+        name: 'AI Automation & Optimization',
+        description:
+          'Intelligent automation of business processes to increase efficiency, reduce costs, and scale operations.',
+        price: 2000,
+        duration: 'Custom Project',
+        availability: ['By Appointment'],
+        isCustomizable: true,
+      },
+      {
+        name: 'Custom AI Model Development',
+        description:
+          'Tailored AI model development to address unique business challenges and opportunities.',
+        price: 4000,
+        duration: 'Custom Project',
+        availability: ['By Appointment'],
+        isCustomizable: true,
+      },
+    ]
+    await Service.insertMany(services)
+    console.log('Services seeded successfully!')
+  } catch (error) {
+    console.error('Error seeding database:', error)
   } finally {
     mongoose.connection.close()
   }
 }
 
-seedDB()
+seedDatabase()

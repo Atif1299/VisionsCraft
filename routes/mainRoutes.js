@@ -39,4 +39,12 @@ router.use('/contact', contactRoutes)
 router.use('/showcase', showcaseRoutes)
 router.use('/blog', blogRoutes)
 
+router.get('/blog-post', (req, res) => {
+  res.render('blog-post', {
+    title: 'Blog Post - VisionsCraft',
+    currentPage: 'blog',
+    description: 'A blog post from VisionsCraft.',
+  })
+})
+
 module.exports = router
