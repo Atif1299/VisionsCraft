@@ -5,10 +5,7 @@ const connectDB = async () => {
   try {
     await mongoose.connect(
       process.env.MONGODB_URI || 'mongodb://localhost:27017/visionscraft',
-      {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      }
+      { serverSelectionTimeoutMS: 5000 }
     )
     console.log('MongoDB connected')
   } catch (err) {

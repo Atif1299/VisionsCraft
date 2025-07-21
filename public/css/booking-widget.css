@@ -1,223 +1,326 @@
-/* Booking Widget Container */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #4f46e5;
+    --primary-hover: #4338ca;
+    --text-primary: #111827;
+    --text-secondary: #6b7280;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f9fafb;
+    --border-color: #e5e7eb;
+    --success-color: #10b981;
+    --error-color: #ef4444;
+}
+
 .booking-widget-container {
     position: fixed;
-    right: 10px;
-    bottom: 15px;
+    bottom: 25px;
+    right: 25px;
     z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    font-family: 'Inter', sans-serif;
 }
 
-/* Booking Toggle Button */
 .booking-toggle-btn {
-    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    background-color: var(--primary-color);
     color: white;
     border: none;
-    padding: 14px 32px; /* Further adjusted padding for a more premium feel */
-    border-radius: 30px; /* Custom border-radius for a professional, slightly rounded shape */
-    font-size: 1.1rem;
-    font-weight: 600;
+    border-radius: 9999px;
+    width: auto;
+    padding: 0 24px;
+    height: 52px;
+    font-size: 16px;
+    font-weight: 500;
     cursor: pointer;
-    transition: all var(--transition-normal);
-    position: relative;
-    overflow: hidden;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 10px; /* Adjusted gap for better spacing */
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25); /* Enhanced shadow for a more prominent look */
-}
-
-.booking-toggle-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: all 0.5s;
+    gap: 12px;
+    transition: all 0.3s ease;
 }
 
 .booking-toggle-btn:hover {
+    background-color: var(--primary-hover);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     transform: translateY(-2px);
-    box-shadow: 0 15px 30px rgba(67, 97, 238, 0.2);
-}
-
-.booking-toggle-btn:hover::before {
-    left: 100%;
 }
 
 .booking-toggle-btn i {
-    font-size: 1.3em;
+    font-size: 18px;
 }
 
-/* Booking Form Popup */
 .booking-form-popup {
-    background-color: #ffffff; /* Solid white background */
-    border-radius: 10px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-    width: 350px;
-    max-height: 78vh;
-    overflow-y: auto;
-    position: absolute;
-    /* Hide scrollbar for Chrome, Safari and Opera */
-    &::-webkit-scrollbar {
-        display: none;
-    }
-    /* Hide scrollbar for IE, Edge and Firefox */
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-    bottom: calc(100% + 15px); /* Position above the button */
-    right: 0;
-    transform: translateY(10px);
+    display: none;
+    position: fixed;
+    bottom: 90px;
+    right: 25px;
+    width: 450px; /* Increased width */
+    background-color: var(--bg-primary);
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    z-index: 1001;
+    border: 1px solid var(--border-color);
     opacity: 0;
-    visibility: hidden;
-    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
     display: flex;
     flex-direction: column;
-    border: 1px solid var(--medium-gray); /* Add a subtle border */
 }
 
 .booking-form-popup.active {
-    transform: translateY(0);
+    display: block;
     opacity: 1;
-    visibility: visible;
+    transform: translateY(0);
 }
 
 .popup-header {
+    background-color: var(--bg-secondary);
+    padding: 20px 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
-    border-bottom: 1px solid var(--border-color); /* Assuming a border color variable */
-    background-color: var(--primary-color);
-    color: white;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .popup-header h3 {
     margin: 0;
-    font-size: 1.2em;
-    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
 }
 
 .close-btn {
     background: none;
     border: none;
-    font-size: 1.8em;
-    color: white;
+    font-size: 24px;
     cursor: pointer;
-    transition: color 0.2s ease;
+    color: var(--text-secondary);
+    transition: color 0.2s;
 }
 
 .close-btn:hover {
-    color: var(--text-color-light); /* Lighter text color on hover */
+    color: var(--text-primary);
 }
 
 #booking-form {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    padding: 24px;
+    flex-grow: 1;
 }
 
 .form-group {
-    margin-bottom: 10px;
+    margin-bottom: 18px;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 5px;
-    font-weight: 600;
-    color: var(--text-color-dark); /* Dark text color for labels */
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
 }
 
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group input[type="tel"],
-.form-group input[type="date"],
-.form-group input[type="time"],
+.form-group input,
 .form-group select,
 .form-group textarea {
     width: 100%;
-    padding: 12px 15px; /* Increased padding for better feel */
-    border: 1px solid var(--medium-gray); /* Use a consistent border color */
-    border-radius: var(--border-radius-md); /* Use global border-radius */
-    background-color: var(--light-gray); /* Light background for inputs */
-    color: var(--text-dark); /* Dark text color for input text */
-    font-size: 1em;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    padding: 10px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: var(--bg-secondary);
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(var(--primary-color), 0.2); /* Use var for rgba */
     outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
 }
 
-.form-group textarea {
-    resize: vertical;
-    min-height: 80px;
+.btn-primary, .btn-next, .btn-prev {
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
 }
 
 .btn-primary {
-    background-color: var(--primary-color);
+    background-image: linear-gradient(to right, #4f46e5, #818cf8);
     color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 12px 20px;
-    font-size: 1.1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    align-self: flex-end; /* Align button to the right */
+    width: auto;
+    flex-grow: 1;
+    margin-left: 20px;
 }
 
 .btn-primary:hover {
-    background-color: var(--secondary-color);
-    transform: translateY(-2px);
+    background-color: var(--primary-hover);
 }
 
 .booking-message {
-    padding: 15px 20px;
-    margin-top: 10px;
-    border-radius: 5px;
-    font-weight: 600;
+    padding: 12px 24px;
     text-align: center;
-    display: none; /* Hidden by default */
+    font-size: 14px;
+    border-radius: 8px;
+    margin-top: 10px;
 }
 
 .booking-message.success {
-    background-color: #d4edda; /* Light green */
-    color: #155724; /* Dark green */
-    border: 1px solid #c3e6cb;
+    color: var(--success-color);
+    background-color: #ecfdf5;
 }
 
 .booking-message.error {
-    background-color: #f8d7da; /* Light red */
-    color: #721c24; /* Dark red */
-    border: 1px solid #f5c6cb;
+    color: var(--error-color);
+    background-color: #fef2f2;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .booking-widget-container {
-        right: 10px;
-        bottom: 10px;
-    }
+.booking-message.warning {
+    color: #f59e0b;
+    background-color: #fffbeb;
+}
 
-    .booking-toggle-btn {
-        padding: 12px 20px;
-        font-size: 1em;
-    }
+.booking-message.info {
+    color: #3b82f6;
+    background-color: #eff6ff;
+}
 
-    .booking-form-popup {
-        width: calc(100vw - 40px); /* Full width minus margin */
-        right: 10px;
-        bottom: calc(100% + 10px);
-    }
+/* File Upload Styling */
+.file-upload-info {
+    margin-top: 8px;
+    padding: 12px;
+    background-color: #f0f9ff;
+    border: 1px solid #e0f2fe;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.file-selected {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #0369a1;
+}
+
+.file-selected .fa-file {
+    color: #0284c7;
+}
+
+.file-name {
+    font-weight: 500;
+    flex: 1;
+    word-break: break-all;
+}
+
+.file-size {
+    color: #64748b;
+    font-size: 12px;
+}
+
+.file-success {
+    color: #16a34a;
+}
+
+/* File upload hint */
+.file-hint {
+    color: #6b7280;
+    font-size: 12px;
+    margin-top: 4px;
+    display: block;
+}
+
+/* Submit Button Loading State */
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn:disabled:hover {
+    background-color: var(--primary-color);
+    transform: none;
+}
+
+.progress-bar {
+    display: flex;
+    align-items: center;
+    padding: 24px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.progress-step {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--border-color);
+    color: var(--text-secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.progress-step.active {
+    background-color: var(--primary-color);
+    color: white;
+    transform: scale(1.1);
+}
+
+.progress-line {
+    flex-grow: 1;
+    height: 2px;
+    background-color: var(--border-color);
+    margin: 0 -2px;
+    position: relative;
+}
+
+.form-step {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.form-step.active {
+    display: block;
+}
+
+.btn-next,
+.btn-prev {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.btn-next:hover,
+.btn-prev:hover {
+    background-color: #f3f4f6;
+}
+
+.btn-next {
+    float: right;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 16px;
+}
+
+.form-row .form-group {
+    flex: 1;
 }

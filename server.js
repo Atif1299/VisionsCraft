@@ -47,9 +47,9 @@ connectDB()
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
 
-// Middleware
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+// Middleware with file size limits
+app.use(express.json({ limit: '10mb' })) // JSON payload limit
+app.use(express.urlencoded({ extended: true, limit: '10mb' })) // Form data limit
 app.use(express.static(path.join(__dirname, 'public')))
 
 // Routes
@@ -60,6 +60,22 @@ app.use('/showcase', showcaseRoutes)
 app.use('/blog', blogRoutes)
 app.use('/api', bookingRoutes) // Mount booking routes under /api
 
-app.listen(process.env.PORT || 3000, () => {
+// Temporary route to get all services for debugging
+app.get('/get-services', async (req, res) => {
+  const Service = require('./models/Service')
+  try {
+    const services = await Service.find()
+    res.json(services)
+  } catch (err) {
+    res.status(500).json({ message: err.message })
+  }
+})
+
+const server = app.listen(process.env.PORT || 3000, () => {
   console.log(`Server is running on port ${process.env.PORT || 3000}`)
 })
+
+// Increase server timeout for file uploads (2 minutes)
+server.timeout = 120000 // 120 seconds
+server.keepAliveTimeout = 120000 // 120 seconds
+server.headersTimeout = 120000 // 120 seconds

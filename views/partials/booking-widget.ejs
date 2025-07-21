@@ -1,70 +1,95 @@
 <div class="booking-widget-container">
     <button id="booking-toggle-btn" class="booking-toggle-btn">
         <i class="fas fa-calendar-alt"></i>
-        <span>Book a Service</span>
+        <span>Book a Consultation</span>
     </button>
     <div id="booking-form-popup" class="booking-form-popup">
         <div class="popup-header">
             <h3>Book Your AI Service</h3>
             <button id="close-booking-popup" class="close-btn">&times;</button>
         </div>
+        <div class="progress-bar">
+            <div class="progress-step active" data-step="1">1</div>
+            <div class="progress-line"></div>
+            <div class="progress-step" data-step="2">2</div>
+        </div>
         <form id="booking-form" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="service-select">Select Service:</label>
-                <select id="service-select" name="serviceId" required>
-                    <option value="">-- Choose a Service --</option>
-                    <!-- Services will be loaded here by JavaScript -->
-                </select>
+            <!-- Step 1: Service & Details -->
+            <div class="form-step active" id="step-1">
+                <div class="form-group">
+                    <label for="service-select">Select Service:</label>
+                    <select id="service-select" name="serviceId" required>
+                        <option value="">-- Choose a Service --</option>
+                        <!-- Services will be loaded here by JavaScript -->
+                    </select>
+                </div>
+                <div class="form-group" id="dynamic-question-container" style="display: none;">
+                    <!-- Dynamic question will be inserted here --></div>
+                <div class="form-group">
+                    <label for="client-name">Your Name:</label>
+                    <input
+                        type="text"
+                        id="client-name"
+                        name="clientName"
+                        required
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="client-email">Your Email:</label>
+                    <input
+                        type="email"
+                        id="client-email"
+                        name="clientEmail"
+                        required
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="client-phone">Your Phone (Optional):</label>
+                    <input type="tel" id="client-phone" name="clientPhone">
+                </div>
+                <button type="button" class="btn btn-next">Next</button>
             </div>
-            <div class="form-group">
-                <label for="client-name">Your Name:</label>
-                <input
-                    type="text"
-                    id="client-name"
-                    name="clientName"
-                    required
-                >
+            <!-- Step 2: Project Info -->
+            <div class="form-step" id="step-2">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="preferred-date">Preferred Date:</label>
+                        <input
+                            type="date"
+                            id="preferred-date"
+                            name="preferredDate"
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="preferred-time">Preferred Time:</label>
+                        <input
+                            type="time"
+                            id="preferred-time"
+                            name="preferredTime"
+                            required
+                        >
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="message">Tell us more about your needs:</label>
+                    <textarea id="message" name="message" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="document-upload">Upload Document (Optional):</label>
+                    <input
+                        type="file"
+                        id="document-upload"
+                        name="document"
+                        accept=".pdf,.doc,.docx,.txt,.csv,.zip,.jpg,.jpeg,.png,.gif,.webp"
+                    >
+                    <small class="file-hint">Max 10MB. Supported: PDF, Word, Images, Text, ZIP files</small>
+                </div>
+                <div class="form-buttons">
+                    <button type="button" class="btn btn-prev">Previous</button>
+                    <button type="submit" class="btn btn-primary">Submit Booking</button>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="client-email">Your Email:</label>
-                <input
-                    type="email"
-                    id="client-email"
-                    name="clientEmail"
-                    required
-                >
-            </div>
-            <div class="form-group">
-                <label for="client-phone">Your Phone (Optional):</label>
-                <input type="tel" id="client-phone" name="clientPhone">
-            </div>
-            <div class="form-group">
-                <label for="preferred-date">Preferred Date:</label>
-                <input
-                    type="date"
-                    id="preferred-date"
-                    name="preferredDate"
-                    required
-                >
-            </div>
-            <div class="form-group">
-                <label for="preferred-time">Preferred Time:</label>
-                <input
-                    type="time"
-                    id="preferred-time"
-                    name="preferredTime"
-                    required
-                >
-            </div>
-            <div class="form-group">
-                <label for="message">Tell us more about your needs (e.g., custom service, project details):</label>
-                <textarea id="message" name="message" rows="4"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="document-upload">Upload Document (Optional):</label>
-                <input type="file" id="document-upload" name="document">
-            </div>
-            <button type="submit" class="btn btn-primary">Submit Booking</button>
         </form>
         <div id="booking-message" class="booking-message"></div>
     </div>
