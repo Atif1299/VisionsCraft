@@ -1,4 +1,4 @@
-<%- include('partials/header', { 
+<%- include('../partials/header', { 
     currentPage: 'blog-post', 
     title: 'The Responsible AI Framework - VisionsCraft Blog', 
     description: 'Explore the key principles of responsible AI development and how organizations can implement ethical guidelines in their AI systems.',
@@ -27,7 +27,7 @@
                         <span class="post-date">July 5, 2023</span>
                     </div>
                     <div class="author-info">
-                        <img src="images/others/grapess.png" alt="VisionsCraft Founder">
+                        <img src="/images/others/grapess.png" alt="VisionsCraft Founder">
                         <div>
                             <h3>Written by VisionsCraft Founder</h3>
                             <p>AI Strategist & Ethical AI Advocate</p>
@@ -450,7 +450,7 @@
                 </div>
             </div>
         </section>
-<%- include('partials/footer', {
+<%- include('../partials/footer', {
     additionalScripts: [
         'https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js',
         '/js/blog.js'

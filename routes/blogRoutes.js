@@ -41,4 +41,14 @@ router.get('/ai-automation', (req, res) => {
   })
 })
 
+// GET /blog/featured-post
+router.get('/featured-post', (req, res) => {
+  res.render('blog/featured-post', {
+    title: 'Featured Post - VisionsCraft',
+    currentPage: 'blog',
+    description:
+      'Our featured article on the latest advancements and trends in AI technology.',
+  })
+})
+
 module.exports = router
