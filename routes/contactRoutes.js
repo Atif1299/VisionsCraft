@@ -5,6 +5,7 @@ const { body, validationResult } = require('express-validator')
 
 // GET /contact - Render the contact form
 router.get('/', (req, res) => {
+  console.log('📄 Contact page requested')
   res.render('contact', {
     title: 'Contact Us - VisionsCraft',
     currentPage: 'contact',
@@ -146,7 +147,9 @@ This message was sent from the VisionsCraft contact form.`,
 
     try {
       const info = await transporter.sendMail(mailOptions)
-      console.log('Contact email sent successfully:', info.messageId)
+      console.log('✅ Contact email sent successfully:', info.messageId)
+      console.log('📧 From:', process.env.EMAIL_USER)
+      console.log('📬 To:', process.env.ADMIN_EMAIL)
 
       // Render success page
       res.render('contact', {
@@ -158,7 +161,8 @@ This message was sent from the VisionsCraft contact form.`,
           'Thank you for your message! We will get back to you within 24 hours.',
       })
     } catch (error) {
-      console.error('Error sending contact email:', error)
+      console.error('❌ ERROR sending contact email:', error.message)
+      console.error('🔧 Error code:', error.code)
 
       // Render error page
       res.render('contact', {

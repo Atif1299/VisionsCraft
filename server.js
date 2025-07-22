@@ -26,6 +26,7 @@ app.use(
           'https://maps.googleapis.com',
           'https://maps.gstatic.com',
           "'unsafe-inline'",
+          "'unsafe-eval'",
         ],
         styleSrc: [
           "'self'",
