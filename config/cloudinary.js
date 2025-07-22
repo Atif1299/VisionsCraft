@@ -2,10 +2,29 @@ const cloudinary = require('cloudinary').v2
 const { CloudinaryStorage } = require('multer-storage-cloudinary')
 require('dotenv').config()
 
+// Check for required Cloudinary environment variables
+const requiredCloudinaryVars = [
+  'CLOUDINARY_CLOUD_NAME',
+  'CLOUDINARY_API_KEY',
+  'CLOUDINARY_API_SECRET',
+]
+const missingCloudinaryVars = requiredCloudinaryVars.filter(
+  (envVar) => !process.env[envVar]
+)
+
+if (missingCloudinaryVars.length > 0) {
+  console.error(
+    `Missing Cloudinary environment variables: ${missingCloudinaryVars.join(
+      ', '
+    )}`
+  )
+  console.error('File upload functionality will not work properly')
+}
+
 cloudinary.config({
-  cloud_name: 'dm43i3xmb',
-  api_key: '347947514829933',
-  api_secret: 'EiQIiSxZl6tU4v9M4BqZzmZeebQ',
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
   // Optimize for faster uploads
   timeout: 60000, // 60 seconds timeout
 })

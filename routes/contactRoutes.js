@@ -2,17 +2,8 @@ const express = require('express')
 const router = express.Router()
 const nodemailer = require('nodemailer')
 const { body, validationResult } = require('express-validator')
-// Assuming .env is loaded and variables are available via process.env
-
-// Helper: Validate email (can be replaced by express-validator's isEmail)
-function isValidEmail(email) {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-  return emailRegex.test(email)
-}
 
 // GET /contact - Render the contact form
-// When this router is mounted at '/contact' in server.js,
-// this route handles both '/contact' and '/contact/'
 router.get('/', (req, res) => {
   res.render('contact', {
     title: 'Contact Us - VisionsCraft',
@@ -27,68 +18,156 @@ router.get('/', (req, res) => {
 router.post(
   '/',
   [
-    body('firstName')
+    body('name').trim().escape().notEmpty().withMessage('Name is required.'),
+    body('email').trim().isEmail().withMessage('Invalid email format.'),
+    body('subject')
       .trim()
       .escape()
       .notEmpty()
-      .withMessage('First name is required.'),
-    body('lastName').trim().escape(), // Optional, but sanitize if present
-    body('email').trim().isEmail().withMessage('Invalid email format.'),
+      .withMessage('Subject is required.'),
     body('message')
       .trim()
       .escape()
       .notEmpty()
       .withMessage('Message is required.'),
+    body('phone').optional().trim().escape(),
+    body('company').optional().trim().escape(),
   ],
   async (req, res) => {
+    console.log('📝 Contact form submission received')
+    console.log('📋 Form data:', req.body)
+
     // Check for validation errors
     const errors = validationResult(req)
     if (!errors.isEmpty()) {
-      return res.status(400).json({ success: false, errors: errors.array() })
+      console.log('❌ Validation errors:', errors.array())
+      return res.render('contact', {
+        title: 'Contact Us - VisionsCraft',
+        currentPage: 'contact',
+        description:
+          'Get in touch with VisionsCraft, your partner for innovative AI solutions.',
+        message: 'Please fill all required fields correctly.',
+        errors: errors.array(),
+      })
     }
 
-    const { firstName, lastName, email, message } = req.body
+    const { name, email, phone, company, subject, message } = req.body
 
-    // Nodemailer transporter setup
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: parseInt(process.env.SMTP_PORT, 10),
-      secure: process.env.SMTP_PORT === '465', // true for 465, false for other ports
+    // Check if required environment variables are set
+    if (
+      !process.env.EMAIL_USER ||
+      !process.env.EMAIL_PASS ||
+      !process.env.ADMIN_EMAIL
+    ) {
+      console.error(
+        '❌ Missing email configuration. Please check environment variables.'
+      )
+      return res.render('contact', {
+        title: 'Contact Us - VisionsCraft',
+        currentPage: 'contact',
+        description:
+          'Get in touch with VisionsCraft, your partner for innovative AI solutions.',
+        message:
+          'Email service is currently unavailable. Please try again later or contact us directly.',
+      })
+    }
+
+    console.log('✅ Email configuration found')
+    console.log('📧 Sending email from:', process.env.EMAIL_USER)
+    console.log('📬 Sending email to:', process.env.ADMIN_EMAIL)
+
+    // Nodemailer transporter setup - Use Gmail service for simplicity
+    const transporter = nodemailer.createTransporter({
+      service: 'gmail',
       auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+      tls: {
+        rejectUnauthorized: false,
       },
     })
 
     const mailOptions = {
-      from: `"Contact Form Submission" <${process.env.SMTP_USER}>`,
-      to: process.env.ADMIN_EMAIL, // Use the ADMIN_EMAIL from .env
-      subject: `New Contact Message from ${firstName} ${lastName || ''}`,
-      text: `You have a new message from:\n\nName: ${firstName} ${
-        lastName || ''
-      }\nEmail: ${email}\n\nMessage:\n${message}`,
-      html: `<p>You have a new message from:</p>
-           <p><strong>Name:</strong> ${firstName} ${lastName || ''}</p>
-           <p><strong>Email:</strong> ${email}</p>
-           <p><strong>Message:</strong> ${message}</p>`,
-      replyTo: email, // Reply-to header set to the sender's email
+      from: `"VisionsCraft Contact Form" <${process.env.EMAIL_USER}>`,
+      to: process.env.ADMIN_EMAIL,
+      subject: `New Contact Message: ${subject}`,
+      text: `You have a new contact message from:
+
+Name: ${name}
+Email: ${email}
+Phone: ${phone || 'Not provided'}
+Company: ${company || 'Not provided'}
+Subject: ${subject}
+
+Message:
+${message}
+
+---
+This message was sent from the VisionsCraft contact form.`,
+      html: `
+        <h3>New Contact Message from VisionsCraft Website</h3>
+        <table style="border-collapse: collapse; width: 100%; max-width: 600px;">
+          <tr style="background-color: #f8f9fa;">
+            <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Name:</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">${name}</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Email:</td>
+            <td style="padding: 10px; border: 1px solid #ddd;"><a href="mailto:${email}">${email}</a></td>
+          </tr>
+          <tr style="background-color: #f8f9fa;">
+            <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Phone:</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">${
+              phone || 'Not provided'
+            }</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Company:</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">${
+              company || 'Not provided'
+            }</td>
+          </tr>
+          <tr style="background-color: #f8f9fa;">
+            <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Subject:</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">${subject}</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold; vertical-align: top;">Message:</td>
+            <td style="padding: 10px; border: 1px solid #ddd; white-space: pre-wrap;">${message}</td>
+          </tr>
+        </table>
+        <p style="margin-top: 20px; color: #666; font-size: 12px;">
+          This message was sent from the VisionsCraft contact form.
+        </p>
+      `,
+      replyTo: email,
     }
 
     try {
       const info = await transporter.sendMail(mailOptions)
-      console.log('Email sent: %s', info.messageId)
-      console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info)) // Add preview URL for debugging
-      // Respond with success
-      res.json({ success: true, message: 'Message sent successfully!' })
-    } catch (error) {
-      console.error('Error sending email:', error)
-      console.error('Nodemailer error details:', error.response) // Log more details if available
-      console.error('Nodemailer error responseCode:', error.responseCode) // Log response code
-      // Respond with error
-      res.status(500).json({
-        success: false,
+      console.log('Contact email sent successfully:', info.messageId)
+
+      // Render success page
+      res.render('contact', {
+        title: 'Contact Us - VisionsCraft',
+        currentPage: 'contact',
+        description:
+          'Get in touch with VisionsCraft, your partner for innovative AI solutions.',
         message:
-          'Failed to send message. Please check server logs for details.',
+          'Thank you for your message! We will get back to you within 24 hours.',
+      })
+    } catch (error) {
+      console.error('Error sending contact email:', error)
+
+      // Render error page
+      res.render('contact', {
+        title: 'Contact Us - VisionsCraft',
+        currentPage: 'contact',
+        description:
+          'Get in touch with VisionsCraft, your partner for innovative AI solutions.',
+        message:
+          'Failed to send message. Please try again later or contact us directly at ranaatif1299@gmail.com',
       })
     }
   }

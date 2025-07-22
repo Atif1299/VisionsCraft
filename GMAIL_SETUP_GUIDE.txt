@@ -1,0 +1,38 @@
+📧 Gmail App Password Setup Guide for VisionsCraft Contact Form
+================================================================
+
+🔐 STEP 1: Enable 2-Factor Authentication
+1. Go to: https://myaccount.google.com/security
+2. Find "2-Step Verification" and turn it ON
+3. Complete the setup with your phone number
+
+🔑 STEP 2: Generate App Password
+1. Go to: https://myaccount.google.com/apppasswords
+   (Or search "App passwords" in Google Account settings)
+2. Select app: "Mail"
+3. Select device: "Other" and type "VisionsCraft Website"
+4. Click "Generate"
+5. Copy the 16-character password (it will look like: xxxx xxxx xxxx xxxx)
+
+📝 STEP 3: Update Your .env File
+Replace the EMAIL_PASS line in your .env file with:
+EMAIL_PASS=your-16-character-app-password-here
+
+⚠️ IMPORTANT NOTES:
+- Remove all spaces from the App Password
+- Use the App Password, NOT your regular Gmail password
+- Keep the App Password secure and never share it
+- If you delete the App Password from Google, you'll need to generate a new one
+
+🧪 STEP 4: Test the Configuration
+After updating your .env file, run:
+node email-test-comprehensive.js
+
+✅ TROUBLESHOOTING:
+- If you get "EAUTH" error: App Password is wrong or 2FA not enabled
+- If you get "ENOTFOUND" error: Internet connection issue
+- If no errors but no email: Check spam folder, try different email address
+
+📞 Alternative Test:
+You can also test by submitting the contact form at:
+http://localhost:3000/contact

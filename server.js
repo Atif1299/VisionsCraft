@@ -18,21 +18,47 @@ app.use(
     contentSecurityPolicy: {
       directives: {
         defaultSrc: ["'self'"],
-        scriptSrc: ["'self'", 'https://cdn.jsdelivr.net', "'unsafe-inline'"],
+        scriptSrc: [
+          "'self'",
+          'https://cdn.jsdelivr.net',
+          'https://cdnjs.cloudflare.com',
+          'https://kit.fontawesome.com',
+          'https://maps.googleapis.com',
+          'https://maps.gstatic.com',
+          "'unsafe-inline'",
+        ],
         styleSrc: [
           "'self'",
           'https://cdn.jsdelivr.net',
           'https://cdnjs.cloudflare.com',
           'https://fonts.googleapis.com',
+          'https://kit.fontawesome.com',
+          'https://maps.googleapis.com',
           "'unsafe-inline'",
         ],
-        imgSrc: ["'self'", 'data:'],
+        imgSrc: [
+          "'self'",
+          'data:',
+          'https://res.cloudinary.com',
+          'https://*.cloudinary.com',
+          'https://maps.googleapis.com',
+          'https://maps.gstatic.com',
+          'https://*.googleapis.com',
+          'https://*.gstatic.com',
+        ],
         fontSrc: [
           "'self'",
           'https://cdnjs.cloudflare.com',
           'https://fonts.gstatic.com',
+          'https://kit.fontawesome.com',
           'data:',
         ],
+        connectSrc: [
+          "'self'",
+          'https://api.cloudinary.com',
+          'https://maps.googleapis.com',
+        ],
+        frameSrc: ["'self'", 'https://www.google.com'],
         objectSrc: ["'none'"],
         upgradeInsecureRequests: [],
       },
@@ -75,7 +101,13 @@ const server = app.listen(process.env.PORT || 3000, () => {
   console.log(`Server is running on port ${process.env.PORT || 3000}`)
 })
 
-// Increase server timeout for file uploads (2 minutes)
-server.timeout = 120000 // 120 seconds
-server.keepAliveTimeout = 120000 // 120 seconds
-server.headersTimeout = 120000 // 120 seconds
+// For Vercel deployment
+if (process.env.NODE_ENV !== 'production') {
+  // Increase server timeout for file uploads (2 minutes) - only in development
+  server.timeout = 120000 // 120 seconds
+  server.keepAliveTimeout = 120000 // 120 seconds
+  server.headersTimeout = 120000 // 120 seconds
+}
+
+// Export the app for Vercel
+module.exports = app
