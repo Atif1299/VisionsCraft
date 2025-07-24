@@ -22,12 +22,6 @@
     line-height: 1.2;
 }
 
-.blog-hero-content p {
-    font-size: 1.2rem;
-    color: var(--text-muted);
-    max-width: 600px;
-    margin: 0 auto;
-}
 
 .main-blog-content {
     padding: var(--spacing-xxl) 0;
