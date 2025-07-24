@@ -51,4 +51,34 @@ router.get('/featured-post', (req, res) => {
   })
 })
 
+// GET /blog/ai-ethics
+router.get('/ai-ethics', (req, res) => {
+  res.render('blog/ai-ethics', {
+    title: 'Ethical Considerations in AI Development - VisionsCraft',
+    currentPage: 'blog',
+    description:
+      'Exploring the moral implications of artificial intelligence and how to build responsible AI systems.',
+  })
+})
+
+// GET /blog/machine-learning-future
+router.get('/machine-learning-future', (req, res) => {
+  res.render('blog/machine-learning-future', {
+    title: 'The Future of Machine Learning in Business - VisionsCraft',
+    currentPage: 'blog',
+    description:
+      'How emerging ML technologies are reshaping industries and creating new opportunities for growth.',
+  })
+})
+
+// GET /blog/ai-implementation
+router.get('/ai-implementation', (req, res) => {
+  res.render('blog/ai-implementation', {
+    title: '5 Steps to Successful AI Implementation - VisionsCraft',
+    currentPage: 'blog',
+    description:
+      'A practical guide to integrating AI solutions into your existing business processes.',
+  })
+})
+
 module.exports = router
