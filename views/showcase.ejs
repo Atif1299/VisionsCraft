@@ -1,7 +1,7 @@
 <%- include('partials/header', 
     {currentPage: currentPage,
     description: description, 
-    additionalCSS: ['/css/animations.css', '/css/showcase.css', '/css/project-popup.css']}) %>
+    additionalCSS: ['/css/animations.css', '/css/showcase.css', '/css/project-popup.css', '/css/demo-popup.css']}) %>
         <section class="services-hero">
             <div class="container">
                 <div class="services-hero-content">
@@ -13,6 +13,7 @@
                     <p class="animate-text-delay">Explore our portfolio of successful AI implementations across various industries.</p>
                 </div>
                 <div id="particles-background" class="particles-container"></div>
+
             </div>
         </section>
         <!-- Filter Section -->
@@ -101,15 +102,16 @@
                 <div class="demo-grid">
                     <div class="demo-card">
                         <div class="demo-preview">
-                            <img src="images/demo-1.svg" alt="Agentic AI Demo">
+                            <img src="videos/demo-1.svg" alt="Agentic AI Demo">
                             <div class="demo-overlay">
                                 <span>Try It</span>
                             </div>
+
                         </div>
                         <div class="demo-content">
                             <h3>Agentic AI</h3>
                             <p>Interact with an autonomous AI agent and see how it completes complex tasks.</p>
-                            <a href="demos/agentic-ai.html" class="btn btn-secondary">Launch Demo</a>
+                            <a href="#" class="btn btn-secondary" data-video-url="demos/whatsapp automation.mp4" data-video-type="local">Launch Demo</a>
                         </div>
                     </div>
                     <div class="demo-card">
@@ -122,7 +124,7 @@
                         <div class="demo-content">
                             <h3>Generative AI</h3>
                             <p>Generate text, images, and code with our cutting-edge generative models.</p>
-                            <a href="demos/generative-ai.html" class="btn btn-secondary">Launch Demo</a>
+                            <a href="#" class="btn btn-secondary" data-video-url="https://www.youtube.com/embed/your_video_id_2?autoplay=1">Launch Demo</a>
                         </div>
                     </div>
                     <div class="demo-card">
@@ -135,7 +137,7 @@
                         <div class="demo-content">
                             <h3>AI Automation</h3>
                             <p>See how AI can automate repetitive tasks and streamline your business processes.</p>
-                            <a href="demos/ai-automation.html" class="btn btn-secondary">Launch Demo</a>
+                            <a href="#" class="btn btn-secondary" data-video-url="https://www.youtube.com/embed/your_video_id_3?autoplay=1">Launch Demo</a>
                         </div>
                     </div>
                 </div>
@@ -151,4 +153,5 @@
                 </div>
             </div>
         </section>
-<%- include('partials/footer', {additionalScripts: ['/js/project-popup.js']}) %>
+<%- include('partials/footer', {additionalScripts: ['/js/project-popup.js', '/js/demo-popup.js']}) %>
+<!-- <div id="particles-background" class="particles-container"></div> -->
