@@ -304,46 +304,4 @@
             <div class="cta-bg-overlay"></div>
         </section>
         
-        <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize accordion functionality
-            const accordionItems = document.querySelectorAll('.accordion-item');
-            
-            accordionItems.forEach(item => {
-                const header = item.querySelector('.accordion-header');
-                const content = item.querySelector('.accordion-content');
-                const icon = item.querySelector('.accordion-icon i');
-                
-                header.addEventListener('click', () => {
-                    // Toggle current item
-                    content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + 'px';
-                    item.classList.toggle('active');
-                    
-                    // Toggle icon
-                    if (icon.classList.contains('fa-plus')) {
-                        icon.classList.remove('fa-plus');
-                        icon.classList.add('fa-minus');
-                    } else {
-                        icon.classList.remove('fa-minus');
-                        icon.classList.add('fa-plus');
-                    }
-                    
-                    // Close other items
-                    accordionItems.forEach(otherItem => {
-                        if (otherItem !== item) {
-                            const otherContent = otherItem.querySelector('.accordion-content');
-                            const otherIcon = otherItem.querySelector('.accordion-icon i');
-                            
-                            otherContent.style.maxHeight = null;
-                            otherItem.classList.remove('active');
-                            
-                            otherIcon.classList.remove('fa-minus');
-                            otherIcon.classList.add('fa-plus');
-                        }
-                    });
-                });
-            });
-        });
-        </script>
-
 <%- include('partials/footer') %>

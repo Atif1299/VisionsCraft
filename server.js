@@ -8,9 +8,13 @@ const contactRoutes = require('./routes/contactRoutes')
 const showcaseRoutes = require('./routes/showcaseRoutes')
 const blogRoutes = require('./routes/blogRoutes')
 const bookingRoutes = require('./routes/bookingRoutes') // Import booking routes
-const helmet = require('helmet') // Import helmet
+const helmet = require('helmet')
+const compression = require('compression')
 
 const app = express()
+
+// Use compression to gzip responses
+app.use(compression())
 
 // Use Helmet to set security headers
 app.use(
@@ -77,7 +81,13 @@ app.set('views', path.join(__dirname, 'views'))
 // Middleware with file size limits
 app.use(express.json({ limit: '10mb' })) // JSON payload limit
 app.use(express.urlencoded({ extended: true, limit: '10mb' })) // Form data limit
-app.use(express.static(path.join(__dirname, 'public')))
+
+// Serve static files with caching
+app.use(
+  express.static(path.join(__dirname, 'public'), {
+    maxAge: '1d', // Cache for 1 day
+  })
+)
 
 // Routes
 app.use('/', mainRoutes)
