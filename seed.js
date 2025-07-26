@@ -24,7 +24,7 @@ const seedDatabase = async () => {
           'The Islamic Knowledge Explorer is a sophisticated, agentic RAG-based system designed for scholars, students, and researchers of Islamic texts. Leveraging powerful AI frameworks like LangChain, LangGraph, and AutoGen, this tool cross-references Hadith with Quranic ayahs, verifies narrator chains, and provides comprehensive contextual analysis. It streamlines the research process, ensuring accuracy and depth in understanding religious scriptures.',
         industry: 'Religious Studies',
         category: 'AI Automation',
-        mainImage: 'images/Use Cases/islamic_knowledge.jpg',
+        mainImage: 'images/projects images/islamic_hadith_explorer_1st.png',
         techStack: ['Langchain', 'Langgraph', 'AutoGen', 'OpenAI SDK'],
         implementation:
           'Agentic RAG system, comprehensive analysis of Hadith, narrator chain verification.',
@@ -39,7 +39,7 @@ const seedDatabase = async () => {
             type: 'youtube',
           },
         ],
-        githubLink: '#',
+        githubLink: 'https://github.com/nxbsolution/islamAI',
       },
       {
         title: 'WhatsApp Automation System',
@@ -49,7 +49,7 @@ const seedDatabase = async () => {
           'This project automates the entire customer lifecycle on WhatsApp for the NexusBerry Institute. Using `whatsapp-web.js`, n8n, and a LangGraph-based AI agent, the system manages incoming inquiries about courses, converts leads into clients, and provides instant support. Deployed on AWS, this robust solution enhances customer engagement, boosts enrollment rates, and ensures a seamless experience for all users.',
         industry: 'Education',
         category: 'AI Automation',
-        mainImage: 'demos/whatsapp automation .png',
+        mainImage: 'images/projects images/whatsapp automation n8n .png',
         techStack: ['whatsapp-web.js', 'n8n', 'Langgraph', 'AWS'],
         implementation:
           'Lead management, customer support, automated responses, and course inquiries.',
@@ -64,7 +64,7 @@ const seedDatabase = async () => {
             type: 'youtube',
           },
         ],
-        githubLink: '#',
+        githubLink: 'https://github.com/nxbsolution/n8n-projects',
       },
       {
         title: 'Complete E-commerce Web Development',
@@ -74,7 +74,7 @@ const seedDatabase = async () => {
           'This complete e-commerce solution is built with Node.js and features server-side rendering for optimal performance and SEO. It includes a powerful admin dashboard for managing orders, a seamless booking and checkout system, and automated email notifications. The platform is designed to provide a smooth, intuitive, and secure shopping experience for both customers and administrators.',
         industry: 'E-commerce',
         category: 'Web Development',
-        mainImage: 'images/Use Cases/ecommerce.jpg',
+        mainImage: 'images/projects images/ecommerce_landing_page.png',
         techStack: ['Node.js', 'Server-Side Rendering', 'Admin Dashboard'],
         implementation:
           'Order management, booking system, secure checkout, and email notifications.',
@@ -89,7 +89,7 @@ const seedDatabase = async () => {
             type: 'youtube',
           },
         ],
-        githubLink: '#',
+        githubLink: 'https://github.com/Atif1299/Full-stack-Ecommerce-Mern-App',
       },
     ]
     await Project.insertMany(projects)

@@ -109,8 +109,8 @@ app.get('/get-services', async (req, res) => {
   }
 })
 
-const server = app.listen(process.env.PORT || 3000, () => {
-  console.log(`Server is running on port ${process.env.PORT || 3000}`)
+const server = app.listen(process.env.PORT || 8080, () => {
+  console.log(`Server is running on port ${process.env.PORT || 8080}`)
 })
 
 // For Vercel deployment
@@ -120,6 +120,3 @@ if (process.env.NODE_ENV !== 'production') {
   server.keepAliveTimeout = 120000 // 120 seconds
   server.headersTimeout = 120000 // 120 seconds
 }
-
-// Export the app for Vercel
-module.exports = app
