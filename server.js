@@ -51,6 +51,7 @@ app.use(
           'https://*.googleapis.com',
           'https://*.gstatic.com',
         ],
+        mediaSrc: ["'self'"],
         fontSrc: [
           "'self'",
           'https://cdnjs.cloudflare.com',
@@ -85,7 +86,7 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' })) // Form data limi
 // Serve static files with caching
 app.use(
   express.static(path.join(__dirname, 'public'), {
-    maxAge: '1d', // Cache for 1 day
+    maxAge: 0, // Disable caching
   })
 )
 

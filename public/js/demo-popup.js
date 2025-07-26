@@ -58,9 +58,9 @@ function initDemoPopups() {
 
     if (demoPreview) {
       demoPreview.addEventListener('click', function () {
-        const launchButton = card.querySelector('.btn-secondary')
-        const videoUrl = launchButton.dataset.videoUrl
-        const videoType = launchButton.dataset.videoType
+        const video = demoPreview.querySelector('video')
+        const videoUrl = video ? video.src : null
+        const videoType = 'local' // Since we are using local videos
         if (videoUrl) {
           openDemoPopup(videoUrl, videoType)
         }
