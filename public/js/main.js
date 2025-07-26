@@ -38,8 +38,6 @@ document.addEventListener('DOMContentLoaded', function () {
   initMobileMenu()
   initScrollReveal()
   initHeaderScroll() // Add this line to initialize header scroll behavior
-  // Particles will be initialized after preloader is gone
-  // initParticles() is now called from within the preloader function
   initTypingEffect()
   initCounters()
   initFilterControls()
@@ -49,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initTabs()
   initTooltips()
   initAnimatedCards()
-  initTestimonialsSlider() // Add this line to initialize the testimonial slider
+  initTestimonialsSlider()
 })
 
 // Preloader
@@ -59,47 +57,19 @@ function initPreloader() {
     console.log(
       'Preloader element not found. Skipping preloader initialization.'
     )
+    // Still initialize particles if no preloader is found
+    initParticles()
     return
   }
 
-  console.log('initPreloader called. Adding "loaded" class to body.')
-  // Add loaded class to body immediately to prepare animations
-  document.body.classList.add('loaded')
-
-  // If the page is already loaded, hide the preloader immediately
-  if (document.readyState === 'complete') {
-    console.log(
-      'document.readyState is complete. Hiding preloader immediately.'
-    )
-    hidePreloader()
-  } else {
-    // Otherwise wait for the load event
-    console.log(
-      'document.readyState is not complete. Waiting for window.load event.'
-    )
-    window.addEventListener('load', hidePreloader)
-  }
-
-  // Fallback - hide preloader after 1 second even if load event doesn't fire
-  console.log('Setting 1-second fallback timeout for preloader.')
-  setTimeout(hidePreloader, 1000) // Fallback to hide preloader after 1 second
-
+  // Function to hide the preloader and initialize particles
   function hidePreloader() {
-    console.log('hidePreloader function called.')
-    // Ensure preloader exists and is not already hidden
-    if (!preloader || preloader.style.display === 'none') {
-      console.log('Preloader already hidden or not found. Returning.')
-      return
+    if (preloader.style.display === 'none') {
+      return // Already hidden
     }
 
     preloader.classList.add('fade-out')
-    console.log('Added "fade-out" class to preloader.')
-
-    // Remove preloader after transition completes
-    // The timeout duration should be slightly longer than the CSS transition for 'fade-out'
-    // to ensure the animation completes before display: none is applied.
-    // The CSS transition for .preloader.fade-out is 0.3s (300ms).
-    setTimeout(function () {
+    preloader.addEventListener('transitionend', () => {
       preloader.style.display = 'none'
       document.body.style.overflow = 'visible'
       // Initialize particles after preloader is gone
@@ -107,8 +77,11 @@ function initPreloader() {
       console.log(
         'Preloader hidden, body overflow visible, particles initialized.'
       )
-    }, 350) // Increased to 350ms to account for transition
+    })
   }
+
+  // Hide preloader as soon as the DOM is interactive
+  hidePreloader()
 }
 
 // Mobile Menu Toggle
@@ -192,7 +165,7 @@ function initParticles() {
     console.log('Hero particles initialized.')
   }
 
-  // Initialize particles for the general background (index.html)
+  // Initialize particles for the general background (index.html or contact.html)
   const backgroundParticlesElement = document.getElementById(
     'particles-background'
   )
@@ -459,34 +432,39 @@ function initAnimatedCards() {
 
 // Testimonials Slider (Swiper)
 function initTestimonialsSlider() {
-  const testimonialsSlider = new Swiper('.testimonials-slider', {
-    slidesPerView: 1,
-    spaceBetween: 30,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: '.testimonial-dots',
-      clickable: true,
-      renderBullet: function (index, className) {
-        return '<span class="' + className + ' dot"></span>'
+  if (
+    typeof Swiper !== 'undefined' &&
+    document.querySelector('.testimonials-slider')
+  ) {
+    new Swiper('.testimonials-slider', {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
       },
-    },
-    navigation: {
-      nextEl: '.testimonial-next',
-      prevEl: '.testimonial-prev',
-    },
-    breakpoints: {
-      768: {
-        slidesPerView: 1,
+      pagination: {
+        el: '.testimonial-dots',
+        clickable: true,
+        renderBullet: function (index, className) {
+          return '<span class="' + className + ' dot"></span>'
+        },
       },
-      1024: {
-        slidesPerView: 1,
+      navigation: {
+        nextEl: '.testimonial-next',
+        prevEl: '.testimonial-prev',
       },
-    },
-  })
+      breakpoints: {
+        768: {
+          slidesPerView: 1,
+        },
+        1024: {
+          slidesPerView: 1,
+        },
+      },
+    })
+  }
 }
 
 // Header Scroll Behavior
@@ -732,18 +710,6 @@ if (hamburgerMenu) {
   })
 }
 
-// Sticky Header on Scroll
-const header = document.querySelector('header')
-if (header) {
-  window.addEventListener('scroll', function () {
-    if (window.scrollY > 100) {
-      header.classList.add('sticky')
-    } else {
-      header.classList.remove('sticky')
-    }
-  })
-}
-
 // Initialize AOS (Animate On Scroll) if available
 if (typeof AOS !== 'undefined') {
   AOS.init({
@@ -887,33 +853,6 @@ if (typeof THREE !== 'undefined') {
 
 // Initialize Swiper slider if available
 if (typeof Swiper !== 'undefined') {
-  // Testimonials slider
-  const testimonialsSlider = new Swiper('.testimonials-slider', {
-    slidesPerView: 1,
-    spaceBetween: 30,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: '.testimonial-dots', // Corrected pagination element
-      clickable: true,
-    },
-    navigation: {
-      nextEl: '.testimonial-next', // Corrected next button element
-      prevEl: '.testimonial-prev', // Corrected prev button element
-    },
-    breakpoints: {
-      768: {
-        slidesPerView: 2,
-      },
-      1024: {
-        slidesPerView: 3,
-      },
-    },
-  })
-
   // Hero slider
   const heroSlider = new Swiper('.hero-slider', {
     slidesPerView: 1,
