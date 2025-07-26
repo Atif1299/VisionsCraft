@@ -51,6 +51,7 @@ app.use(
           'https://*.googleapis.com',
           'https://*.gstatic.com',
         ],
+        mediaSrc: ["'self'"],
         fontSrc: [
           "'self'",
           'https://cdnjs.cloudflare.com',
@@ -85,7 +86,7 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' })) // Form data limi
 // Serve static files with caching
 app.use(
   express.static(path.join(__dirname, 'public'), {
-    maxAge: '1d', // Cache for 1 day
+    maxAge: 0, // Disable caching
   })
 )
 
@@ -108,8 +109,8 @@ app.get('/get-services', async (req, res) => {
   }
 })
 
-const server = app.listen(process.env.PORT || 3000, () => {
-  console.log(`Server is running on port ${process.env.PORT || 3000}`)
+const server = app.listen(process.env.PORT || 8080, () => {
+  console.log(`Server is running on port ${process.env.PORT || 8080}`)
 })
 
 // For Vercel deployment
@@ -119,6 +120,3 @@ if (process.env.NODE_ENV !== 'production') {
   server.keepAliveTimeout = 120000 // 120 seconds
   server.headersTimeout = 120000 // 120 seconds
 }
-
-// Export the app for Vercel
-module.exports = app

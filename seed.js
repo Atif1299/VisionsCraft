@@ -4,10 +4,11 @@ const Project = require('./models/Project')
 const Service = require('./models/Service') // Import Service model
 const connectDB = require('./config/db')
 
-connectDB()
-
 const seedDatabase = async () => {
   try {
+    // Connect to the database first
+    await connectDB()
+
     // Clear existing data
     await Project.deleteMany({})
     await Service.deleteMany({}) // Clear existing services
@@ -16,61 +17,79 @@ const seedDatabase = async () => {
     // Seed Projects (existing data)
     const projects = [
       {
-        title: 'AI-Powered Predictive Analytics Platform',
+        title: 'Islamic Knowledge Explorer',
         shortDescription:
-          'Developed a robust platform utilizing machine learning to predict market trends with 90% accuracy.',
+          'An advanced AI-powered tool for in-depth Quranic and Hadith analysis, providing verified references and contextual insights.',
         fullDescription:
-          'Developed a robust platform utilizing machine learning to predict market trends with 90% accuracy, enabling data-driven decisions for financial institutions. This project involved extensive data preprocessing, model training, and deployment on cloud infrastructure.',
-        industry: 'Finance',
-        category: 'Machine Learning',
-        mainImage: 'images/Use Cases/fraud-detection-02.jpg',
-        techStack: ['Python', 'TensorFlow', 'AWS Sagemaker'],
-        implementation:
-          'Custom machine learning models, cloud deployment, real-time data processing.',
-        results: [
-          '90% prediction accuracy',
-          'Improved decision-making',
-          'Increased ROI',
-        ],
-        githubLink: '#',
-      },
-      {
-        title: 'Automated Customer Support Chatbot',
-        shortDescription:
-          'Implemented a conversational AI solution that handles 70% of customer inquiries automatically.',
-        fullDescription:
-          'Implemented a conversational AI solution that handles 70% of customer inquiries automatically, significantly reducing response times and operational costs. The chatbot was integrated with existing CRM systems and provided 24/7 support.',
-        industry: 'Customer Service',
-        category: 'Conversational AI',
-        mainImage: 'images/Use Cases/patient.png',
-        techStack: ['Node.js', 'Dialogflow', 'Google Cloud'],
-        implementation:
-          'Natural Language Processing (NLP), intent recognition, integration with CRM.',
-        results: [
-          '70% reduction in inquiries',
-          'Improved customer satisfaction',
-          'Reduced operational costs',
-        ],
-        githubLink: '#',
-      },
-      {
-        title: 'Intelligent Inventory Management System',
-        shortDescription:
-          'Designed an AI system that optimizes inventory levels, predicts demand fluctuations, and reduces waste by 25%.',
-        fullDescription:
-          'Designed an AI system that optimizes inventory levels, predicts demand fluctuations, and reduces waste by 25% for a leading retail chain. The system uses predictive analytics to forecast demand and optimize stock levels.',
-        industry: 'Retail',
+          'The Islamic Knowledge Explorer is a sophisticated, agentic RAG-based system designed for scholars, students, and researchers of Islamic texts. Leveraging powerful AI frameworks like LangChain, LangGraph, and AutoGen, this tool cross-references Hadith with Quranic ayahs, verifies narrator chains, and provides comprehensive contextual analysis. It streamlines the research process, ensuring accuracy and depth in understanding religious scriptures.',
+        industry: 'Religious Studies',
         category: 'AI Automation',
-        mainImage: 'images/Use Cases/inventory.jpeg',
-        techStack: ['Python', 'PyTorch', 'Azure ML'],
+        mainImage: 'images/projects images/islamic_hadith_explorer_1st.png',
+        techStack: ['Langchain', 'Langgraph', 'AutoGen', 'OpenAI SDK'],
         implementation:
-          'Predictive analytics, supply chain optimization, automated reordering.',
+          'Agentic RAG system, comprehensive analysis of Hadith, narrator chain verification.',
         results: [
-          '25% reduction in waste',
-          'Optimized inventory levels',
-          'Improved efficiency',
+          'Accurate Hadith verification',
+          'In-depth analysis of religious texts',
+          'User-friendly interface for religious scholars',
         ],
-        githubLink: '#',
+        carouselVideos: [
+          {
+            url: 'your_video_url_here',
+            type: 'youtube',
+          },
+        ],
+        githubLink: 'https://github.com/nxbsolution/islamAI',
+      },
+      {
+        title: 'WhatsApp Automation System',
+        shortDescription:
+          'An intelligent WhatsApp automation solution for lead conversion and 24/7 customer support, tailored for educational institutions.',
+        fullDescription:
+          'This project automates the entire customer lifecycle on WhatsApp for the NexusBerry Institute. Using `whatsapp-web.js`, n8n, and a LangGraph-based AI agent, the system manages incoming inquiries about courses, converts leads into clients, and provides instant support. Deployed on AWS, this robust solution enhances customer engagement, boosts enrollment rates, and ensures a seamless experience for all users.',
+        industry: 'Education',
+        category: 'AI Automation',
+        mainImage: 'images/projects images/whatsapp automation n8n .png',
+        techStack: ['whatsapp-web.js', 'n8n', 'Langgraph', 'AWS'],
+        implementation:
+          'Lead management, customer support, automated responses, and course inquiries.',
+        results: [
+          'Increased lead conversion',
+          '24/7 customer support',
+          'Streamlined course enrollment process',
+        ],
+        carouselVideos: [
+          {
+            url: 'your_video_url_here',
+            type: 'youtube',
+          },
+        ],
+        githubLink: 'https://github.com/nxbsolution/n8n-projects',
+      },
+      {
+        title: 'Complete E-commerce Web Development',
+        shortDescription:
+          'A high-performance, full-stack e-commerce platform featuring server-side rendering and a comprehensive admin dashboard.',
+        fullDescription:
+          'This complete e-commerce solution is built with Node.js and features server-side rendering for optimal performance and SEO. It includes a powerful admin dashboard for managing orders, a seamless booking and checkout system, and automated email notifications. The platform is designed to provide a smooth, intuitive, and secure shopping experience for both customers and administrators.',
+        industry: 'E-commerce',
+        category: 'Web Development',
+        mainImage: 'images/projects images/ecommerce_landing_page.png',
+        techStack: ['Node.js', 'Server-Side Rendering', 'Admin Dashboard'],
+        implementation:
+          'Order management, booking system, secure checkout, and email notifications.',
+        results: [
+          'Seamless user experience',
+          'Efficient order processing',
+          'Comprehensive admin control',
+        ],
+        carouselVideos: [
+          {
+            url: 'your_video_url_here',
+            type: 'youtube',
+          },
+        ],
+        githubLink: 'https://github.com/Atif1299/Full-stack-Ecommerce-Mern-App',
       },
     ]
     await Project.insertMany(projects)

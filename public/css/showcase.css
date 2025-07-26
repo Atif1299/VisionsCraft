@@ -190,16 +190,13 @@ body
     cursor: pointer;
 }
 
-.demo-preview img {
-    max-width: 70%;
-    max-height: 160px;
-    object-fit: contain;
+.demo-preview video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     transition: transform 0.3s ease;
 }
 
-.demo-card:hover .demo-preview img {
-    transform: scale(1.05);
-}
 
 .demo-overlay {
     position: absolute;
