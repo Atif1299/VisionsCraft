@@ -2179,3 +2179,54 @@ if (scrollNav) {
     })
   })
 }
+
+// FAQ Accordion Functionality (Modern Style)
+document.addEventListener('DOMContentLoaded', function () {
+  const faqAccordion = document.querySelector('.faq-accordion');
+  if (!faqAccordion) return;
+  const faqItems = faqAccordion.querySelectorAll('.faq-item');
+  faqItems.forEach((item) => {
+    const question = item.querySelector('.faq-question');
+    question.addEventListener('click', function () {
+      // Close all other items
+      faqItems.forEach((other) => {
+        if (other !== item) other.classList.remove('active');
+      });
+      // Toggle current item
+      item.classList.toggle('active');
+    });
+  });
+});
+
+// Contact Success Modal Logic
+function initContactSuccessModal() {
+  const form = document.getElementById('contactForm');
+  const modal = document.getElementById('contact-success-modal');
+  const closeBtn = document.querySelector('.close-success-modal');
+  if (!form || !modal) return;
+
+  // Intercept form submit (simulate AJAX for demo)
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    // Optionally, add loading state here
+    setTimeout(() => {
+      modal.style.display = 'flex';
+      form.reset();
+      // Optionally, remove loading state here
+    }, 600); // Simulate network delay
+  });
+
+  // Close modal on button click
+  closeBtn.addEventListener('click', function () {
+    modal.style.display = 'none';
+  });
+  // Close modal on overlay click
+  modal.addEventListener('click', function (e) {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+}
+document.addEventListener('DOMContentLoaded', function () {
+  initContactSuccessModal();
+});

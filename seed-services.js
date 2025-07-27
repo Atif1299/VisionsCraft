@@ -46,6 +46,14 @@ async function seedServices() {
         availability: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
         isCustomizable: true,
       },
+      {
+        name: 'Web Development Service',
+        description: 'Full-stack web development tailored to your business needs',
+        price: 1200,
+        duration: 'Custom',
+        availability: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        isCustomizable: true,
+      },
     ]
 
     await Service.insertMany(services)

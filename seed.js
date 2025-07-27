@@ -24,7 +24,7 @@ const seedDatabase = async () => {
           'The Islamic Knowledge Explorer is a sophisticated, agentic RAG-based system designed for scholars, students, and researchers of Islamic texts. Leveraging powerful AI frameworks like LangChain, LangGraph, and AutoGen, this tool cross-references Hadith with Quranic ayahs, verifies narrator chains, and provides comprehensive contextual analysis. It streamlines the research process, ensuring accuracy and depth in understanding religious scriptures.',
         industry: 'Religious Studies',
         category: 'AI Automation',
-        mainImage: 'images/projects images/islamic_hadith_explorer_1st.png',
+        mainImage: 'images/projects images/islamic_hadith_1st.png',
         techStack: ['Langchain', 'Langgraph', 'AutoGen', 'OpenAI SDK'],
         implementation:
           'Agentic RAG system, comprehensive analysis of Hadith, narrator chain verification.',
