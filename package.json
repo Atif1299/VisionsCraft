@@ -9,6 +9,9 @@
         "build:css": "cleancss -o public/css/style.min.css public/css/style.css public/css/header.css public/css/cta.css public/css/animations.css",
         "build:js": "uglifyjs -o public/js/main.min.js public/js/main.js",
         "build": "npm run build:css && npm run build:js",
+        "build:images": "node scripts/optimize-images.js",
+        "build:all": "npm run build && npm run build:images",
+        "test:performance": "node scripts/performance-test.js",
         "vercel-build": "echo 'No build step required for Node.js'"
     },
     "keywords": [],
@@ -34,6 +37,12 @@
     },
     "devDependencies": {
         "clean-css-cli": "^5.6.3",
-        "uglify-js": "^3.19.3"
+        "uglify-js": "^3.19.3",
+        "imagemin": "^8.0.1",
+        "imagemin-cli": "^7.0.0",
+        "imagemin-mozjpeg": "^10.0.0",
+        "imagemin-pngquant": "^9.0.2",
+        "imagemin-svgo": "^3.0.3",
+        "imagemin-webp": "^8.0.0"
     }
 }

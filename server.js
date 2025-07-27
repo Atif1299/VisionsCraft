@@ -10,11 +10,25 @@ const blogRoutes = require('./routes/blogRoutes')
 const bookingRoutes = require('./routes/bookingRoutes') // Import booking routes
 const helmet = require('helmet')
 const compression = require('compression')
+const { performanceMonitor, dbPerformanceMonitor, memoryMonitor } = require('./middleware/performance')
 
 const app = express()
 
-// Use compression to gzip responses
-app.use(compression())
+// Enhanced compression with better settings
+app.use(compression({
+  level: 6, // Higher compression level
+  threshold: 1024, // Compress responses larger than 1KB
+  filter: (req, res) => {
+    if (req.headers['x-no-compression']) {
+      return false
+    }
+    return compression.filter(req, res)
+  }
+}))
+
+// Performance monitoring
+app.use(performanceMonitor)
+app.use(dbPerformanceMonitor())
 
 // Use Helmet to set security headers
 app.use(
@@ -83,10 +97,24 @@ app.set('views', path.join(__dirname, 'views'))
 app.use(express.json({ limit: '10mb' })) // JSON payload limit
 app.use(express.urlencoded({ extended: true, limit: '10mb' })) // Form data limit
 
-// Serve static files with caching
+// Enhanced static file serving with aggressive caching
 app.use(
   express.static(path.join(__dirname, 'public'), {
-    maxAge: 0, // Disable caching
+    maxAge: '1y', // Cache static files for 1 year
+    etag: true, // Enable ETags
+    lastModified: true, // Enable Last-Modified headers
+    setHeaders: (res, path) => {
+      // Set specific cache headers for different file types
+      if (path.endsWith('.css') || path.endsWith('.js')) {
+        res.setHeader('Cache-Control', 'public, max-age=31536000, immutable') // 1 year
+      } else if (path.endsWith('.png') || path.endsWith('.jpg') || path.endsWith('.jpeg') || path.endsWith('.gif') || path.endsWith('.svg') || path.endsWith('.webp')) {
+        res.setHeader('Cache-Control', 'public, max-age=31536000, immutable') // 1 year
+      } else if (path.endsWith('.woff') || path.endsWith('.woff2') || path.endsWith('.ttf') || path.endsWith('.eot')) {
+        res.setHeader('Cache-Control', 'public, max-age=31536000, immutable') // 1 year
+      } else {
+        res.setHeader('Cache-Control', 'public, max-age=86400') // 1 day for other files
+      }
+    }
   })
 )
 
@@ -111,6 +139,7 @@ app.get('/get-services', async (req, res) => {
 
 const server = app.listen(process.env.PORT || 8080, () => {
   console.log(`Server is running on port ${process.env.PORT || 8080}`)
+  memoryMonitor() // Start memory monitoring
 })
 
 // For Vercel deployment
