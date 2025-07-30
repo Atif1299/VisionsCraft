@@ -1,0 +1,28 @@
+/* ===== MODULAR STYLES MAIN FILE ===== */
+
+/* Base Styles */
+@import './base/variables.css';
+@import './base/typography.css';
+
+/* Components */
+@import './components/buttons.css';
+@import './components/preloader.css';
+@import './components/notifications.css';
+
+/* Existing component styles - import existing files */
+@import './header.css';
+@import './footer.css';
+@import './booking-widget.css';
+@import './animations.css';
+
+/* Layout Styles - create from sections of main style.css */
+@import './layout/hero.css';
+@import './layout/services.css';
+@import './layout/about.css';
+@import './layout/testimonials.css';
+@import './layout/contact.css';
+@import './layout/blog.css';
+
+/* Utility Classes */
+@import './utilities/spacing.css';
+@import './utilities/responsive.css';

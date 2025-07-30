@@ -1,0 +1,89 @@
+/* ===== NOTIFICATION STYLES ===== */
+
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    max-width: 400px;
+    padding: 16px 20px;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-lg);
+    z-index: 10000;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.notification.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.notification.hide {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+}
+
+.notification-message {
+    flex: 1;
+    font-weight: 500;
+}
+
+.notification-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: var(--transition-fast);
+}
+
+/* Notification Types */
+.notification-info {
+    background: var(--info);
+    color: white;
+}
+
+.notification-info .notification-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.notification-success {
+    background: var(--success);
+    color: white;
+}
+
+.notification-success .notification-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.notification-warning {
+    background: var(--warning);
+    color: var(--text-dark);
+}
+
+.notification-warning .notification-close:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.notification-error {
+    background: var(--danger);
+    color: white;
+}
+
+.notification-error .notification-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+}

@@ -1,0 +1,97 @@
+/* ===== GLOBAL VARIABLES AND BASE STYLES ===== */
+
+:root {
+    /* Color Palette */
+    --primary-color: #4361ee;
+    --primary-dark: #3a56d4;
+    --primary-light: #4f70ff;
+
+    --secondary-color: #7209b7;
+    --secondary-dark: #6008a0;
+    --secondary-light: #8429c7;
+
+    --gradient-start: #4361ee;
+    --gradient-mid: #3a0ca3;
+    --gradient-end: #7209b7;
+
+    --dark: #1a1a2e;
+    --dark-blue: #16213e;
+    --medium-blue: #0f3460;
+    --light-gray: #f8f9fa;
+    --medium-gray: #e9ecef;
+    --text-dark: #212529;
+    --text-light: #f8f9fa;
+    --text-muted: #6c757d;
+
+    /* Functional Colors */
+    --success: #28a745;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --info: #17a2b8;
+
+    /* Typography */
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Montserrat', sans-serif;
+
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-xxl: 3rem;
+
+    /* Border Radius */
+    --border-radius-sm: 0.25rem;
+    --border-radius-md: 0.5rem;
+    --border-radius-lg: 1rem;
+    --border-radius-xl: 2rem;
+
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: var(--font-primary);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+    background-color: #f6f8fb;
+}
+
+/* Animation Control */
+body:not(.loaded) .animate-text,
+body:not(.loaded) .animate-text-delay,
+body:not(.loaded) .animate-text-delay-2,
+body:not(.loaded) .floating-element {
+    animation: none !important;
+    opacity: 0 !important;
+}
+
+body.loaded .animate-text,
+body.loaded .animate-text-delay,
+body.loaded .animate-text-delay-2,
+body.loaded .floating-element {
+    animation-play-state: running;
+}

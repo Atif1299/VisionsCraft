@@ -1,0 +1,74 @@
+/* ===== RESPONSIVE UTILITIES ===== */
+
+/* Hide/Show on different screen sizes */
+.d-none { display: none !important; }
+.d-block { display: block !important; }
+.d-inline { display: inline !important; }
+.d-inline-block { display: inline-block !important; }
+.d-flex { display: flex !important; }
+.d-grid { display: grid !important; }
+
+/* Tablet and below */
+@media (max-width: 1024px) {
+    .d-lg-none { display: none !important; }
+    .d-lg-block { display: block !important; }
+    .d-lg-flex { display: flex !important; }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .d-md-none { display: none !important; }
+    .d-md-block { display: block !important; }
+    .d-md-flex { display: flex !important; }
+    
+    /* Mobile-specific spacing adjustments */
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .section {
+        padding: var(--spacing-xl) 0;
+    }
+    
+    /* Mobile typography adjustments */
+    h1 { font-size: 2rem !important; }
+    h2 { font-size: 1.75rem !important; }
+    h3 { font-size: 1.5rem !important; }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+    .d-sm-none { display: none !important; }
+    .d-sm-block { display: block !important; }
+    .d-sm-flex { display: flex !important; }
+    
+    .container {
+        padding: 0 var(--spacing-xs);
+    }
+    
+    h1 { font-size: 1.75rem !important; }
+    h2 { font-size: 1.5rem !important; }
+    h3 { font-size: 1.25rem !important; }
+}
+
+/* Flexbox utilities */
+.flex-row { flex-direction: row !important; }
+.flex-column { flex-direction: column !important; }
+.justify-center { justify-content: center !important; }
+.justify-between { justify-content: space-between !important; }
+.justify-around { justify-content: space-around !important; }
+.align-center { align-items: center !important; }
+.align-start { align-items: flex-start !important; }
+.align-end { align-items: flex-end !important; }
+
+/* Grid utilities */
+.grid-1 { grid-template-columns: 1fr !important; }
+.grid-2 { grid-template-columns: repeat(2, 1fr) !important; }
+.grid-3 { grid-template-columns: repeat(3, 1fr) !important; }
+.grid-4 { grid-template-columns: repeat(4, 1fr) !important; }
+
+@media (max-width: 768px) {
+    .grid-2, .grid-3, .grid-4 {
+        grid-template-columns: 1fr !important;
+    }
+}
