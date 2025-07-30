@@ -86,7 +86,7 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' })) // Form data limi
 // Serve static files with caching
 app.use(
   express.static(path.join(__dirname, 'public'), {
-    maxAge: 0, // Disable caching
+    maxAge: '1d', // Enable caching for 1 day
   })
 )
 

@@ -5,8 +5,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><%= title %></title>
         <meta name="description" content="<%= description || 'VisionsCraft - Leading AI solutions provider transforming businesses through innovative artificial intelligence technologies.' %>">
+        <meta name="keywords" content="AI agency, artificial intelligence solutions, machine learning, generative AI, conversational AI">
+        <meta name="robots" content="index, follow">
+        <meta property="og:title" content="<%= title %>">
+        <meta property="og:description" content="<%= description || 'VisionsCraft - Leading AI solutions provider transforming businesses through innovative artificial intelligence technologies.' %>">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://www.visionscraft.com">
+        <meta property="og:image" content="/images/advance_svgs/logo.svg">
         <!-- Favicon -->
         <link rel="icon" type="image/png" href="/img/favicon.png">
+        <link rel="canonical" href="https://www.visionscraft.com">
         <!-- CSS Files -->
         <link rel="stylesheet" href="/css/style.min.css">
         <link rel="stylesheet" href="/css/custom.css">
@@ -14,8 +22,8 @@
 
     <% if (typeof additionalCSS !== 'undefined' && additionalCSS) { %>
         <% additionalCSS.forEach(function(cssFile) { %>
-            <link rel="stylesheet" href="<%= cssFile %>">
-        <% }); %>
+    <link rel="stylesheet" href="<%= cssFile %>?v=1">
+<% }); %>
     <% } %>
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
