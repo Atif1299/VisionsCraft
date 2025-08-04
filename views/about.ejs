@@ -2,7 +2,6 @@
         <!-- Hero Section (consistent with Services) -->
         <section class="services-hero">
             <!-- Move particles container OUTSIDE and BEFORE the content container -->
-            <div id="particles-background" class="particles-container"></div>
             <div class="container">
                 <div class="services-hero-content">
                     <h1 class="animate-text">
@@ -11,6 +10,7 @@
                     </h1>
                     <p class="animate-text-delay">Pioneering the future of AI solutions with passion, expertise, and innovation.</p>
                 </div>
+                <div id="particles-background" class="particles-container"></div>
             </div>
         </section>
         <!-- Mission Section -->
@@ -367,10 +367,11 @@
         <!-- Expertise Tabs Script -->
         <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Fix particles z-index immediately
+            // Fix particles visibility once particles are loaded
             function fixParticlesVisibility() {
                 const particlesContainer = document.getElementById('particles-background');
                 if (particlesContainer) {
+                    // Ensure particles container spans the full hero section
                     particlesContainer.style.position = 'absolute';
                     particlesContainer.style.top = '0';
                     particlesContainer.style.left = '0';
@@ -378,16 +379,30 @@
                     particlesContainer.style.height = '100%';
                     particlesContainer.style.zIndex = '1';
                     particlesContainer.style.pointerEvents = 'none';
+                    // Prevent overflow hidden from clipping particles
+                    particlesContainer.style.overflow = 'visible';
                     
                     const canvas = particlesContainer.querySelector('canvas');
                     if (canvas) {
                         canvas.style.position = 'absolute';
+                        canvas.style.top = '0';
+                        canvas.style.left = '0';
+                        canvas.style.width = '100%';
+                        canvas.style.height = '100%';
                         canvas.style.zIndex = '1';
                         canvas.style.pointerEvents = 'none';
                     }
                 }
                 
-                // Ensure hero content is always visible
+                // Ensure hero section doesn't clip particles
+                const heroSection = document.querySelector('.services-hero');
+                if (heroSection) {
+                    heroSection.style.overflow = 'visible';
+                    heroSection.style.position = 'relative';
+                    heroSection.style.zIndex = '1';
+                }
+                
+                // Ensure hero content is visible above particles
                 const heroContent = document.querySelector('.services-hero-content');
                 if (heroContent) {
                     heroContent.style.position = 'relative';
@@ -395,20 +410,9 @@
                     heroContent.style.visibility = 'visible';
                     heroContent.style.opacity = '1';
                 }
-                
-                // Force visibility on animated text
-                const animatedElements = document.querySelectorAll('.animate-text, .animate-text-delay');
-                animatedElements.forEach(element => {
-                    element.style.position = 'relative';
-                    element.style.zIndex = '20';
-                    element.style.visibility = 'visible';
-                    element.style.opacity = '1';
-                });
             }
             
-            // Run fix immediately and after delays
-            fixParticlesVisibility();
-            setTimeout(fixParticlesVisibility, 500);
+            // Wait for particles to initialize before fixing
             setTimeout(fixParticlesVisibility, 1000);
             
             const tabBtns = document.querySelectorAll('.tab-btn');

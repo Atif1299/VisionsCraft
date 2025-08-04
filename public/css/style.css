@@ -4091,7 +4091,7 @@ img
 /* Hero Section Z-index Fix - Add at the end of your CSS */
 .services-hero {
     position: relative !important;
-    overflow: hidden !important;
+    overflow: visible !important;
     z-index: 1 !important;
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
     min-height: 100vh;
@@ -4109,11 +4109,16 @@ img
     height: 100% !important;
     z-index: 1 !important;
     pointer-events: none !important;
+    overflow: visible !important;
 }
 
 .particles-container canvas,
 #particles-background canvas {
     position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
     z-index: 1 !important;
     pointer-events: none !important;
 }
