@@ -4,20 +4,52 @@ const Project = require('../models/Project')
 
 router.get('/projects', async (req, res) => {
   try {
-    const projects = await Project.find()
-    res.json(projects)
+    console.log('📊 API: Fetching all projects...')
+    
+    // Add timeout to prevent hanging
+    const projects = await Promise.race([
+      Project.find().lean().exec(),
+      new Promise((_, reject) => 
+        setTimeout(() => reject(new Error('Database timeout')), 10000)
+      )
+    ])
+    
+    console.log(`✅ API: Found ${projects.length} projects`)
+    res.json(projects || [])
   } catch (err) {
-    res.status(500).json({ message: err.message })
+    console.error('❌ API: Error fetching projects:', err.message)
+    res.status(500).json({ 
+      message: err.message,
+      error: 'Failed to fetch projects. Please try again later.'
+    })
   }
 })
 
 router.get('/projects/:id', async (req, res) => {
   try {
-    const project = await Project.findById(req.params.id)
-    if (!project) return res.status(404).json({ message: 'Project not found' })
+    console.log(`📊 API: Fetching project ${req.params.id}...`)
+    
+    // Add timeout to prevent hanging
+    const project = await Promise.race([
+      Project.findById(req.params.id).lean().exec(),
+      new Promise((_, reject) => 
+        setTimeout(() => reject(new Error('Database timeout')), 10000)
+      )
+    ])
+    
+    if (!project) {
+      console.log('❌ API: Project not found')
+      return res.status(404).json({ message: 'Project not found' })
+    }
+    
+    console.log(`✅ API: Found project: ${project.title}`)
     res.json(project)
   } catch (err) {
-    res.status(500).json({ message: err.message })
+    console.error('❌ API: Error fetching project:', err.message)
+    res.status(500).json({ 
+      message: err.message,
+      error: 'Failed to fetch project details. Please try again later.'
+    })
   }
 })
 

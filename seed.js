@@ -6,13 +6,22 @@ const connectDB = require('./config/db')
 
 const seedDatabase = async () => {
   try {
+    console.log('🌱 Starting database seeding...\n')
+    
     // Connect to the database first
-    await connectDB()
+    try {
+      await connectDB()
+    } catch (connectError) {
+      console.error('\n❌ Failed to connect to database. Cannot proceed with seeding.')
+      console.error('Please fix the connection issue and try again.\n')
+      process.exit(1)
+    }
 
+    console.log('\n🗑️  Clearing existing data...')
     // Clear existing data
     await Project.deleteMany({})
     await Service.deleteMany({}) // Clear existing services
-    console.log('Existing projects and services removed')
+    console.log('✅ Existing projects and services removed')
 
     // Seed Projects (existing data)
     const projects = [
