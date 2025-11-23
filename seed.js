@@ -4,6 +4,11 @@ const Project = require('./models/Project')
 const Service = require('./models/Service') // Import Service model
 const connectDB = require('./config/db')
 
+// Parse command-line arguments
+const args = process.argv.slice(2)
+const seedProjects = !args.includes('--services-only')
+const seedServices = !args.includes('--projects-only')
+
 const seedDatabase = async () => {
   try {
     console.log('🌱 Starting database seeding...\n')
@@ -18,13 +23,20 @@ const seedDatabase = async () => {
     }
 
     console.log('\n🗑️  Clearing existing data...')
-    // Clear existing data
-    await Project.deleteMany({})
-    await Service.deleteMany({}) // Clear existing services
-    console.log('✅ Existing projects and services removed')
+    // Clear existing data based on what we're seeding
+    if (seedProjects) {
+      await Project.deleteMany({})
+      console.log('✅ Existing projects removed')
+    }
+    if (seedServices) {
+      await Service.deleteMany({})
+      console.log('✅ Existing services removed')
+    }
 
-    // Seed Projects (existing data)
-    const projects = [
+    // Seed Projects (if requested)
+    if (seedProjects) {
+      console.log('\n📦 Seeding projects...')
+      const projects = [
       {
         title: 'Islamic Knowledge Explorer',
         shortDescription:
@@ -93,24 +105,6 @@ const seedDatabase = async () => {
           'Comprehensive admin control',
         ],
         carouselVideos: [
-          {
-            url: 'your_video_url_here',
-            type: 'youtube',
-          },
-        ],
-        githubLink: 'https://github.com/Atif1299/Full-stack-Ecommerce-Mern-App',
-      },
-    ]
-    await Project.insertMany(projects)
-    console.log('Projects seeded successfully!')
-
-    // Seed Services (new data)
-    const services = [
-      {
-        name: 'AI Strategic Consultations',
-        description:
-          'Strategic guidance to integrate AI into your business operations for maximum impact and ROI.',
-        price: 500,
         duration: '1 hour',
         availability: ['Monday', 'Wednesday', 'Friday'],
         isCustomizable: false,
@@ -162,12 +156,44 @@ const seedDatabase = async () => {
       },
     ]
     await Service.insertMany(services)
-    console.log('Services seeded successfully!')
+    console.log('✅ Services seeded successfully!')
+  }
+
+  // Summary
+  console.log('\n' + '='.repeat(50))
+  console.log('✨ Database seeding completed!')
+  if (seedProjects && seedServices) {
+    console.log('📊 Seeded: Projects + Services')
+  } else if (seedProjects) {
+    console.log('📊 Seeded: Projects only')
+  } else if (seedServices) {
+    console.log('📊 Seeded: Services only')
+  }
+  console.log('='.repeat(50) + '\n')
+  
   } catch (error) {
     console.error('Error seeding database:', error)
   } finally {
     mongoose.connection.close()
   }
+}
+
+// Show usage if help flag is present
+if (args.includes('--help') || args.includes('-h')) {
+  console.log(`
+📚 Seed Script Usage:
+
+  node seed.js                    Seed both projects and services (default)
+  node seed.js --projects-only    Seed only projects
+  node seed.js --services-only    Seed only services
+  node seed.js --help            Show this help message
+
+Examples:
+  node seed.js                    # Seed everything
+  node seed.js --projects-only    # Seed only projects
+  node seed.js --services-only    # Seed only services
+`)
+  process.exit(0)
 }
 
 seedDatabase()

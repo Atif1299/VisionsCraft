@@ -101,6 +101,13 @@ function initParticles() {
     particlesJS('blog-particles', blogParticlesConfig)
   }
 
+  // CTA section particles (same as hero)
+  const ctaParticles = document.getElementById('cta-particles-js')
+  if (ctaParticles) {
+    particlesJS('cta-particles-js', heroParticlesConfig)
+    console.log('CTA particles initialized')
+  }
+
   // Initialize other particle configurations
   Object.keys(particleConfigurations).forEach((id) => {
     const element = document.getElementById(id)
