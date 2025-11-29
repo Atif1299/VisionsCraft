@@ -38,21 +38,21 @@ const seedDatabase = async () => {
       console.log('\n📦 Seeding projects...')
       const projects = [
       {
-        title: 'Islamic Knowledge Explorer',
+        title: 'RAG-Based-AI-Product-Recommender System',
         shortDescription:
-          'An advanced AI-powered tool for in-depth Quranic and Hadith analysis, providing verified references and contextual insights.',
+          'The objective was to build a personalized recommendation system for an e-commerce platform, leveraging RAG (Retrieval-Augmented Generation) to track user behavior and enhance the shopping experience.',
         fullDescription:
-          'The Islamic Knowledge Explorer is a sophisticated, agentic RAG-based system designed for scholars, students, and researchers of Islamic texts. Leveraging powerful AI frameworks like LangChain, LangGraph, and AutoGen, this tool cross-references Hadith with Quranic ayahs, verifies narrator chains, and provides comprehensive contextual analysis. It streamlines the research process, ensuring accuracy and depth in understanding religious scriptures.',
-        industry: 'Religious Studies',
-        category: 'AI Automation',
-        mainImage: 'images/projects images/islamic_hadith_1st.png',
-        techStack: ['Langchain', 'Langgraph', 'AutoGen', 'OpenAI SDK'],
+          "We designed and implemented the AI model, integrated user activity tracking, and developed the recommendation logic to deliver tailored product suggestions.The system significantly improved customer engagement, increased sales conversion rates, and provided the client with actionable insights into user preferences.",
+        industry: 'E-commerce',
+        category: "AI Development",
+        mainImage: 'images/projects images/thumbnail_rag_product_recommender.png',
+        techStack: ['RAG', 'Ecommerce Order Fulfillment', 'XAI', 'Langchain', 'Langgraph'],
         implementation:
-          'Agentic RAG system, comprehensive analysis of Hadith, narrator chain verification.',
+          'Developed a RAG-powered recommendation engine, integrated user behavior tracking, built personalized product ranking logic, and deployed the system into the e-commerce workflow.',
         results: [
-          'Accurate Hadith verification',
-          'In-depth analysis of religious texts',
-          'User-friendly interface for religious scholars',
+          'Increased product discovery and relevance',
+          'Higher customer engagement and improved conversion rates',
+          'Actionable insights into user shopping patterns for the client',
         ],
         carouselVideos: [
           {
@@ -60,17 +60,17 @@ const seedDatabase = async () => {
             type: 'youtube',
           },
         ],
-        githubLink: 'https://github.com/nxbsolution/islamAI',
+        githubLink: 'https://github.com/AhmedHussain007/RAG-Based-Personalized-Product-Recommendation-System',
       },
       {
-        title: 'WhatsApp Automation System',
+        title: 'WhatsApp Customer Support Sales Funnel',
         shortDescription:
           'An intelligent WhatsApp automation solution for lead conversion and 24/7 customer support, tailored for educational institutions.',
         fullDescription:
           'This project automates the entire customer lifecycle on WhatsApp for the NexusBerry Institute. Using `whatsapp-web.js`, n8n, and a LangGraph-based AI agent, the system manages incoming inquiries about courses, converts leads into clients, and provides instant support. Deployed on AWS, this robust solution enhances customer engagement, boosts enrollment rates, and ensures a seamless experience for all users.',
         industry: 'Education',
         category: 'AI Automation',
-        mainImage: 'images/projects images/whatsapp automation n8n .png',
+        mainImage: 'images/projects images/thumbnail_whatsapp_automation.png',
         techStack: ['whatsapp-web.js', 'n8n', 'Langgraph', 'AWS'],
         implementation:
           'Lead management, customer support, automated responses, and course inquiries.',
@@ -85,7 +85,7 @@ const seedDatabase = async () => {
             type: 'youtube',
           },
         ],
-        githubLink: 'https://github.com/nxbsolution/n8n-projects',
+        githubLink: 'https://www.upwork.com/freelancers/~018e0dc0445f5f1f8d?p=1956295553805524992',
       },
       {
         title: 'Complete E-commerce Web Development',
@@ -104,10 +104,12 @@ const seedDatabase = async () => {
           'Efficient order processing',
           'Comprehensive admin control',
         ],
-        carouselVideos: [
-        duration: '1 hour',
-        availability: ['Monday', 'Wednesday', 'Friday'],
-        isCustomizable: false,
+        carouselVideos: [{
+          duration: '1 hour',
+          availability: ['Monday', 'Wednesday', 'Friday'],
+          isCustomizable: false,
+        }
+        ]
       },
       {
         name: 'Agentic AI Development',
