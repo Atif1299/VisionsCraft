@@ -38,6 +38,7 @@ app.use(
           'https://cdnjs.cloudflare.com',
           'https://fonts.googleapis.com',
           'https://kit.fontawesome.com',
+          'https://ka-f.fontawesome.com',
           'https://maps.googleapis.com',
           "'unsafe-inline'",
         ],
@@ -58,11 +59,14 @@ app.use(
           'https://fonts.gstatic.com',
           'https://kit.fontawesome.com',
           'data:',
+          'https://ka-f.fontawesome.com',
         ],
         connectSrc: [
           "'self'",
           'https://api.cloudinary.com',
           'https://maps.googleapis.com',
+          'https://cdn.jsdelivr.net', // Allow source maps
+          'https://ka-f.fontawesome.com',
         ],
         frameSrc: ["'self'", 'https://www.google.com'],
         objectSrc: ["'none'"],
@@ -83,10 +87,62 @@ app.set('views', path.join(__dirname, 'views'))
 app.use(express.json({ limit: '10mb' })) // JSON payload limit
 app.use(express.urlencoded({ extended: true, limit: '10mb' })) // Form data limit
 
-// Serve static files with caching
+// Serve static files with optimized caching per asset type
+// CSS - Disable cache temporarily
+app.use(
+  '/css',
+  express.static(path.join(__dirname, 'public/css'), {
+    maxAge: '0',
+    immutable: false,
+  })
+)
+
+// JS - Disable cache temporarily
+app.use(
+  '/js',
+  express.static(path.join(__dirname, 'public/js'), {
+    maxAge: '0',
+    immutable: false,
+  })
+)
+
+// Dist - Disable cache temporarily
+app.use(
+  '/dist',
+  express.static(path.join(__dirname, 'public/dist'), {
+    maxAge: '0',
+    immutable: false,
+  })
+)
+
+// Images - 30 days with immutable flag
+app.use(
+  '/images',
+  express.static(path.join(__dirname, 'public/images'), {
+    maxAge: '30d',
+    immutable: true,
+    setHeaders: (res, path) => {
+      res.setHeader('Cache-Control', 'public, max-age=2592000, immutable')
+    },
+  })
+)
+
+// Fonts - 365 days (rarely change)
+app.use(
+  '/fonts',
+  express.static(path.join(__dirname, 'public/fonts'), {
+    maxAge: '365d',
+    immutable: true,
+    setHeaders: (res, path) => {
+      res.setHeader('Cache-Control', 'public, max-age=31536000, immutable')
+    },
+  })
+)
+
+// Everything else - 1 day (fallback)
 app.use(
   express.static(path.join(__dirname, 'public'), {
-    maxAge: '1d', // Enable caching for 1 day
+    maxAge: '1d',
   })
 )
 
