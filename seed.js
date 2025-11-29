@@ -54,7 +54,7 @@ const seedDatabase = async () => {
             'Higher customer engagement and improved conversion rates',
             'Actionable insights into user shopping patterns for the client',
           ],
-          carouselImages: [],
+          carouselImages: ['images/projects images/product_recommender_2nd.png', 'images/projects images/product_recommender_3rd.png', 'images/projects images/product_recommender_4rth.png'],
           carouselVideos: [
             {
               url: 'your_video_url_here',

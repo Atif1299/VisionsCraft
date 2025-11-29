@@ -313,7 +313,7 @@ img
 
 .hero-content
 {
-    max-width: 600px;
+    max-width: 670px;
     position: relative;
     z-index: 2;
 }
@@ -321,7 +321,7 @@ img
 .hero-content h1
 {
     margin-bottom: var(--spacing-lg);
-    font-size: 3.5rem;
+    font-size: 3.4rem;
 }
 
 .hero-content p
