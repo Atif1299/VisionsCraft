@@ -28,6 +28,7 @@ const config = {
     'public/js/effects/animations.js',
     'public/js/components/ui-components.js',
     'public/js/components/sliders.js',
+    'public/js/main.js',
   ],
 
   outputDir: 'public/dist',

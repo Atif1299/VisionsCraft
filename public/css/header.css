@@ -79,6 +79,10 @@
 {
     display: none;
     cursor: pointer;
+    position: relative;
+    z-index: 1001;
+    padding: 10px;
+    margin-right: -10px; /* Compensate for padding to align with edge */
 }
 
 .hamburger span
@@ -93,6 +97,11 @@
 
 @media (max-width: 768px)
 {
+    .header .container
+    {
+        padding: 0 var(--spacing-md); /* Reduce padding on mobile */
+    }
+    
     .navbar
     {
         position: fixed;

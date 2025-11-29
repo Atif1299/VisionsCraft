@@ -105,9 +105,21 @@ async function openProjectPopup(card) {
   }
 
   try {
-    const response = await fetch(`/api/projects/${projectId}`)
+    console.log(`Fetching project details for ID: ${projectId}`)
+    
+    // Add timeout to fetch request
+    const controller = new AbortController()
+    const timeoutId = setTimeout(() => controller.abort(), 15000) // 15 second timeout
+    
+    const response = await fetch(`/api/projects/${projectId}`, {
+      signal: controller.signal
+    })
+    
+    clearTimeout(timeoutId)
+    
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`)
+      const errorData = await response.json().catch(() => ({}))
+      throw new Error(errorData.message || `HTTP error! status: ${response.status}`)
     }
     const project = await response.json()
 
@@ -194,7 +206,38 @@ async function openProjectPopup(card) {
     initCarousel(popupMedia)
   } catch (error) {
     console.error('Error fetching project details:', error)
-    // Optionally, display an error message to the user
+    
+    // Display user-friendly error message
+    const popupOverlay = document.querySelector('.project-popup-overlay')
+    const popupDetails = document.querySelector('.project-popup-details')
+    const popupTitle = document.getElementById('popup-title')
+    
+    if (popupOverlay && popupDetails && popupTitle) {
+      popupTitle.textContent = 'Error Loading Project'
+      popupDetails.innerHTML = `
+        <div style="text-align: center; padding: 40px 20px;">
+          <i class="fas fa-exclamation-circle" style="font-size: 64px; color: #dc3545; margin-bottom: 20px;"></i>
+          <h3 style="color: #dc3545; margin-bottom: 15px;">Unable to Load Project Details</h3>
+          <p style="color: #666; margin-bottom: 20px;">
+            ${error.name === 'AbortError' 
+              ? 'The request timed out. Please check your internet connection and try again.' 
+              : 'There was an error loading the project details. Please try again later.'}
+          </p>
+          <button class="btn btn-primary" onclick="document.querySelector('.project-popup-close').click()">
+            Close
+          </button>
+        </div>
+      `
+      
+      // Show popup with error message
+      setTimeout(() => {
+        popupOverlay.classList.add('active')
+        document.body.classList.add('no-scroll')
+      }, 300)
+    } else {
+      // Fallback: Show browser alert if popup elements not found
+      alert('Unable to load project details. Please try again later.')
+    }
   }
 }
 
