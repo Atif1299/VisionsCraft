@@ -98,7 +98,8 @@
 </button>
 <!-- Scripts - Deferred for Performance -->
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+<!-- Swiper: Load with low priority (only used for testimonials) -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer fetchpriority="low"></script>
 <link rel="stylesheet" href="/css/footer.css">
 <script type="module" src="/js/main.min.js" defer></script>
 <script src="/dist/combined.js"></script>
