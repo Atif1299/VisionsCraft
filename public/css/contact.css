@@ -281,9 +281,10 @@
 /* Map Section - Professional Agency Design */
 .map-section
 {
-    margin: 20px;
-    background: linear-gradient(180deg, #f8f9ff 0%, #ffffff 100%);
+    margin: 0 auto;
+    background: transparent;
     position: relative;
+    margin-bottom: 30px;
 }
 
 .map-section .container
