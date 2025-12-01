@@ -430,3 +430,56 @@
         margin: 20px var(--spacing-md);
     }
 }
+
+/* Social Connect Section */
+.social-connect {
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid rgba(67, 97, 238, 0.1);
+}
+
+.social-connect h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.social-link {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    transition: all var(--transition-normal);
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(67, 97, 238, 0.2);
+}
+
+.social-link:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 8px 20px rgba(67, 97, 238, 0.3);
+    background: linear-gradient(135deg, var(--gradient-end), var(--gradient-start));
+}
+
+.social-link i {
+    font-family: "Font Awesome 6 Brands" !important;
+    font-weight: 400 !important;
+}
+
+/* Ensure Font Awesome icons display correctly */
+.social-link .fab {
+    font-family: "Font Awesome 6 Brands" !important;
+}
