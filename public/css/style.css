@@ -1263,8 +1263,8 @@ img
 .newsletter
 {
     padding: var(--spacing-xxl) 0;
-    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-    color: white;
+    background: #fff;
+    color: var(--text-dark);
     text-align: center;
 }
 
