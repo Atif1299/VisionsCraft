@@ -2239,7 +2239,7 @@ img
 .partners-section
 {
     padding: var(--spacing-xxl) 0;
-    background-color: #f8f9fa;
+    background: var(--light-gray);
 }
 
 .mission-grid,
@@ -2574,7 +2574,7 @@ img
 /* Timeline Section */
 .timeline-section
 {
-    background: #fff;
+    background: var(--light-gray);
 }
 
 .timeline
